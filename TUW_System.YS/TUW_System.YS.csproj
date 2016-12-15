@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A87AE15-1877-47BE-951F-CB156FD5DAAD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TUW_System.YS</RootNamespace>
+    <AssemblyName>TUW_System.YS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="myClass">
+      <HintPath>..\..\Class\myClass\myClass\bin\Debug\myClass.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmYS_ReceiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_ReceiveForm.designer.cs">
+      <DependentUpon>frmYS_ReceiveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_BarcodeText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_BarcodeText.Designer.cs">
+      <DependentUpon>frmYS_BarcodeText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_CheckCarton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_CheckCarton.Designer.cs">
+      <DependentUpon>frmYS_CheckCarton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_CheckStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_CheckStock.designer.cs">
+      <DependentUpon>frmYS_CheckStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_Code.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_Code.designer.cs">
+      <DependentUpon>frmYS_Code.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_Cost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_Cost.Designer.cs">
+      <DependentUpon>frmYS_Cost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_Issue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_Issue.Designer.cs">
+      <DependentUpon>frmYS_Issue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_IssueSubcontract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_IssueSubcontract.Designer.cs">
+      <DependentUpon>frmYS_IssueSubcontract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_MoneyRate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_MoneyRate.Designer.cs">
+      <DependentUpon>frmYS_MoneyRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_Receive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_Receive.designer.cs">
+      <DependentUpon>frmYS_Receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYS_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYS_Report.Designer.cs">
+      <DependentUpon>frmYS_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmYS_ReceiveForm.resx">
+      <DependentUpon>frmYS_ReceiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_BarcodeText.resx">
+      <DependentUpon>frmYS_BarcodeText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_CheckCarton.resx">
+      <DependentUpon>frmYS_CheckCarton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_CheckStock.resx">
+      <DependentUpon>frmYS_CheckStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_Code.resx">
+      <DependentUpon>frmYS_Code.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_Cost.resx">
+      <DependentUpon>frmYS_Cost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_Issue.resx">
+      <DependentUpon>frmYS_Issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_IssueSubcontract.resx">
+      <DependentUpon>frmYS_IssueSubcontract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_MoneyRate.resx">
+      <DependentUpon>frmYS_MoneyRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_Receive.resx">
+      <DependentUpon>frmYS_Receive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYS_Report.resx">
+      <DependentUpon>frmYS_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customers2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_index.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_todo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weighing_mashine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_form_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

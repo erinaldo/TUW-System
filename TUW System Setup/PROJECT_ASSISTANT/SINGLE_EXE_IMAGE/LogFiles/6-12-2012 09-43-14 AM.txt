@@ -1,0 +1,212 @@
+================= Logging started at 6/12/2012 09:43:14 AM ==================
+Created release folders
+AdminExecuteSequence table successfully built
+AdminUISequence table successfully built
+AdvtExecuteSequence table successfully built
+AdvtUISequence table successfully built
+InstallExecuteSequence table successfully built
+InstallUISequence table successfully built
+Directory table successfully built
+Feature table successfully built
+FeatureComponents table successfully built
+Component table successfully built
+Loading File table
+Building File table
+ISDEV : warning -6245: One or more of the project's components contain .NET properties that require the .NET Framework.  It is recommended that the release include the .NET Framework.
+Adding merge module 'DotNETCrystalReports' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.BonusSkins.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.Data.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.Printing.v11.1.Core.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.Utils.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.XtraBars.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.XtraEditors.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.XtraGrid.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.XtraLayout.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'DevExpress.XtraNavBar.v11.1.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'Interop.ADODB.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'Microsoft.Office.Interop.Excel.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'Microsoft.Vbe.Interop.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'System.Core.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'System.Numerics.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'cCrystalReport.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding file 'cDatabase.dll' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding merge module 'Microsoft GDI+' that is a dependency of component 'TPiCS_Subsystem.exe'
+Adding merge module 'Microsoft Data Access Components 2.7 (English)' that is a dependency of component 'TPiCS_Subsystem.exe'
+ISDEV : warning -6248: Could not find dependent file clr.dll, or one of its dependencies of component TPiCS_Subsystem.exe
+Merging DotNETCrystalReports: C:\Program Files\Common Files\Merge Modules\DotNETCrystalReports.msm
+ISDEV : error -4075: File not found. An error occurred merging Module 'MDAC27ENU.C9C35FC7_5AEE_4C1E_8BD2_80ED9FA87FFF:1033' for Feature 'TPiCS_Subsystem_Files'.
+Merging VC User gdiPlus RTL X86 ---: C:\Program Files\InstallShield\2009\Modules\i386\GDIPlus.msm
+File table successfully built
+Class table successfully built
+Extension table successfully built
+ODBCDataSource table successfully built
+ODBCDriver table successfully built
+ISSQLScriptFile table successfully built
+ISSQLScriptReplace table successfully built
+ISSQLConnectionScript table successfully built
+ISSQLConnection table successfully built
+ISSQLConnectionDBServer table successfully built
+ISSQLRequirement table successfully built
+ISPalmApp table successfully built
+ISPalmAppFile table successfully built
+ISComPlusProxy table successfully built
+ISComPlusApplication table successfully built
+ISComCatalogCollection table successfully built
+ISComCatalogCollectionObjects table successfully built
+ISComCatalogObject table successfully built
+ISComCatalogAttribute table successfully built
+ISComPlusApplicationDLL table successfully built
+ISComPlusServerFile table successfully built
+ISComPlusProxyFile table successfully built
+ISComPlusServerDepFile table successfully built
+ISComPlusProxyDepFile table successfully built
+ISXmlFile table successfully built
+ISXmlElement table successfully built
+ISXmlElementAttrib table successfully built
+ActionText table successfully built
+AppSearch table successfully built
+BindImage table successfully built
+CCPSearch table successfully built
+Condition table successfully built
+AppId table successfully built
+Started signing 5C.tmp ...
+Property table successfully built
+BBControl table successfully built
+Billboard table successfully built
+Binary table successfully built
+CompLocator table successfully built
+Complus table successfully built
+ControlCondition table successfully built
+ControlEvent table successfully built
+CreateFolder table successfully built
+CustomAction table successfully built
+Error table successfully built
+DrLocator table successfully built
+DuplicateFile table successfully built
+Environment table successfully built
+EventMapping table successfully built
+FileSFPCatalog table successfully built
+Font table successfully built
+IniFile table successfully built
+IniLocator table successfully built
+ISCEApp table successfully built
+ISCEDir table successfully built
+ISCEFileExt table successfully built
+ISCEInstall table successfully built
+ISCEOtherAppCABs table successfully built
+ISCERegistry table successfully built
+ISCESetupFile table successfully built
+ISCEShtCut table successfully built
+ProgId table successfully built
+ISComponentExtended table successfully built
+ISCustomActionReference table successfully built
+ISDRMFile table successfully built
+ISFileManifests table successfully built
+ISIISAppPool table successfully built
+ISIISCommon table successfully built
+ISIISMetaData table successfully built
+ISIISWebServiceExtension table successfully built
+ISObjectProperty table successfully built
+IsolatedComponent table successfully built
+ISSelfReg table successfully built
+ISSQLDBMetaData table successfully built
+ISSQLScriptError table successfully built
+ISVRoot table successfully built
+ISVRootAppMaps table successfully built
+Verb table successfully built
+ISWebSite table successfully built
+ISXmlLocator table successfully built
+LaunchCondition table successfully built
+LockPermissions table successfully built
+MIME table successfully built
+MoveFile table successfully built
+MsiAssembly table successfully built
+MsiAssemblyName table successfully built
+MsiDigitalCertificate table successfully built
+MsiDigitalSignature table successfully built
+MsiDriverPackages table successfully built
+MsiFileHash table successfully built
+MsiPatchCertificate table successfully built
+ODBCAttribute table successfully built
+ODBCSourceAttribute table successfully built
+ODBCTranslator table successfully built
+PatchPackage table successfully built
+PublishComponent table successfully built
+Registry table successfully built
+RegLocator table successfully built
+RemoveFile table successfully built
+RemoveIniFile table successfully built
+RemoveRegistry table successfully built
+ReserveCost table successfully built
+SelfReg table successfully built
+ServiceControl table successfully built
+ServiceInstall table successfully built
+SFPCatalog table successfully built
+Started signing 5E.tmp ...
+Started signing 60.tmp ...
+Shortcut table successfully built
+Signature table successfully built
+TextStyle table successfully built
+TypeLib table successfully built
+UIText table successfully built
+Upgrade table successfully built
+ISVirtualFile table successfully built
+ISVirtualRegistry table successfully built
+ISVirtualDirectory table successfully built
+ISVirtualShortcut table successfully built
+ISVirtualPackage table successfully built
+ISVirtualRelease table successfully built
+MsiEmbeddedUI table successfully built
+MsiEmbeddedChainer table successfully built
+ISChainPackage table successfully built
+ISChainPackageData table successfully built
+MsiPackageCertificate table successfully built
+_Validation table successfully built
+Searching project for extract-at-build components...
+Building scanned MsiAssembly records
+Building scanned MsiAssemblyName records
+Validating Custom Action sequencing
+Embedding manifest SetupExe.Invoker.manifest into setup.exe
+Dialog AdminChangeFolder for language English (United States) built
+Dialog AdminNetworkLocation for language English (United States) built
+Dialog AdminWelcome for language English (United States) built
+Dialog CancelSetup for language English (United States) built
+Dialog CustomSetup for language English (United States) built
+Dialog CustomSetupTips for language English (United States) built
+Dialog CustomerInformation for language English (United States) built
+Dialog DatabaseFolder for language English (United States) built
+Dialog DestinationFolder for language English (United States) built
+Dialog DiskSpaceRequirements for language English (United States) built
+Dialog FilesInUse for language English (United States) built
+Dialog InstallChangeFolder for language English (United States) built
+Dialog InstallWelcome for language English (United States) built
+Dialog LicenseAgreement for language English (United States) built
+Dialog MaintenanceType for language English (United States) built
+Dialog MaintenanceWelcome for language English (United States) built
+Dialog MsiRMFilesInUse for language English (United States) built
+Dialog OutOfSpace for language English (United States) built
+Dialog PatchWelcome for language English (United States) built
+Dialog ReadyToInstall for language English (United States) built
+Dialog ReadyToRemove for language English (United States) built
+Dialog SetupCompleteError for language English (United States) built
+Dialog SetupCompleteSuccess for language English (United States) built
+Dialog SetupError for language English (United States) built
+Dialog SetupInitialization for language English (United States) built
+Dialog SetupInterrupted for language English (United States) built
+Dialog SetupProgress for language English (United States) built
+Dialog SetupResume for language English (United States) built
+Dialog SetupType for language English (United States) built
+Dialog SplashBitmap for language English (United States) built
+Resolving strings...
+Language English (United States) built
+Building CAB files...
+Data1.cab built
+Files built
+ISDEV : warning -6487: If you intend to distribute this upgrade as a patch, you should author the 'Patch Optimization' setting on the Advanced Settings panel of the Release Wizard.
+Media table successfully built
+Setup.exe created
+Automatic update notification disabled
+PROJECT_ASSISTANT\SINGLE_EXE_IMAGE - 1 error(s), 3 warning(s)
+================= Logging stopped at 6/12/2012 09:44:01 AM ==================
+Log file has been created: <file:D:\My Data\c#.net\TPiCS Subsystem\TPiCS Subsystem\PROJECT_ASSISTANT\SINGLE_EXE_IMAGE\LogFiles\6-12-2012 09-43-14 AM.txt>
+

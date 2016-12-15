@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E13775A4-511E-47F5-B8CB-DC814E928533}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TUW_System.S5</RootNamespace>
+    <AssemblyName>TUW_System.S5</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="myClass">
+      <HintPath>..\..\Class\myClass\myClass\bin\Debug\myClass.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmS5_DyeDaily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_DyeDaily.designer.cs">
+      <DependentUpon>frmS5_DyeDaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_DyeingSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_DyeingSchedule.designer.cs">
+      <DependentUpon>frmS5_DyeingSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_FabricOrderSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_FabricOrderSheet.designer.cs">
+      <DependentUpon>frmS5_FabricOrderSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_PO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_PO.designer.cs">
+      <DependentUpon>frmS5_PO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_POSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_POSupplier.designer.cs">
+      <DependentUpon>frmS5_POSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_Receive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_Receive.designer.cs">
+      <DependentUpon>frmS5_Receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_ReceiveByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_ReceiveByDate.designer.cs">
+      <DependentUpon>frmS5_ReceiveByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmS5_ReceiveSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmS5_ReceiveSummary.designer.cs">
+      <DependentUpon>frmS5_ReceiveSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmS5_DyeDaily.resx">
+      <DependentUpon>frmS5_DyeDaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_DyeingSchedule.resx">
+      <DependentUpon>frmS5_DyeingSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_FabricOrderSheet.resx">
+      <DependentUpon>frmS5_FabricOrderSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_PO.resx">
+      <DependentUpon>frmS5_PO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_POSupplier.resx">
+      <DependentUpon>frmS5_POSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_Receive.resx">
+      <DependentUpon>frmS5_Receive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_ReceiveByDate.resx">
+      <DependentUpon>frmS5_ReceiveByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmS5_ReceiveSummary.resx">
+      <DependentUpon>frmS5_ReceiveSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\page_white_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\page_white_paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\delete_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\tuw_logo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\purchase_pic.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\flag_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\flag_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\flag_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
