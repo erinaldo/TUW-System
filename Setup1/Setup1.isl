@@ -3763,6 +3763,8 @@
 		<row><td>ID_STRING1</td><td>1033</td><td>http://www.tuw.co.th</td><td>0</td><td/><td>-433822135</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>T.U.W. textile Co.,Ltd.</td><td>0</td><td/><td>-433807831</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>TUW System</td><td>0</td><td/><td>-433832183</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>TUWSYS~1|TUW System</td><td>0</td><td/><td>413478763</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>TUWSYS~1|TUW System</td><td>0</td><td/><td>413511531</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-433824375</td></row>
 	</table>
 
@@ -3877,6 +3879,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>NewShortcut1_FA1B7BC53B2E4D68946350ECD314CBE0.exe</td><td/><td>D:\Temp\My Data_Old\icon\32x32\1352861671_Butterfly.ico</td><td>0</td></row>
+		<row><td>NewShortcut2_071455B4D3434276A632AD612BD58D9D.exe</td><td/><td>D:\Temp\My Data_Old\icon\32x32\1352861671_Butterfly.ico</td><td>0</td></row>
 		<row><td>_Built1_47A9160CF79D4EE69176E6F3833D8238.exe</td><td/><td>D:\Temp\My Data_Old\icon\32x32\1352861671_Butterfly.ico</td><td>0</td></row>
 		<row><td>_Built_58958DB5BE6949A2A6AD7D3216C38D01.exe</td><td/><td>D:\Temp\My Data_Old\icon\32x32\1352861671_Butterfly.ico</td><td>0</td></row>
 	</table>
@@ -4463,6 +4467,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
+		<row><td>NewShortcut1</td><td>TUW_System.Primary_output</td><td/><td>tuwsys_1_tuw_system</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4548,6 +4553,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>NewShortcut1</td><td>tuwsys_1_tuw_system</td><td>##ID_STRING4##</td><td>TUW_System.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut1_FA1B7BC53B2E4D68946350ECD314CBE0.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut2</td><td>DesktopFolder</td><td>##ID_STRING5##</td><td>TUW_System.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut2_071455B4D3434276A632AD612BD58D9D.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
