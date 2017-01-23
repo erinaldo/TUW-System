@@ -58,7 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkIssue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPO2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPO1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpIssue.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpIssue.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpIssue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRePrint.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -106,7 +106,7 @@
             this.dockPanel1_Container.Controls.Add(this.chkRePrint);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(784, 60);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(784, 59);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // txtContract
@@ -150,7 +150,7 @@
             this.chkPO.Location = new System.Drawing.Point(90, 7);
             this.chkPO.Name = "chkPO";
             this.chkPO.Properties.Caption = "PONUM :";
-            this.chkPO.Size = new System.Drawing.Size(41, 19);
+            this.chkPO.Size = new System.Drawing.Size(82, 19);
             this.chkPO.TabIndex = 37;
             this.chkPO.CheckedChanged += new System.EventHandler(this.chkPO_CheckedChanged);
             // 
@@ -187,7 +187,7 @@
             this.dtpIssue.Name = "dtpIssue";
             this.dtpIssue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpIssue.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpIssue.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtpIssue.Size = new System.Drawing.Size(174, 20);
             this.dtpIssue.TabIndex = 33;
@@ -262,7 +262,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkIssue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPO2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPO1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpIssue.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpIssue.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpIssue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRePrint.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
