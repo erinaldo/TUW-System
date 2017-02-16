@@ -803,8 +803,8 @@ namespace TUW_System.TS1
 								fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
 								fg.SetRowCellValue(CurrentRow, "SEWORPACK", "F/G");
 								fg.SetRowCellValue(CurrentRow, "DEPENDENT", "2"); //Dependent Level
-								fg.SetRowCellValue(CurrentRow, "RELEASE", "22"); //Release Period
-								fg.SetRowCellValue(CurrentRow, "FIX", "22"); //Fix Period
+								fg.SetRowCellValue(CurrentRow, "RELEASE", "32"); //Release Period
+								fg.SetRowCellValue(CurrentRow, "FIX", "32"); //Fix Period
 								fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs)
 								fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
 								fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
@@ -857,8 +857,8 @@ namespace TUW_System.TS1
 								fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
 								fg.SetRowCellValue(CurrentRow, "SEWORPACK", "");
 								fg.SetRowCellValue(CurrentRow, "DEPENDENT", "0"); //Dependent Level
-								fg.SetRowCellValue(CurrentRow, "RELEASE", "21"); //Release Period
-								fg.SetRowCellValue(CurrentRow, "FIX", "21"); //Fix Period
+								fg.SetRowCellValue(CurrentRow, "RELEASE", "31"); //Release Period
+								fg.SetRowCellValue(CurrentRow, "FIX", "31"); //Fix Period
 								fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs
 								fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
 								fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
@@ -912,8 +912,8 @@ namespace TUW_System.TS1
 								fg.SetRowCellValue(CurrentRow, "SEWORPACK", "");
 								//Debug.Print(fg.GetRowCellDisplayText(CurrentRow, "SEWORPACK"))
 								fg.SetRowCellValue(CurrentRow, "DEPENDENT", "0"); //Dependent Level
-								fg.SetRowCellValue(CurrentRow, "RELEASE", "20"); //Release Period
-								fg.SetRowCellValue(CurrentRow, "FIX", "20"); //Fix Period
+								fg.SetRowCellValue(CurrentRow, "RELEASE", "30"); //Release Period
+								fg.SetRowCellValue(CurrentRow, "FIX", "30"); //Fix Period
 								fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs
 								fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
 								fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
@@ -970,11 +970,11 @@ namespace TUW_System.TS1
 						fg.SetRowCellValue(CurrentRow, "MFG", "0"); //Mfg. LDs
 						if (fg.GetRowCellDisplayText(CurrentRow, "WCCODE") == "FDEL")
 						{
-							fg.SetRowCellValue(CurrentRow, "DELIVERY", "6"); //Delivery LDs
+							fg.SetRowCellValue(CurrentRow, "DELIVERY", "12"); //Delivery LDs ผ้าในจาก 6 เป็น 12
 						}
 						else
 						{
-							fg.SetRowCellValue(CurrentRow, "DELIVERY", "4"); //Delivery LDs
+							fg.SetRowCellValue(CurrentRow, "DELIVERY", "12"); //Delivery LDs ผ้านอกจาก 4 เป็น 12
 						}
 						fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "0");
 						fg.SetRowCellValue(CurrentRow, "ROUNDUP", "0");
