@@ -36,6 +36,7 @@ namespace TUW_System.YS
             dtpDate.EditValue=DateTime.Today;
             checkEdit1.Checked = false;
             checkEdit2.Checked = false;
+            cboTime.Text = "";
             gridControl1.DataSource=null;
         }
         public void DisplayData()
@@ -50,7 +51,11 @@ namespace TUW_System.YS
                 strSQL = "EXEC SPTUWSYSTEM_YS_REPORT '" + statusType + "','" + strType + "'," +
                     "'" + ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "',";
                 strSQL+=(checkEdit1.Checked)?"1,":"0,";
-                strSQL+=(checkEdit2.Checked)?"1":"0";
+                strSQL+=(checkEdit2.Checked)?"1,":"0,";
+                if (cboTime.Text.Length > 0)
+                    strSQL += (cboTime.Text == "เช้า") ? "'1'" : "'0'";
+                else
+                    strSQL += "''";
                 DataTable dt=db.GetDataTable(strSQL);
                 gridControl1.DataSource=dt;
                 gridView1.PopulateColumns();
