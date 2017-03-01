@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.txtContract = new DevExpress.XtraEditors.TextEdit();
@@ -52,17 +53,18 @@
             this.chkMerge = new DevExpress.XtraEditors.CheckEdit();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContract.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpTo2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpTo2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpTo2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom2.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFrom2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpTo.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.optSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDetail.Properties)).BeginInit();
@@ -78,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkMerge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -106,6 +109,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.checkEdit1);
             this.dockPanel1_Container.Controls.Add(this.txtContract);
             this.dockPanel1_Container.Controls.Add(this.dtpTo2);
             this.dockPanel1_Container.Controls.Add(this.dtpFrom2);
@@ -118,9 +122,9 @@
             this.dockPanel1_Container.Controls.Add(this.chkSummary);
             this.dockPanel1_Container.Controls.Add(this.cboMaterial);
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 25);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(840, 86);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(838, 86);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // txtContract
@@ -137,7 +141,7 @@
             this.dtpTo2.Name = "dtpTo2";
             this.dtpTo2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpTo2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpTo2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtpTo2.Size = new System.Drawing.Size(100, 20);
             this.dtpTo2.TabIndex = 10;
@@ -149,7 +153,7 @@
             this.dtpFrom2.Name = "dtpFrom2";
             this.dtpFrom2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpFrom2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpFrom2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtpFrom2.Size = new System.Drawing.Size(100, 20);
             this.dtpFrom2.TabIndex = 9;
@@ -177,7 +181,7 @@
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtpTo.Size = new System.Drawing.Size(100, 20);
             this.dtpTo.TabIndex = 6;
@@ -189,7 +193,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtpFrom.Size = new System.Drawing.Size(100, 20);
             this.dtpFrom.TabIndex = 5;
@@ -265,7 +269,7 @@
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.xtraTabPage1.Size = new System.Drawing.Size(838, 304);
+            this.xtraTabPage1.Size = new System.Drawing.Size(840, 304);
             this.xtraTabPage1.Text = "Summary";
             // 
             // chkMerge2
@@ -282,7 +286,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 25);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(838, 279);
+            this.gridControl1.Size = new System.Drawing.Size(840, 279);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -300,7 +304,7 @@
             this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.xtraTabPage2.Size = new System.Drawing.Size(838, 304);
+            this.xtraTabPage2.Size = new System.Drawing.Size(840, 304);
             this.xtraTabPage2.Text = "Detail";
             // 
             // chkMerge
@@ -317,7 +321,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 25);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(838, 279);
+            this.gridControl2.Size = new System.Drawing.Size(840, 279);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -328,6 +332,15 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             this.gridView2.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView2_RowCellStyle);
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.EditValue = true;
+            this.checkEdit1.Location = new System.Drawing.Point(606, 10);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "รวม SAM";
+            this.checkEdit1.Size = new System.Drawing.Size(60, 19);
+            this.checkEdit1.TabIndex = 12;
             // 
             // frmTS1_MaterialConsumption
             // 
@@ -344,13 +357,13 @@
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContract.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpTo2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpTo2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpTo2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom2.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFrom2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpTo.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.optSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDetail.Properties)).EndInit();
@@ -366,6 +379,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkMerge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,5 +410,6 @@
         private DevExpress.XtraEditors.CheckEdit chkSummary;
         private DevExpress.XtraEditors.ComboBoxEdit cboMaterial;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
     }
 }
