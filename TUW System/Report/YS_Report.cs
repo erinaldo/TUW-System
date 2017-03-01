@@ -143,6 +143,14 @@ namespace TUW_System.Report {
                 return this.DataDefinition.ParameterFields[5];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_period {
+            get {
+                return this.DataDefinition.ParameterFields[6];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]

@@ -110,6 +110,7 @@ namespace TUW_System.YS
                 crpIssue.SetParameter("@date", ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd", dtfinfo));
                 crpIssue.SetParameter("@notIncludeEndOfMonth", checkEdit1.Checked);
                 crpIssue.SetParameter("@isOrganic",checkEdit2.Checked);
+                crpIssue.SetParameter("@period",cboTime.Text=="เช้า"?"1":cboTime.Text=="บ่าย"?"2":"");
                 string fmlText = "";// "{CALL PurchaseOrder.dbo.spTUWSystem_YS_Report;1}";
                 crpIssue.ReportSize = cCrystalReport.Paper.Letter;
                 crpIssue.PrintReport(fmlText, false, "sa", "ZAQ113m4tuw");
@@ -138,6 +139,7 @@ namespace TUW_System.YS
                 crpIssue.SetParameter("@date", ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd", dtfinfo));
                 crpIssue.SetParameter("@notIncludeEndOfMonth", checkEdit1.Checked);
                 crpIssue.SetParameter("@isOrganic", checkEdit2.Checked);
+                crpIssue.SetParameter("@period", cboTime.Text == "เช้า" ? "1" : cboTime.Text == "บ่าย" ? "2" : "");
                 string fmlText = "";// "{CALL PurchaseOrder.dbo.spTUWSystem_YS_Report;1}";
                 crpIssue.ReportSize = cCrystalReport.Paper.Letter;
                 crpIssue.PrintReport(fmlText, true, "sa", "ZAQ113m4tuw");
