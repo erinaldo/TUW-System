@@ -180,8 +180,8 @@ namespace TUW_System.TS1
                         "'" + cUtility.Right(cboRec.Text, 1) + "','";
                     strSQL += (optCommercial.SelectedIndex == 0) ? "C" : "N";
                     strSQL +=  "',";
-                    strSQL += (optMatType.SelectedIndex == 2) ? "'1'," : "'0'," +
-                        "'0',"+
+                    strSQL += (optMatType.SelectedIndex == 2) ? "'Y'," : "'N',";
+                    strSQL +=    "'0',"+
                         "'" + cboSection.Text + "',"+
                         "'" + txtCreateUser.Text + "',"+
                         "'" + txtCreateDate.Text + "'," +
@@ -199,23 +199,28 @@ namespace TUW_System.TS1
                     if ((bool)gridView1.GetRowCellValue(i, "SELECT"))
                     {
                         strSQL = "INSERT INTO RDReceive (RecNo,FDate,PONo,OrdNo,SBNo,SBNOKEY,ItemCode,ItemName,Unit,Qty,Uprc,Amt,Scarp," +
-                            "AlreadyPO,POKEY,BUN)  VALUES (" +
+                            "AlreadyPO,POKEY,BUN,CSVOK)  VALUES (" +
                             "'" + strReceive + "','" + gridView1.GetRowCellValue(i, "FDATE") + "'," +
                             "'" + gridView1.GetRowCellValue(i, "PONO") + "','" + gridView1.GetRowCellValue(i, "TPICSNO") + "'," +
                             "'" + gridView1.GetRowCellValue(i, "SEIBAN") + "','" + gridView1.GetRowCellValue(i, "SEIBAN") + "'," +
                             "'" + gridView1.GetRowCellValue(i, "PARTNO") + "','" + gridView1.GetRowCellValue(i, "PARTDEL") + "'," +
                             "'" + gridView1.GetRowCellValue(i, "UNIT") + "','" + gridView1.GetRowCellValue(i, "ACTUAL") + "'," +
                             "'" + gridView1.GetRowCellValue(i, "PRICE") + "','" + gridView1.GetRowCellValue(i, "AMOUNT") + "'," +
-                            "'0', '1','N' ,'0'  )";
+                            "'0', '1','N' ,'0',";
+                        strSQL += (optMatType.SelectedIndex == 2) ? "'Y'" : "'N'";
+                        strSQL +=")";
                         db.Execute(strSQL);
 
                         //กรณีรับนอกแผน เวลารับของไม่ต้อง csv ให้บันทีกค่า Receiveno,seiban no เข้าไปเลย
                         if(optMatType.SelectedIndex==2)
                         {
-                            strSQL = "UPDATE A SET A.RECEIVENO='"+ strReceive+"',A.CONTRACT=B.SBNO"+
-                                " FROM XSACT A LEFT OUTER JOIN TDPURCHASE B ON A.PORDER=B.PONO AND A.CODE=B.PARTNO"+
-                                " WHERE A.PORDER='"+ gridView1.GetRowCellValue(i, "TPICSNO")+"' AND A.CODE='"+ gridView1.GetRowCellValue(i, "PARTNO") +"' AND A.RECEIVENO=''";
+                            strSQL = "UPDATE XSACT SET RECEIVENO='"+ strReceive+"',CONTRACT='" + gridView1.GetRowCellValue(i, "SEIBAN") +"',ORDERNO='"+txtInvoice.Text+"'"+
+                                " WHERE PORDER='"+ gridView1.GetRowCellValue(i, "TPICSNO")+"' AND BUN="+ gridView1.GetRowCellValue(i, "BUN");
                             db.Execute(strSQL);
+                            //strSQL = "UPDATE A SET A.RECEIVENO='"+ strReceive+"',A.CONTRACT=B.SBNO,A.ORDERNO='"+txtInvoice.Text+"'"+
+                            //    " FROM XSACT A LEFT OUTER JOIN TDPURCHASE B ON A.PORDER=B.PONO AND A.CODE=B.PARTNO"+
+                            //    " WHERE A.PORDER='"+ gridView1.GetRowCellValue(i, "TPICSNO")+"' AND A.BUN='"+ gridView1.GetRowCellValue(i, "BUN") +"'";
+                            //db.Execute(strSQL);
                         }
                     }
                 }
