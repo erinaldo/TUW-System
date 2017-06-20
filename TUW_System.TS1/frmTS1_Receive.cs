@@ -179,8 +179,8 @@ namespace TUW_System.TS1
                         "N'" + lblAmountText.Text + "'," +
                         "'" + cUtility.Right(cboRec.Text, 1) + "','";
                     strSQL += (optCommercial.SelectedIndex == 0) ? "C" : "N";
-                    strSQL += "',";
-                    strSQL += "'0',"+
+                    strSQL +=  "',";
+                    strSQL += (optMatType.SelectedIndex == 2) ? "'1'," : "'0'," +
                         "'0',"+
                         "'" + cboSection.Text + "',"+
                         "'" + txtCreateUser.Text + "',"+
@@ -208,9 +208,17 @@ namespace TUW_System.TS1
                             "'" + gridView1.GetRowCellValue(i, "PRICE") + "','" + gridView1.GetRowCellValue(i, "AMOUNT") + "'," +
                             "'0', '1','N' ,'0'  )";
                         db.Execute(strSQL);
+
+                        //กรณีรับนอกแผน เวลารับของไม่ต้อง csv ให้บันทีกค่า Receiveno,seiban no เข้าไปเลย
+                        if(optMatType.SelectedIndex==2)
+                        {
+                            strSQL = "UPDATE A SET A.RECEIVENO='"+ strReceive+"',A.CONTRACT=B.SBNO"+
+                                " FROM XSACT A LEFT OUTER JOIN TDPURCHASE B ON A.PORDER=B.PONO AND A.CODE=B.PARTNO"+
+                                " WHERE A.PORDER='"+ gridView1.GetRowCellValue(i, "TPICSNO")+"' AND A.CODE='"+ gridView1.GetRowCellValue(i, "PARTNO") +"' AND A.RECEIVENO=''";
+                            db.Execute(strSQL);
+                        }
                     }
                 }
-
 
                 db.CommitTrans();
                 GetReceive(strReceive);

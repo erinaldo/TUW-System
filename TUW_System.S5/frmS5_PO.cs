@@ -580,7 +580,7 @@ namespace TUW_System.S5
         }
         private void GetSupplier()
         {
-            string strSQL = "SELECT IDSUP,NAME FROM PO_SUPPLIER";
+            string strSQL = "SELECT IDSUP,NAME FROM PO_SUPPLIER WHERE STATE=0";
             DataTable dt = db.GetDataTable(strSQL);
             sleSupplier.Properties.DataSource = dt;
             sleSupplier.Properties.PopulateViewColumns();
