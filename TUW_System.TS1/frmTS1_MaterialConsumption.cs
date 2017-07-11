@@ -236,13 +236,14 @@ namespace TUW_System.TS1
             strSQL1 = "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE,SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE,SUBSTRING(XRECE.PDATE, 1, 8) AS SEW_DATE,XRECE.CUST,XRECE.CONTRACT" +
                 ",XRECE.EDA AS BRANCH,XRECE.CODE AS STYLE ,XRECE.KVOL AS QTY" +
                 ",XPRTS_3.KCODE AS MATERIAL,MAX(XHEAD.NAME) AS MATERIAL_NAME,XPRTS_3.SIYOU AS BOM, XPRTS_3.SIYOUW AS BOM_DIV"+
-                ", SUM(XZAIK.ZAIK) AS INVENTORY,XHEAD.MAINBUMO " +
-                "FROM XZAIK INNER JOIN " +
-                "XPRTS XPRTS_3 ON XZAIK.CODE = XPRTS_3.KCODE INNER JOIN " +
-                "XRECE INNER JOIN " +
-                "XPRTS XPRTS_2 INNER JOIN " +
-                "XPRTS XPRTS_1 ON XPRTS_2.CODE = XPRTS_1.KCODE ON XRECE.CODE = XPRTS_1.CODE ON XPRTS_3.CODE = XPRTS_2.KCODE " +
-                " INNER JOIN XHEAD ON XPRTS_3.KCODE = XHEAD.CODE ";
+                ", SUM(XZAIK.ZAIK) AS INVENTORY,XHEAD.MAINBUMO,XSECT.NAME AS SUPPLIER,0 AS DEFFECT " +
+                "FROM XRECE "+
+	            "INNER JOIN XPRTS XPRTS_1 ON XRECE.CODE = XPRTS_1.CODE "+
+	            "INNER JOIN XPRTS XPRTS_2 ON XPRTS_1.KCODE = XPRTS_2.CODE "+
+	            "INNER JOIN XPRTS XPRTS_3 ON XPRTS_2.KCODE = XPRTS_3.CODE "+ 
+	            "INNER JOIN XZAIK ON XPRTS_3.KCODE = XZAIK.CODE "+
+	            "INNER JOIN XHEAD ON XPRTS_3.KCODE = XHEAD.CODE "+
+	            "INNER JOIN XSECT ON XHEAD.MAINBUMO = XSECT.BUMO ";
             switch(optSearch.SelectedIndex)
             {
                 case 0:  //Due date
@@ -258,7 +259,7 @@ namespace TUW_System.TS1
             }
             strSQL1 += " AND (XZAIK.JYOGAI = 0) " +
                 "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE,XRECE.KVOL,XPRTS_3.KCODE,XPRTS_3.SIYOU,XPRTS_3.SIYOUW"+
-                ",XHEAD.MAINBUMO ";
+                ",XHEAD.MAINBUMO,XSECT.NAME ";
             strSQL1 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
             //------------------------------------------------------------Accessory Pack----------------------------------------------------------------------------------------------------------------------------------
             strSQL2 = "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE,SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE,SUBSTRING(XRECE.PDATE, 1, 8) AS SEW_DATE,XRECE.CUST,XRECE.CONTRACT" +
@@ -275,12 +276,13 @@ namespace TUW_System.TS1
 		        "              ELSE C.TANI1 END "+
                 "  FROM XTANK A	INNER JOIN XITEM B ON A.CODE=B.CODE AND A.VENDOR=B.BUMO INNER JOIN XHEAD C ON A.CODE=C.CODE AND A.VENDOR=C.MAINBUMO "+
                 "  WHERE A.CODE=XPRTS_1.KCODE) AS UNIT "+
-                ",XITEM.FURYOU AS DEFFECT,XHEAD.MAINBUMO,XRECE.CONT AS REMARK " +
+                ",XITEM.FURYOU AS DEFFECT,XHEAD.MAINBUMO,XSECT.NAME AS SUPPLIER,XRECE.CONT AS REMARK " +
                 "FROM XRECE "+
                 "INNER JOIN XPRTS XPRTS_1 ON XRECE.CODE = XPRTS_1.CODE "+
                 "INNER JOIN XZAIK ON XPRTS_1.KCODE = XZAIK.CODE " +
                 "INNER JOIN XHEAD ON XPRTS_1.KCODE = XHEAD.CODE "+
-                "INNER JOIN XITEM ON XHEAD.CODE=XITEM.CODE AND XHEAD.MAINBUMO=XITEM.BUMO ";
+                "INNER JOIN XITEM ON XHEAD.CODE=XITEM.CODE AND XHEAD.MAINBUMO=XITEM.BUMO "+
+                "INNER JOIN XSECT ON XHEAD.MAINBUMO=XSECT.BUMO ";
             switch(optSearch.SelectedIndex)
             {
                 case 0:  //Due date
@@ -295,7 +297,7 @@ namespace TUW_System.TS1
                     break;
             }
             strSQL2 += " AND (XZAIK.JYOGAI = 0) AND (NOT (SUBSTRING(XZAIK.GENKA, 1, 3) = 'SEW')) ";
-            strSQL2 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE, XPRTS_1.KCODE,XPRTS_1.EDA,XITEM.FURYOU,XHEAD.MAINBUMO,XRECE.CONT ";
+            strSQL2 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE, XPRTS_1.KCODE,XPRTS_1.EDA,XITEM.FURYOU,XHEAD.MAINBUMO,XSECT.NAME,XRECE.CONT ";
             strSQL2 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
             //------------------------------------------------------------Accessory Sew----------------------------------------------------------------------------------------------------------------------------------
             strSQL3 = "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE,SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE,SUBSTRING(XRECE.PDATE, 1, 8) AS SEW_DATE,XRECE.CUST,XRECE.CONTRACT" +
@@ -312,13 +314,15 @@ namespace TUW_System.TS1
                 "              ELSE C.TANI1 END " +
                 "  FROM XTANK A	INNER JOIN XITEM B ON A.CODE=B.CODE AND A.VENDOR=B.BUMO INNER JOIN XHEAD C ON A.CODE=C.CODE AND A.VENDOR=C.MAINBUMO " +
                 "  WHERE A.CODE=XPRTS_2.KCODE) AS UNIT " +
-                ",XITEM.FURYOU AS DEFFECT,XHEAD.MAINBUMO,XRECE.CONT AS REMARK "+
+                ",XITEM.FURYOU AS DEFFECT,XHEAD.MAINBUMO,XSECT.NAME AS SUPPLIER,XRECE.CONT AS REMARK "+
                 "FROM XRECE "+
-                "INNER JOIN XPRTS XPRTS_2 "+
-                "INNER JOIN XPRTS XPRTS_1 ON XPRTS_2.CODE = XPRTS_1.KCODE ON XRECE.CODE = XPRTS_1.CODE "+
+                "INNER JOIN XPRTS XPRTS_1 ON XRECE.CODE = XPRTS_1.CODE "+
+                "INNER JOIN XPRTS XPRTS_2 ON XPRTS_1.KCODE = XPRTS_2.CODE "+
                 "INNER JOIN XZAIK ON XPRTS_2.KCODE = XZAIK.CODE " +
                 "INNER JOIN XHEAD ON XPRTS_2.KCODE = XHEAD.CODE "+
-                "INNER JOIN XITEM ON XHEAD.CODE=XITEM.CODE AND XHEAD.MAINBUMO=XITEM.BUMO ";
+                "INNER JOIN XITEM ON XHEAD.CODE = XITEM.CODE AND XHEAD.MAINBUMO=XITEM.BUMO "+
+                "INNER JOIN XSECT ON XHEAD.MAINBUMO = XSECT.BUMO ";
+  
             switch(optSearch.SelectedIndex)
             {
                 case 0:  //Due date
@@ -333,7 +337,7 @@ namespace TUW_System.TS1
                     break;
             }
             strSQL3 += " AND (XZAIK.JYOGAI = 0) AND (NOT (SUBSTRING(XZAIK.GENKA, 1, 3) = 'CUT')) ";
-            strSQL3 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE, XPRTS_2.KCODE,XPRTS_2.EDA,XITEM.FURYOU,XHEAD.MAINBUMO,XRECE.CONT ";
+            strSQL3 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE, XPRTS_2.KCODE,XPRTS_2.EDA,XITEM.FURYOU,XHEAD.MAINBUMO,XSECT.NAME,XRECE.CONT ";
             strSQL3 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
             //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             switch(intType)
