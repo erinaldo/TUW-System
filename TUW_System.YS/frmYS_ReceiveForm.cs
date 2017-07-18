@@ -517,11 +517,12 @@ namespace TUW_System.YS
         }
         private void GetReceive()
         {
-            string strSQL = "SELECT RECEIVENO FROM PO_RECEIVE";
+            string strSQL = "SELECT RECEIVENO,RECEIVEDATE FROM PO_Receive WHERE Department='FABRIC CONTROL'  AND PONo LIKE 'FX%' ORDER BY ReceiveDate DESC,ReceiveNo DESC";
             DataTable dt = db.GetDataTable(strSQL);
             sleReceiveNo.Properties.DataSource = dt;
             sleReceiveNo.Properties.DisplayMember = "RECEIVENO";
             sleReceiveNo.Properties.ValueMember = "RECEIVENO";
+            sleReceiveNo.Properties.View.OptionsView.AllowCellMerge = true;
         }
         private void GetPODetail(string pono)
         {
