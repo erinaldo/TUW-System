@@ -200,6 +200,51 @@ namespace TUW_System.YS
             db.ConnectionClose();
             this.Cursor = Cursors.Default;
         }
+        private void GetBarcodeHistory()
+        {
+            string strSQL = "SELECT * FROM YARNGENBARCODE WHERE SERIAL='"+txtSerial.Text+"'";
+            DataTable dt = db.GetDataTable(strSQL);
+            gridControl6.DataSource = dt;
+            gridView6.OptionsView.EnableAppearanceEvenRow = true;
+            gridView6.OptionsView.EnableAppearanceOddRow = true;
+            gridView6.OptionsView.ColumnAutoWidth = false;
+            gridView6.BestFitColumns();
+
+            strSQL = "SELECT A.MONTHYEAR,A.WEIGHT,A.REGISTER,B.COST FROM YARNSTOCKBEGINDETAIL A LEFT OUTER JOIN YARNSTOCKBEGIN B " +
+                "ON A.MONTHYEAR=B.MONTHYEAR AND A.YARNID=B.YARNID " +
+                "WHERE A.SERIAL='" + txtSerial.Text + "' ORDER BY A.MONTHYEAR DESC";
+            dt = db.GetDataTable(strSQL);
+            gridControl7.DataSource = dt;
+            gridView7.OptionsView.EnableAppearanceEvenRow = true;
+            gridView7.OptionsView.EnableAppearanceOddRow = true;
+            gridView7.OptionsView.ColumnAutoWidth = false;
+            gridView7.BestFitColumns();
+
+            strSQL = "SELECT A.*,B.* FROM YARNRECEIVEDETAIL A LEFT OUTER JOIN YARNRECEIVE B ON A.RECNO=B.RECNO WHERE A.YARNSERIAL='"+txtSerial.Text+"'";
+            dt = db.GetDataTable(strSQL);
+            gridControl8.DataSource = dt;
+            gridView8.OptionsView.EnableAppearanceEvenRow = true;
+            gridView8.OptionsView.EnableAppearanceOddRow = true;
+            gridView8.OptionsView.ColumnAutoWidth = false;
+            gridView8.BestFitColumns();
+
+            strSQL = "SELECT A.*,B.* FROM YARNRETURNDETAIL A LEFT OUTER JOIN YARNRETURN B ON A.RETNO=B.RETNO WHERE A.YARNSERIAL='" + txtSerial.Text + "'";
+            dt = db.GetDataTable(strSQL);
+            gridControl9.DataSource = dt;
+            gridView9.OptionsView.EnableAppearanceEvenRow = true;
+            gridView9.OptionsView.EnableAppearanceOddRow = true;
+            gridView9.OptionsView.ColumnAutoWidth = false;
+            gridView9.BestFitColumns();
+
+            strSQL = "SELECT A.*,B.* FROM YARNISSUEDETAIL A LEFT OUTER JOIN YARNISSUE B ON A.ISSNO=B.ISSNO WHERE A.SERIAL='" + txtSerial.Text + "'";
+            dt = db.GetDataTable(strSQL);
+            gridControl10.DataSource = dt;
+            gridView10.OptionsView.EnableAppearanceEvenRow = true;
+            gridView10.OptionsView.EnableAppearanceOddRow = true;
+            gridView10.OptionsView.ColumnAutoWidth = false;
+            gridView10.BestFitColumns();
+
+        }
 
         private void frmTS5_YarnCheckStock_Load(object sender, EventArgs e)
         {
@@ -473,6 +518,23 @@ namespace TUW_System.YS
         private void btnReCalculateCost_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("การคำนวนนี้ใช้ระยะเวลานานเนื่องจากต้องคำนวนทุกไอเท็ม ท่าต้องการคำนวนหรือไม่","Calculate Cost",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)            CalculateCostAverage(allItem: true);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GetBarcodeHistory();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                throw;
+            }
+        }
+        private void txtSerial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==(char)13) GetBarcodeHistory();
         }
 
     }
