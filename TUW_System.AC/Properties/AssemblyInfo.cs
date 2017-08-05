@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TUW_System.ProductionOrder")]
+[assembly: AssemblyTitle("TUW_System.AC")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("T.U.W. Textile Co.,Ltd.")]
-[assembly: AssemblyProduct("TUW_System.ProductionOrder")]
-[assembly: AssemblyCopyright("Copyright © TUW 2014")]
+[assembly: AssemblyProduct("TUW_System.AC")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0f48440a-b5bd-43a4-a248-910e3d119b86")]
+[assembly: Guid("ef421cbb-1e31-4714-8f0a-2dacb1f497e0")]
 
 // Version information for an assembly consists of the following four values:
 //

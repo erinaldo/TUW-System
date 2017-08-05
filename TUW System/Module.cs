@@ -45,10 +45,28 @@ public static class Module
     public static string ISODocument = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=IsoDocument";
     public static string Attendance = "Server=" + "hrbase" + ";uid=sa;pwd=;database=Attendance";
     public static string tuwCenter = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=tuwCenter";
+    public static string SmartAdminMvc = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=SmartAdminMvc";
 
     public static string strSection;
     public static string strUserName;
 
+    public static string CreateMD5(string input)
+    {
+        // Use input string to calculate MD5 hash
+        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            // Convert the byte array to hexadecimal string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+    }
     public static bool IsTableLock(string tableName)//คืนค่าเป็น true เมื่อตารางมีการถูกล็อคการใช้
     {
         bool blnLock;

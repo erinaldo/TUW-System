@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TUW_System.TS1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TUW")]
+[assembly: AssemblyCompany("T.U.W. Textile Co.,Ltd.")]
 [assembly: AssemblyProduct("TUW_System.TS1")]
 [assembly: AssemblyCopyright("Copyright © TUW 2014")]
 [assembly: AssemblyTrademark("")]

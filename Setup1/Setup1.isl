@@ -225,7 +225,7 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
-		<row><td>DOTNETVERSION40FULL</td><td>DotNet40Full</td></row>
+		<row><td>DOTNETVERSION45FULL</td><td>DotNet45Full</td></row>
 	</table>
 
 	<table name="BBControl">
@@ -343,6 +343,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{F72A4F03-260A-4926-AF44-D62D4E4BDCC2}</td><td>REPORT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{4BFA9FD2-0D70-46B3-813E-FE5B60415763}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>TUW_System.Primary_output</td><td>{3D7C97A6-A5D9-4426-898D-BA1C585DA331}</td><td>INSTALLDIR</td><td>2</td><td/><td>tuw_system.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>TUW_System.Primary_output1</td><td>{3D07DAB3-8DE3-460E-8CE3-B314A8003C29}</td><td>INSTALLDIR</td><td>2</td><td/><td>tuw_system.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -939,7 +940,7 @@
 		<row><td>InstallChangeFolder</td><td>Up</td><td>DirectoryListUp</td><td>0</td><td>1</td><td>0</td></row>
 		<row><td>InstallWelcome</td><td>Back</td><td>NewDialog</td><td>SplashBitmap</td><td>Display_IsBitmapDlg</td><td>0</td></row>
 		<row><td>InstallWelcome</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
-		<row><td>InstallWelcome</td><td>Next</td><td>NewDialog</td><td>LicenseAgreement</td><td>1</td><td>0</td></row>
+		<row><td>InstallWelcome</td><td>Next</td><td>NewDialog</td><td>ReadyToInstall</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>ISPrintButton</td><td>DoAction</td><td>ISPrint</td><td>1</td><td>0</td></row>
@@ -974,7 +975,7 @@
 		<row><td>ReadmeInformation</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>ReadmeInformation</td><td>Next</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomSetup</td><td>Installed OR _IsSetupTypeMin = "Custom"</td><td>2</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>LicenseAgreement</td><td>NOT Installed</td><td>1</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>NOT Installed</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MaintenanceType</td><td>Installed AND _IsMaintenance = "Reinstall"</td><td>3</td></row>
 		<row><td>ReadyToInstall</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>ReadyToInstall</td><td>InstallNow</td><td>EndDialog</td><td>Return</td><td>OutOfNoRbDiskSpace &lt;&gt; 1</td><td>0</td></row>
@@ -1054,6 +1055,7 @@
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>TUW_System.Primary_output</td></row>
+		<row><td>INSTALLDIR</td><td>TUW_System.Primary_output1</td></row>
 		<row><td>REPORT</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
 
@@ -1873,6 +1875,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>TUW_System.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>TUW_System.Primary_output1</td></row>
 	</table>
 
 	<table name="File">
@@ -1915,7 +1918,7 @@
 		<row><td>ts1_customerbyseiban.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>TS1_CU~1.RPT|TS1_CustomerBySeiban.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1_CustomerBySeiban.rpt</td><td>1</td><td/></row>
 		<row><td>ts1_receivenote.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>TS1_RE~1.RPT|TS1_ReceiveNote.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1_ReceiveNote.rpt</td><td>1</td><td/></row>
 		<row><td>ts5_receivenote1.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>TS5_RE~1.RPT|TS5_ReceiveNote1.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS5_ReceiveNote1.rpt</td><td>1</td><td/></row>
-		<row><td>tuw_system.primary_output</td><td>TUW_System.Primary_output</td><td>TUW System.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;TUW System&gt;|Built</td><td>3</td><td/></row>
+		<row><td>tuw_system.primary_output</td><td>TUW_System.Primary_output1</td><td>TUW System.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;TUW System&gt;|Built</td><td>3</td><td/></row>
 		<row><td>xdenp_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XDENP-~1.RPT|XDENP-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XDENP-Parfun.rpt</td><td>1</td><td/></row>
 		<row><td>xdenp_riki.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XDENP-~1.RPT|XDENP-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XDENP-Riki.rpt</td><td>1</td><td/></row>
 		<row><td>xdenp_sewing.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XDENP-~1.RPT|XDENP-Sewing.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XDENP-Sewing.rpt</td><td>1</td><td/></row>
@@ -2069,6 +2072,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_C97588A9_ECAE_4663_8E9F_A485662881F0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_4D2D797B_1D45_4C9C_837E_5F223D5006F9_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>TUW_System.Primary_output</td><td/><td/><td>_4E04FB61_9F04_4CAE_8AC9_233159DF1F5C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>TUW_System.Primary_output1</td><td/><td/><td>_8E0E9F50_9897_49DB_A9F9_DD53AB77E62C_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2658,10 +2662,11 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>T.U.W. textile Co.,Ltd.</td><td>0</td><td/><td>-433807831</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>T.U.W. textile Co.,Ltd.</td><td>0</td><td/><td>740623784</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-433836439</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>740636072</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
@@ -3760,8 +3765,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.tuw.co.th</td><td>0</td><td/><td>-433822135</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>T.U.W. textile Co.,Ltd.</td><td>0</td><td/><td>-433807831</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.T.U.W.textileCo.,Ltd..com</td><td>0</td><td/><td>740623784</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>T.U.W. textile Co.,Ltd.</td><td>0</td><td/><td>740623784</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>TUW System</td><td>0</td><td/><td>-433832183</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>TUWSYS~1|TUW System</td><td>0</td><td/><td>413478763</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>TUWSYS~1|TUW System</td><td>0</td><td/><td>413511531</td></row>
@@ -4073,7 +4078,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 	<table name="LaunchCondition">
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
-		<row><td>DOTNETVERSION40FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL##</td></row>
+		<row><td>DOTNETVERSION45FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL##</td></row>
 	</table>
 
 	<table name="ListBox">
@@ -4403,7 +4408,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40FULL</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{B947FFD6-105B-4B50-8CD5-057ADAA1E646}</td><td/></row>
@@ -4448,7 +4453,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
-		<row><td>DotNet40Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Install</td><td>2</td></row>
+		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
 	</table>
 
 	<table name="Registry">

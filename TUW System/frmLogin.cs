@@ -7,13 +7,14 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Microsoft.Win32;
+using Microsoft.AspNet.Identity;
 using myClass;
 
 namespace TUW_System
 {
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
-        cDatabase db = new cDatabase(Module.tuwCenter);
+        cDatabase db = new cDatabase(Module.SmartAdminMvc);
         private LogIn User_Login;
 
         public frmLogin()
@@ -58,8 +59,28 @@ namespace TUW_System
         }
         private bool VerifyLogin(string userName, string passWord)
         {
-            string strSQL = "select emp_code,emp_name,emp_lastname,emp_frmname,emp_save,emp_print from view_tuw_login where emp_username='"+userName+"'"+
-                " and emp_password='"+passWord+"' and emp_programname='TUW System'";
+            //string strSQL = "select emp_code,emp_name,emp_lastname,emp_frmname,emp_save,emp_print from view_tuw_login where emp_username='"+userName+"'"+
+            //    " and emp_password='"+passWord+"' and emp_programname='TUW System'";
+            db.ConnectionOpen();
+            string passwordHash = db.ExecuteFirstValue("SELECT PasswordHash FROM AspNetUsers WHERE UserName='" + userName + "'");
+            if (string.IsNullOrEmpty(passwordHash))
+            {
+                MessageBox.Show("User Name is not valid.","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                db.ConnectionClose();
+                return false;
+            }
+            db.ConnectionClose();
+            var ok = new PasswordHasher().VerifyHashedPassword(passwordHash, passWord);
+            if (ok.ToString() != "Success")
+            {
+                MessageBox.Show("Password is not correct.","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }
+            string strSQL = "SELECT	A.EmployeeID, A.FirstName, A.LastName,B.CanSave,B.CanPrint,C.FormName "+
+                "FROM  AspNetUsers A "+
+	            "INNER JOIN AspNetUserDescriptions B ON A.Id = B.UserId "+
+	            "INNER JOIN AspNetPrograms C ON B.ProgramId=C.Id "+
+                "WHERE A.UserName='"+userName+"' and C.ProgramName='TUW System'";
             DataTable dtLogin = db.GetDataTable(strSQL);
             if (dtLogin == null)
             {
@@ -78,14 +99,14 @@ namespace TUW_System
                 var forms = new List<LogIn_Form>();
                 foreach (DataRow dr in dtLogin.Rows)
                 {
-                    User_Login.EmployeeCode = dr["emp_code"].ToString();
-                    User_Login.FirstName = dr["emp_name"].ToString();
-                    User_Login.LastName = dr["emp_lastname"].ToString();
+                    User_Login.EmployeeCode = dr["EmployeeID"].ToString();
+                    User_Login.FirstName = dr["FirstName"].ToString();
+                    User_Login.LastName = dr["LastName"].ToString();
                     forms.Add(new LogIn_Form
                         {
-                            FormName = dr["emp_frmname"].ToString(),
-                            CanSave=(dr["emp_save"].ToString()=="1")?true:false,
-                            CanPrint=(dr["emp_print"].ToString()=="1")?true:false
+                            FormName = dr["FormName"].ToString(),
+                            CanSave = (dr["CanSave"].ToString() == "1") ? true : false,
+                            CanPrint = (dr["CanPrint"].ToString() == "1") ? true : false
                         });
                 }
                 User_Login.Forms=forms;

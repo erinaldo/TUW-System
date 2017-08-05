@@ -20,6 +20,7 @@ using TUW_System.S4;
 using TUW_System.S5;
 using TUW_System.YS;
 using TUW_System.FS;
+using TUW_System.AC;
 using myClass;
 
 namespace TUW_System
@@ -720,6 +721,23 @@ namespace TUW_System
             frm40.WindowState = FormWindowState.Maximized;
             frm40.Show();
         }
+        private void LoadfrmAC_Cust()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_Cust")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_Cust  frm41 = new frmAC_Cust();
+            frm41.ConnectionString = Module.DBExim;
+            //frm41.User_Login = User_Login;
+            frm41.MdiParent = this;
+            frm41.WindowState = FormWindowState.Maximized;
+            frm41.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -789,6 +807,7 @@ namespace TUW_System
             CheckPermissionForm2(bsiS5.ItemLinks);
             CheckPermissionForm2(bsiFS.ItemLinks);
             CheckPermissionForm2(bsiYS.ItemLinks);
+            CheckPermissionForm2(bsiAC.ItemLinks);
         }
         public void UpdateStatusBar(string strInput)
         {
@@ -1970,6 +1989,15 @@ namespace TUW_System
         }
         #endregion
 
+        #region "Account"
+
+        private void bbiAC_Cust_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_Cust();
+        }
+
+        #endregion
+
         #region "Skin"
         private void SetSkinIcons()
         {
@@ -2006,6 +2034,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+
 
 
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
@@ -83,7 +82,7 @@
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem49 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem50 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiMain));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bsiS1 = new DevExpress.XtraBars.BarSubItem();
             this.bsiP_Production = new DevExpress.XtraBars.BarSubItem();
@@ -144,7 +143,7 @@
             this.bbiYS_CheckCarton = new DevExpress.XtraBars.BarButtonItem();
             this.bbiYS_CheckStock = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSkin = new DevExpress.XtraBars.BarButtonItem();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
@@ -156,7 +155,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.bsiSkin = new DevExpress.XtraBars.BarSubItem();
@@ -222,8 +221,8 @@
             this.bbiYS_MoneyRate = new DevExpress.XtraBars.BarButtonItem();
             this.bbiYS_IssueSubcontractOld = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -245,7 +244,11 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem(this.components);
+            this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem();
+            this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
+            this.bsiAC = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
+            this.bbiAC_Cust = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -394,9 +397,13 @@
             this.bbiYS_Report,
             this.bbiSetting,
             this.bbiYS_IssueSubcontractOld,
-            this.bbiSkin});
+            this.bbiSkin,
+            this.skinBarSubItem1,
+            this.bsiAC,
+            this.barSubItem8,
+            this.bbiAC_Cust});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 151;
+            this.barManager1.MaxItemId = 155;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -416,6 +423,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiS5),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiFS),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiYS),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiAC),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiSkin),
             new DevExpress.XtraBars.LinkPersistInfo(this.barMdiChildrenListItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4)});
@@ -1215,28 +1223,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(792, 27);
+            this.barDockControlTop.Size = new System.Drawing.Size(792, 22);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 534);
-            this.barDockControlBottom.Size = new System.Drawing.Size(792, 32);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 541);
+            this.barDockControlBottom.Size = new System.Drawing.Size(792, 25);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 507);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 519);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(792, 27);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 507);
+            this.barDockControlRight.Location = new System.Drawing.Point(792, 22);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 519);
             // 
             // dockManager1
             // 
@@ -1722,7 +1730,7 @@
             this.bbiDelete,
             this.bbiClear,
             this.bbiCancel});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 27);
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 22);
             this.ribbonControl1.MaxItemId = 31;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -1918,6 +1926,38 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
+            // 
+            // skinBarSubItem1
+            // 
+            this.skinBarSubItem1.Caption = "skinBarSubItem1";
+            this.skinBarSubItem1.Id = 151;
+            this.skinBarSubItem1.Name = "skinBarSubItem1";
+            // 
+            // bsiAC
+            // 
+            this.bsiAC.Caption = "Account";
+            this.bsiAC.Id = 152;
+            this.bsiAC.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bsiAC.ItemAppearance.Normal.Options.UseFont = true;
+            this.bsiAC.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8)});
+            this.bsiAC.Name = "bsiAC";
+            // 
+            // barSubItem8
+            // 
+            this.barSubItem8.Caption = "Master";
+            this.barSubItem8.Id = 153;
+            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Cust)});
+            this.barSubItem8.Name = "barSubItem8";
+            // 
+            // bbiAC_Cust
+            // 
+            this.bbiAC_Cust.Caption = "Customer";
+            this.bbiAC_Cust.Id = 154;
+            this.bbiAC_Cust.Name = "bbiAC_Cust";
+            this.bbiAC_Cust.Tag = "frmAC_Cust";
+            this.bbiAC_Cust.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Cust_ItemClick);
             // 
             // mdiMain
             // 
@@ -2115,5 +2155,9 @@
         private DevExpress.XtraBars.BarButtonItem bbiYS_IssueSubcontractOld;
         private DevExpress.XtraBars.BarButtonItem bbiSkin;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
+        private DevExpress.XtraBars.BarSubItem bsiAC;
+        private DevExpress.XtraBars.BarSubItem barSubItem8;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_Cust;
+        private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
     }
 }
