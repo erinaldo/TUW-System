@@ -1053,6 +1053,9 @@ namespace TUW_System
                     case "frmYS_ReceiveForm":
                         ((frmYS_ReceiveForm)frmActive).SaveData();
                         break;
+                    case "frmAC_Cust":
+                        ((frmAC_Cust)frmActive).SaveData();
+                        break;
                 }
             }
         }
@@ -1078,6 +1081,9 @@ namespace TUW_System
                 {
                     case "frmTS5_Receive":
                         ((frmS5_Receive)frmActive).DeleteData();
+                        break;
+                    case "frmAC_Cust":
+                        ((frmAC_Cust)frmActive).DeleteData();
                         break;
                 }
             }
@@ -1107,6 +1113,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_ReceiveCSV":
                         ((frmTS1_ReceiveCSV)frmActive).ClearData();
+                        break;
+                    case "frmAC_Cust":
+                        ((frmAC_Cust)frmActive).ClearData(true);
                         break;
                 }
             }
@@ -1520,6 +1529,7 @@ namespace TUW_System
                     case "frmYS_Issue":
                     case "frmYS_IssueSubcontract":
                     case "frmYS_ReceiveForm":
+                    case "frmAC_Cust":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -1565,6 +1575,7 @@ namespace TUW_System
                 switch (frmActive.Name)
                 {
                     case "frmTS5_Receive":
+                    case "frmAC_Cust":
                         bbiDelete.Enabled = true;
                         break;
                     default:
@@ -1586,6 +1597,7 @@ namespace TUW_System
                 { 
                     case "frmTS1_Receive":
                     case "frmTS1_ReceiveCSV":
+                    case "frmAC_Cust":
                         bbiClear.Enabled = true;
                         break;
                     default:
@@ -1995,6 +2007,10 @@ namespace TUW_System
         {
             LoadfrmAC_Cust();
         }
+        private void bbiAC_Descr_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //LoadfrmAC_Descr();
+        }
 
         #endregion
 
@@ -2034,6 +2050,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
 
 

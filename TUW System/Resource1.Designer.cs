@@ -123,6 +123,16 @@ namespace TUW_System {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cheque {
+            get {
+                object obj = ResourceManager.GetObject("Cheque", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chicken32 {
             get {
                 object obj = ResourceManager.GetObject("chicken32", resourceCulture);
@@ -286,6 +296,16 @@ namespace TUW_System {
         internal static System.Drawing.Bitmap excel2_16 {
             get {
                 object obj = ResourceManager.GetObject("excel2_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportAccount {
+            get {
+                object obj = ResourceManager.GetObject("ExportAccount", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

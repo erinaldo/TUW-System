@@ -18,6 +18,7 @@ namespace TUW_System
             //Enable title bar skinning 
             DevExpress.Skins.SkinManager.EnableFormSkins();
             //DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("Tahoma", 9);
+            DevExpress.XtraEditors.WindowsFormsSettings.DefaultFont = new System.Drawing.Font("Tahoma", 9);
             Application.Run(new frmLogin());
         }
     }

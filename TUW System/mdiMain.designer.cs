@@ -142,6 +142,11 @@
             this.bbiYS_Report = new DevExpress.XtraBars.BarButtonItem();
             this.bbiYS_CheckCarton = new DevExpress.XtraBars.BarButtonItem();
             this.bbiYS_CheckStock = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiAC = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem9 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
+            this.bbiAC_Cust = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSkin = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
@@ -220,6 +225,7 @@
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiYS_MoneyRate = new DevExpress.XtraBars.BarButtonItem();
             this.bbiYS_IssueSubcontractOld = new DevExpress.XtraBars.BarButtonItem();
+            this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
@@ -245,10 +251,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem();
-            this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
-            this.bsiAC = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
-            this.bbiAC_Cust = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_Descr = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -401,9 +404,12 @@
             this.skinBarSubItem1,
             this.bsiAC,
             this.barSubItem8,
-            this.bbiAC_Cust});
+            this.bbiAC_Cust,
+            this.barSubItem9,
+            this.barSubItem10,
+            this.bbiAC_Descr});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 155;
+            this.barManager1.MaxItemId = 158;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -982,6 +988,50 @@
             this.bbiYS_CheckStock.Tag = "frmYS_CheckStock";
             this.bbiYS_CheckStock.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiYS_CheckStock_ItemClick);
             // 
+            // bsiAC
+            // 
+            this.bsiAC.Caption = "Account";
+            this.bsiAC.Id = 152;
+            this.bsiAC.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bsiAC.ItemAppearance.Normal.Options.UseFont = true;
+            this.bsiAC.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem9),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem10)});
+            this.bsiAC.Name = "bsiAC";
+            // 
+            // barSubItem9
+            // 
+            this.barSubItem9.Caption = "Export Account";
+            this.barSubItem9.Glyph = global::TUW_System.Resource1.ExportAccount;
+            this.barSubItem9.Id = 155;
+            this.barSubItem9.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8)});
+            this.barSubItem9.Name = "barSubItem9";
+            // 
+            // barSubItem8
+            // 
+            this.barSubItem8.Caption = "Master";
+            this.barSubItem8.Id = 153;
+            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Cust),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Descr)});
+            this.barSubItem8.Name = "barSubItem8";
+            // 
+            // bbiAC_Cust
+            // 
+            this.bbiAC_Cust.Caption = "Customer";
+            this.bbiAC_Cust.Id = 154;
+            this.bbiAC_Cust.Name = "bbiAC_Cust";
+            this.bbiAC_Cust.Tag = "frmAC_Cust";
+            this.bbiAC_Cust.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Cust_ItemClick);
+            // 
+            // barSubItem10
+            // 
+            this.barSubItem10.Caption = "Cheque";
+            this.barSubItem10.Glyph = global::TUW_System.Resource1.Cheque;
+            this.barSubItem10.Id = 156;
+            this.barSubItem10.Name = "barSubItem10";
+            // 
             // bbiSkin
             // 
             this.bbiSkin.ActAsDropDown = true;
@@ -1223,28 +1273,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(792, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(792, 27);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 541);
-            this.barDockControlBottom.Size = new System.Drawing.Size(792, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 534);
+            this.barDockControlBottom.Size = new System.Drawing.Size(792, 32);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 519);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 507);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(792, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 519);
+            this.barDockControlRight.Location = new System.Drawing.Point(792, 27);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 507);
             // 
             // dockManager1
             // 
@@ -1698,6 +1748,12 @@
             this.bbiYS_IssueSubcontractOld.Id = 149;
             this.bbiYS_IssueSubcontractOld.Name = "bbiYS_IssueSubcontractOld";
             // 
+            // skinBarSubItem1
+            // 
+            this.skinBarSubItem1.Caption = "skinBarSubItem1";
+            this.skinBarSubItem1.Id = 151;
+            this.skinBarSubItem1.Name = "skinBarSubItem1";
+            // 
             // repositoryItemRadioGroup1
             // 
             this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
@@ -1730,7 +1786,7 @@
             this.bbiDelete,
             this.bbiClear,
             this.bbiCancel});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 22);
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 27);
             this.ribbonControl1.MaxItemId = 31;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -1927,37 +1983,13 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
             // 
-            // skinBarSubItem1
+            // bbiAC_Descr
             // 
-            this.skinBarSubItem1.Caption = "skinBarSubItem1";
-            this.skinBarSubItem1.Id = 151;
-            this.skinBarSubItem1.Name = "skinBarSubItem1";
-            // 
-            // bsiAC
-            // 
-            this.bsiAC.Caption = "Account";
-            this.bsiAC.Id = 152;
-            this.bsiAC.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bsiAC.ItemAppearance.Normal.Options.UseFont = true;
-            this.bsiAC.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8)});
-            this.bsiAC.Name = "bsiAC";
-            // 
-            // barSubItem8
-            // 
-            this.barSubItem8.Caption = "Master";
-            this.barSubItem8.Id = 153;
-            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Cust)});
-            this.barSubItem8.Name = "barSubItem8";
-            // 
-            // bbiAC_Cust
-            // 
-            this.bbiAC_Cust.Caption = "Customer";
-            this.bbiAC_Cust.Id = 154;
-            this.bbiAC_Cust.Name = "bbiAC_Cust";
-            this.bbiAC_Cust.Tag = "frmAC_Cust";
-            this.bbiAC_Cust.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Cust_ItemClick);
+            this.bbiAC_Descr.Caption = "Domestic Description";
+            this.bbiAC_Descr.Id = 157;
+            this.bbiAC_Descr.Name = "bbiAC_Descr";
+            this.bbiAC_Descr.Tag = "frmAC_Descr";
+            this.bbiAC_Descr.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Descr_ItemClick);
             // 
             // mdiMain
             // 
@@ -2159,5 +2191,8 @@
         private DevExpress.XtraBars.BarSubItem barSubItem8;
         private DevExpress.XtraBars.BarButtonItem bbiAC_Cust;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
+        private DevExpress.XtraBars.BarSubItem barSubItem9;
+        private DevExpress.XtraBars.BarSubItem barSubItem10;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_Descr;
     }
 }

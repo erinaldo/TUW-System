@@ -315,6 +315,8 @@
     <Content Include="Report\LOSS_TIME.xlt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Cheque.png" />
+    <None Include="Resources\ExportAccount.png" />
     <None Include="packages.config" />
     <None Include="Resources\document-delete3.png" />
     <None Include="Resources\document-delete3_16.png" />
