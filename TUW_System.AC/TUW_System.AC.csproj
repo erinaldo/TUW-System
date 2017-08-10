@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -52,11 +53,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAC_BankContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_BankContact.Designer.cs">
+      <DependentUpon>frmAC_BankContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_Cust.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAC_Cust.Designer.cs">
       <DependentUpon>frmAC_Cust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAC_Descr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_Descr.Designer.cs">
+      <DependentUpon>frmAC_Descr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAC_LoadDomestic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_LoadDomestic.Designer.cs">
+      <DependentUpon>frmAC_LoadDomestic.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -66,23 +85,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAC_BankContact.resx">
+      <DependentUpon>frmAC_BankContact.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAC_Cust.resx">
       <DependentUpon>frmAC_Cust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_Descr.resx">
+      <DependentUpon>frmAC_Descr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_LoadDomestic.resx">
+      <DependentUpon>frmAC_LoadDomestic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\plus16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\additem_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\additem_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_16x16.png" />

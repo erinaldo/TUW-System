@@ -146,6 +146,11 @@
             this.barSubItem9 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
             this.bbiAC_Cust = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_Descr = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem11 = new DevExpress.XtraBars.BarSubItem();
+            this.bbiAC_LoadDomestic = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_BankContact = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_DraftTT = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSkin = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
@@ -251,7 +256,6 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem();
-            this.bbiAC_Descr = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -407,9 +411,13 @@
             this.bbiAC_Cust,
             this.barSubItem9,
             this.barSubItem10,
-            this.bbiAC_Descr});
+            this.bbiAC_Descr,
+            this.barSubItem11,
+            this.bbiAC_DraftTT,
+            this.bbiAC_LoadDomestic,
+            this.bbiAC_BankContact});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 158;
+            this.barManager1.MaxItemId = 162;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -619,7 +627,7 @@
             // bbiTS1_ReceiveCSV
             // 
             this.bbiTS1_ReceiveCSV.Caption = "Generate CSV";
-            this.bbiTS1_ReceiveCSV.Glyph = global::TUW_System.Resource1.text_csv32;
+            this.bbiTS1_ReceiveCSV.Glyph = global::TUW_System.Resource1.exporttocsv_32x32;
             this.bbiTS1_ReceiveCSV.Id = 122;
             this.bbiTS1_ReceiveCSV.Name = "bbiTS1_ReceiveCSV";
             this.bbiTS1_ReceiveCSV.Tag = "frmTS1_ReceiveCSV";
@@ -1005,7 +1013,8 @@
             this.barSubItem9.Glyph = global::TUW_System.Resource1.ExportAccount;
             this.barSubItem9.Id = 155;
             this.barSubItem9.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem11)});
             this.barSubItem9.Name = "barSubItem9";
             // 
             // barSubItem8
@@ -1024,6 +1033,48 @@
             this.bbiAC_Cust.Name = "bbiAC_Cust";
             this.bbiAC_Cust.Tag = "frmAC_Cust";
             this.bbiAC_Cust.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Cust_ItemClick);
+            // 
+            // bbiAC_Descr
+            // 
+            this.bbiAC_Descr.Caption = "Domestic Description";
+            this.bbiAC_Descr.Id = 157;
+            this.bbiAC_Descr.Name = "bbiAC_Descr";
+            this.bbiAC_Descr.Tag = "frmAC_Descr";
+            this.bbiAC_Descr.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Descr_ItemClick);
+            // 
+            // barSubItem11
+            // 
+            this.barSubItem11.Caption = "Export";
+            this.barSubItem11.Id = 158;
+            this.barSubItem11.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_LoadDomestic),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_BankContact),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_DraftTT)});
+            this.barSubItem11.Name = "barSubItem11";
+            // 
+            // bbiAC_LoadDomestic
+            // 
+            this.bbiAC_LoadDomestic.Caption = "Load Sample Invoice";
+            this.bbiAC_LoadDomestic.Id = 160;
+            this.bbiAC_LoadDomestic.Name = "bbiAC_LoadDomestic";
+            this.bbiAC_LoadDomestic.Tag = "frmAC_LoadDomestic";
+            this.bbiAC_LoadDomestic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_LoadDomestic_ItemClick);
+            // 
+            // bbiAC_BankContact
+            // 
+            this.bbiAC_BankContact.Caption = "Negotiation Date";
+            this.bbiAC_BankContact.Id = 161;
+            this.bbiAC_BankContact.Name = "bbiAC_BankContact";
+            this.bbiAC_BankContact.Tag = "frmAC_BankContact";
+            this.bbiAC_BankContact.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_BankContact_ItemClick);
+            // 
+            // bbiAC_DraftTT
+            // 
+            this.bbiAC_DraftTT.Caption = "Draft T/T";
+            this.bbiAC_DraftTT.Id = 159;
+            this.bbiAC_DraftTT.Name = "bbiAC_DraftTT";
+            this.bbiAC_DraftTT.Tag = "frmAC_DraftTT";
+            this.bbiAC_DraftTT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_DraftTT_ItemClick);
             // 
             // barSubItem10
             // 
@@ -1633,7 +1684,6 @@
             // bsiPrint5
             // 
             this.bsiPrint5.Caption = "Print";
-            this.bsiPrint5.Glyph = global::TUW_System.Resource1.printer;
             this.bsiPrint5.Id = 84;
             this.bsiPrint5.Name = "bsiPrint5";
             // 
@@ -1812,63 +1862,63 @@
             // bbiNew
             // 
             this.bbiNew.Caption = "New";
-            this.bbiNew.Glyph = global::TUW_System.Resource1.document_add_16;
+            this.bbiNew.Glyph = global::TUW_System.Resource1.addfile_16x16;
             this.bbiNew.Id = 1;
-            this.bbiNew.LargeGlyph = global::TUW_System.Resource1.document_add;
+            this.bbiNew.LargeGlyph = global::TUW_System.Resource1.addfile_32x32;
             this.bbiNew.Name = "bbiNew";
             this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
             // 
             // bbiEdit
             // 
             this.bbiEdit.Caption = "Edit";
-            this.bbiEdit.Glyph = global::TUW_System.Resource1.document_edit_16;
+            this.bbiEdit.Glyph = global::TUW_System.Resource1.edit_16x16;
             this.bbiEdit.Id = 2;
-            this.bbiEdit.LargeGlyph = global::TUW_System.Resource1.document_edit;
+            this.bbiEdit.LargeGlyph = global::TUW_System.Resource1.edit_32x32;
             this.bbiEdit.Name = "bbiEdit";
             this.bbiEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEdit_ItemClick);
             // 
             // bbiSave
             // 
             this.bbiSave.Caption = "Save";
-            this.bbiSave.Glyph = global::TUW_System.Resource1.save_16;
+            this.bbiSave.Glyph = global::TUW_System.Resource1.save_16x16;
             this.bbiSave.Id = 3;
-            this.bbiSave.LargeGlyph = global::TUW_System.Resource1.save;
+            this.bbiSave.LargeGlyph = global::TUW_System.Resource1.save_32x32;
             this.bbiSave.Name = "bbiSave";
             this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiExcel
             // 
             this.bbiExcel.Caption = "Excel";
-            this.bbiExcel.Glyph = global::TUW_System.Resource1.excel2_16;
+            this.bbiExcel.Glyph = global::TUW_System.Resource1.exporttoxlsx_16x16;
             this.bbiExcel.Id = 4;
-            this.bbiExcel.LargeGlyph = global::TUW_System.Resource1.excel2;
+            this.bbiExcel.LargeGlyph = global::TUW_System.Resource1.exporttoxlsx_32x32;
             this.bbiExcel.Name = "bbiExcel";
             this.bbiExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExcel_ItemClick);
             // 
             // bbiPrintPreview
             // 
             this.bbiPrintPreview.Caption = "Preview";
-            this.bbiPrintPreview.Glyph = global::TUW_System.Resource1.document_print_preview_16;
+            this.bbiPrintPreview.Glyph = global::TUW_System.Resource1.preview_16x16;
             this.bbiPrintPreview.Id = 5;
-            this.bbiPrintPreview.LargeGlyph = global::TUW_System.Resource1.document_print_preview;
+            this.bbiPrintPreview.LargeGlyph = global::TUW_System.Resource1.preview_32x32;
             this.bbiPrintPreview.Name = "bbiPrintPreview";
             this.bbiPrintPreview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrintPreview_ItemClick);
             // 
             // bbiPrint
             // 
             this.bbiPrint.Caption = "Print";
-            this.bbiPrint.Glyph = global::TUW_System.Resource1.printer16;
+            this.bbiPrint.Glyph = global::TUW_System.Resource1.print_16x16;
             this.bbiPrint.Id = 6;
-            this.bbiPrint.LargeGlyph = global::TUW_System.Resource1.printer;
+            this.bbiPrint.LargeGlyph = global::TUW_System.Resource1.print_32x32;
             this.bbiPrint.Name = "bbiPrint";
             this.bbiPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrint_ItemClick);
             // 
             // bbiRefresh
             // 
             this.bbiRefresh.Caption = "Refresh";
-            this.bbiRefresh.Glyph = global::TUW_System.Resource1.arrow_refresh_16;
+            this.bbiRefresh.Glyph = global::TUW_System.Resource1.refresh2_16x16;
             this.bbiRefresh.Id = 7;
-            this.bbiRefresh.LargeGlyph = global::TUW_System.Resource1.arrow_refresh;
+            this.bbiRefresh.LargeGlyph = global::TUW_System.Resource1.refresh2_32x32;
             this.bbiRefresh.Name = "bbiRefresh";
             this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
             // 
@@ -1889,44 +1939,44 @@
             // bbiCSV
             // 
             this.bbiCSV.Caption = "CSV";
-            this.bbiCSV.Glyph = global::TUW_System.Resource1.text_csv_16;
+            this.bbiCSV.Glyph = global::TUW_System.Resource1.exporttocsv_16x16;
             this.bbiCSV.Id = 20;
-            this.bbiCSV.LargeGlyph = global::TUW_System.Resource1.text_csv32;
+            this.bbiCSV.LargeGlyph = global::TUW_System.Resource1.exporttocsv_32x32;
             this.bbiCSV.Name = "bbiCSV";
             this.bbiCSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCSV_ItemClick);
             // 
             // bbiSaveAs
             // 
             this.bbiSaveAs.Caption = "Save As";
-            this.bbiSaveAs.Glyph = global::TUW_System.Resource1.save_go_16;
+            this.bbiSaveAs.Glyph = global::TUW_System.Resource1.saveas_16x16;
             this.bbiSaveAs.Id = 21;
-            this.bbiSaveAs.LargeGlyph = global::TUW_System.Resource1.save_go32;
+            this.bbiSaveAs.LargeGlyph = global::TUW_System.Resource1.saveas_32x32;
             this.bbiSaveAs.Name = "bbiSaveAs";
             // 
             // bbiDelete
             // 
             this.bbiDelete.Caption = "Delete";
-            this.bbiDelete.Glyph = global::TUW_System.Resource1.document_delete4_16;
+            this.bbiDelete.Glyph = global::TUW_System.Resource1.removeitem_16x16;
             this.bbiDelete.Id = 22;
-            this.bbiDelete.LargeGlyph = global::TUW_System.Resource1.document_delete4;
+            this.bbiDelete.LargeGlyph = global::TUW_System.Resource1.removeitem_32x32;
             this.bbiDelete.Name = "bbiDelete";
             this.bbiDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDelete_ItemClick);
             // 
             // bbiClear
             // 
             this.bbiClear.Caption = "Clear";
-            this.bbiClear.Glyph = global::TUW_System.Resource1.eraser_16;
+            this.bbiClear.Glyph = global::TUW_System.Resource1.clear_16x16;
             this.bbiClear.Id = 23;
-            this.bbiClear.LargeGlyph = global::TUW_System.Resource1.eraser32;
+            this.bbiClear.LargeGlyph = global::TUW_System.Resource1.clear_32x32;
             this.bbiClear.Name = "bbiClear";
             this.bbiClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiClear_ItemClick);
             // 
             // bbiCancel
             // 
             this.bbiCancel.Caption = "Cancel";
-            this.bbiCancel.Glyph = global::TUW_System.Resource1.document_delete3_16;
+            this.bbiCancel.Glyph = global::TUW_System.Resource1.deletelist_16x16;
             this.bbiCancel.Id = 30;
-            this.bbiCancel.LargeGlyph = global::TUW_System.Resource1.document_delete3;
+            this.bbiCancel.LargeGlyph = global::TUW_System.Resource1.deletelist_32x32;
             this.bbiCancel.Name = "bbiCancel";
             this.bbiCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCancel_ItemClick);
             // 
@@ -1982,14 +2032,6 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
-            // 
-            // bbiAC_Descr
-            // 
-            this.bbiAC_Descr.Caption = "Domestic Description";
-            this.bbiAC_Descr.Id = 157;
-            this.bbiAC_Descr.Name = "bbiAC_Descr";
-            this.bbiAC_Descr.Tag = "frmAC_Descr";
-            this.bbiAC_Descr.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Descr_ItemClick);
             // 
             // mdiMain
             // 
@@ -2194,5 +2236,9 @@
         private DevExpress.XtraBars.BarSubItem barSubItem9;
         private DevExpress.XtraBars.BarSubItem barSubItem10;
         private DevExpress.XtraBars.BarButtonItem bbiAC_Descr;
+        private DevExpress.XtraBars.BarSubItem barSubItem11;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_DraftTT;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_LoadDomestic;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_BankContact;
     }
 }

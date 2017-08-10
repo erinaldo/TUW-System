@@ -315,23 +315,34 @@
     <Content Include="Report\LOSS_TIME.xlt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\exporttocsv_32x32.png" />
+    <None Include="Resources\exporttocsv_16x16.png" />
+    <None Include="Resources\exporttoxlsx_32x32.png" />
+    <None Include="Resources\exporttoxlsx_16x16.png" />
+    <None Include="Resources\refresh2_32x32.png" />
+    <None Include="Resources\refresh2_16x16.png" />
+    <None Include="Resources\print_32x32.png" />
+    <None Include="Resources\print_16x16.png" />
+    <None Include="Resources\preview_32x32.png" />
+    <None Include="Resources\preview_16x16.png" />
+    <None Include="Resources\clear_32x32.png" />
+    <None Include="Resources\clear_16x16.png" />
+    <None Include="Resources\deletelist_32x32.png" />
+    <None Include="Resources\deletelist_16x16.png" />
+    <None Include="Resources\removeitem_32x32.png" />
+    <None Include="Resources\removeitem_16x16.png" />
+    <None Include="Resources\saveas_32x32.png" />
+    <None Include="Resources\saveas_16x16.png" />
+    <None Include="Resources\save_32x32.png" />
+    <None Include="Resources\save_16x16.png" />
+    <None Include="Resources\edit_32x32.png" />
+    <None Include="Resources\edit_16x16.png" />
+    <None Include="Resources\addfile_32x32.png" />
+    <None Include="Resources\addfile_16x16.png" />
     <None Include="Resources\Cheque.png" />
     <None Include="Resources\ExportAccount.png" />
     <None Include="packages.config" />
-    <None Include="Resources\document-delete3.png" />
-    <None Include="Resources\document-delete3_16.png" />
     <None Include="Resources\cat_icon_32x32.png" />
-    <None Include="Resources\document_delete4-16.png" />
-    <None Include="Resources\save_go-16.png" />
-    <None Include="Resources\save-16.png" />
-    <None Include="Resources\document_edit-16.png" />
-    <None Include="Resources\document_add-16.png" />
-    <None Include="Resources\printer16.png" />
-    <None Include="Resources\document_print_preview-16.png" />
-    <None Include="Resources\arrow_refresh-16.png" />
-    <None Include="Resources\eraser-16.png" />
-    <None Include="Resources\text_csv-16.png" />
-    <None Include="Resources\excel2-16.png" />
     <None Include="Resources\1352861671_Butterfly.ico" />
     <None Include="Resources\PrintOrder.png" />
     <EmbeddedResource Include="frmLogin.resx">
@@ -509,35 +520,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1352861671_Butterfly.ico" />
-    <None Include="Resources\eraser32.png" />
     <None Include="Resources\Calendar Multiweek.png" />
     <None Include="Resources\body_glove.png" />
     <None Include="Resources\FabricOrderSheet32.png" />
-    <None Include="Resources\document-delete4.png" />
     <None Include="Resources\t_shirt32.png" />
     <None Include="Resources\shirt32.png" />
     <None Include="Resources\customer.png" />
     <None Include="Resources\order32.png" />
     <None Include="Resources\TPiCS_Subprogram32.png" />
     <None Include="Resources\chicken32.png" />
-    <None Include="Resources\save_go32.png" />
     <None Include="Resources\TSIB04.png" />
-    <None Include="Resources\text_csv32.png" />
     <None Include="Resources\Skateboard32.png" />
-    <None Include="Resources\save.png" />
     <None Include="Resources\riderblackrx32.png" />
-    <None Include="Resources\printer.png" />
     <None Include="Resources\notepad_32.png" />
     <None Include="Resources\ncus.png" />
     <None Include="Resources\FindFabricIcon32.png" />
     <None Include="Resources\find32.png" />
-    <None Include="Resources\excel2.png" />
-    <None Include="Resources\document-print-preview.png" />
-    <None Include="Resources\document-edit.png" />
-    <None Include="Resources\document-add.png" />
     <None Include="Resources\Desktop Windows2.png" />
     <None Include="Resources\Artemis32.png" />
-    <None Include="Resources\arrow-refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

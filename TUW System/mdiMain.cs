@@ -738,6 +738,57 @@ namespace TUW_System
             frm41.WindowState = FormWindowState.Maximized;
             frm41.Show();
         }
+        private void LoadfrmAC_Descr()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_Descr")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_Descr frm42 = new frmAC_Descr();
+            frm42.ConnectionString = Module.DBExim;
+            //frm41.User_Login = User_Login;
+            frm42.MdiParent = this;
+            frm42.WindowState = FormWindowState.Maximized;
+            frm42.Show();
+        }
+        private void LoadfrmAC_LoadDomestic()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_LoadDomestic")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_LoadDomestic frm43 = new frmAC_LoadDomestic();
+            frm43.ConnectionString = Module.DBExim;
+            //frm41.User_Login = User_Login;
+            frm43.MdiParent = this;
+            frm43.WindowState = FormWindowState.Maximized;
+            frm43.Show();
+        }
+        private void LoadfrmAC_BankContact()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_BankContact")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_BankContact frm44 = new frmAC_BankContact();
+            frm44.ConnectionString = Module.DBExim;
+            //frm41.User_Login = User_Login;
+            frm44.MdiParent = this;
+            frm44.WindowState = FormWindowState.Maximized;
+            frm44.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -955,6 +1006,9 @@ namespace TUW_System
                     case "frmYS_CheckCarton":
                         ((frmYS_CheckCarton)frmActive).NewData();
                         break;
+                    case "frmAC_BankContact":
+                        ((frmAC_BankContact)frmActive).NewData();
+                        break;
                 }
             }
         }
@@ -1056,6 +1110,12 @@ namespace TUW_System
                     case "frmAC_Cust":
                         ((frmAC_Cust)frmActive).SaveData();
                         break;
+                    case "frmAC_Descr":
+                        ((frmAC_Descr)frmActive).SaveData();
+                        break;
+                    case "frmAC_BankContact":
+                        ((frmAC_BankContact)frmActive).SaveData();
+                        break;
                 }
             }
         }
@@ -1084,6 +1144,9 @@ namespace TUW_System
                         break;
                     case "frmAC_Cust":
                         ((frmAC_Cust)frmActive).DeleteData();
+                        break;
+                    case "frmAC_Descr":
+                        ((frmAC_Descr)frmActive).DeleteData();
                         break;
                 }
             }
@@ -1116,6 +1179,9 @@ namespace TUW_System
                         break;
                     case "frmAC_Cust":
                         ((frmAC_Cust)frmActive).ClearData(true);
+                        break;
+                    case "frmAC_Descr":
+                        ((frmAC_Descr)frmActive).ClearData(true);
                         break;
                 }
             }
@@ -1485,7 +1551,7 @@ namespace TUW_System
                     case "frmYS_IssueSubcontract":
                     case "frmYS_Report":
                     case "frmYS_CheckCarton":
-                    
+                    case "frmAC_BankContact":
                         bbiNew.Enabled = true;
                         break;
                     default:
@@ -1530,6 +1596,8 @@ namespace TUW_System
                     case "frmYS_IssueSubcontract":
                     case "frmYS_ReceiveForm":
                     case "frmAC_Cust":
+                    case "frmAC_Descr":
+                    case "frmAC_BankContact":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -1576,6 +1644,7 @@ namespace TUW_System
                 {
                     case "frmTS5_Receive":
                     case "frmAC_Cust":
+                    case "frmAC_Descr":
                         bbiDelete.Enabled = true;
                         break;
                     default:
@@ -1598,6 +1667,7 @@ namespace TUW_System
                     case "frmTS1_Receive":
                     case "frmTS1_ReceiveCSV":
                     case "frmAC_Cust":
+                    case "frmAC_Descr":
                         bbiClear.Enabled = true;
                         break;
                     default:
@@ -2009,7 +2079,19 @@ namespace TUW_System
         }
         private void bbiAC_Descr_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //LoadfrmAC_Descr();
+            LoadfrmAC_Descr();
+        }
+        private void bbiAC_LoadDomestic_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_LoadDomestic();
+        }
+        private void bbiAC_BankContact_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_BankContact();
+        }
+        private void bbiAC_DraftTT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
 
         #endregion
@@ -2050,6 +2132,13 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
+
+        
+
+        
+
 
         
 
