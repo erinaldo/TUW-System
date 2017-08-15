@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace TUW_System.AC
     public partial class frmAC_BankContact : DevExpress.XtraEditors.XtraForm
     {
         cDatabase db;
+        CultureInfo cl = new CultureInfo("en-US");
+        DateTimeFormatInfo dtfinfo;
         DataTable dtInvoiceDetail;
 
         private string _connectionString;
@@ -78,7 +81,7 @@ namespace TUW_System.AC
                     }
                     else
                     {
-                        strSQL = "update expbillrecord set neg_date = '" + ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd") + "',inv_grp = '" + gridView1.GetRowCellValue(i, "inv_grp").ToString() + "'" +
+                        strSQL = "update expbillrecord set neg_date = '" + ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd",dtfinfo) + "',inv_grp = '" + gridView1.GetRowCellValue(i, "inv_grp").ToString() + "'" +
                             " where invoice_no = '" + gridView1.GetRowCellValue(i, "invoice_no").ToString() + "'";
                         db.Execute(strSQL);
                     }
@@ -189,6 +192,7 @@ namespace TUW_System.AC
         private void frmAC_BankContact_Load(object sender, EventArgs e)
         {
             db = new cDatabase(_connectionString);
+            dtfinfo = cl.DateTimeFormat;
             sleInvoice.Properties.DataSource = GetInvoices();
             sleInvoice.Properties.DisplayMember = "invoice_no";
             sleInvoice.Properties.ValueMember = "invoice_no";

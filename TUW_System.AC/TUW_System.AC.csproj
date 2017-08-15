@@ -71,6 +71,12 @@
     <Compile Include="frmAC_Descr.Designer.cs">
       <DependentUpon>frmAC_Descr.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAC_DraftTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_DraftTT.Designer.cs">
+      <DependentUpon>frmAC_DraftTT.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_LoadDomestic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_Descr.resx">
       <DependentUpon>frmAC_Descr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_DraftTT.resx">
+      <DependentUpon>frmAC_DraftTT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_LoadDomestic.resx">
       <DependentUpon>frmAC_LoadDomestic.cs</DependentUpon>

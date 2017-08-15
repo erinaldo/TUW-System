@@ -789,6 +789,23 @@ namespace TUW_System
             frm44.WindowState = FormWindowState.Maximized;
             frm44.Show();
         }
+        private void LoadfrmAC_DraftTT()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_DraftTT")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_DraftTT frm45 = new frmAC_DraftTT();
+            frm45.ConnectionString = Module.DBExim;
+            //frm41.User_Login = User_Login;
+            frm45.MdiParent = this;
+            frm45.WindowState = FormWindowState.Maximized;
+            frm45.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1116,6 +1133,9 @@ namespace TUW_System
                     case "frmAC_BankContact":
                         ((frmAC_BankContact)frmActive).SaveData();
                         break;
+                    case "frmAC_DraftTT":
+                        ((frmAC_DraftTT)frmActive).SaveData();
+                        break;
                 }
             }
         }
@@ -1147,6 +1167,9 @@ namespace TUW_System
                         break;
                     case "frmAC_Descr":
                         ((frmAC_Descr)frmActive).DeleteData();
+                        break;
+                    case "frmAC_DraftTT":
+                        ((frmAC_DraftTT)frmActive).DeleteData();
                         break;
                 }
             }
@@ -1598,6 +1621,7 @@ namespace TUW_System
                     case "frmAC_Cust":
                     case "frmAC_Descr":
                     case "frmAC_BankContact":
+                    case "frmAC_DraftTT":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -1645,6 +1669,7 @@ namespace TUW_System
                     case "frmTS5_Receive":
                     case "frmAC_Cust":
                     case "frmAC_Descr":
+                    case "frmAC_DraftTT":
                         bbiDelete.Enabled = true;
                         break;
                     default:
@@ -2091,7 +2116,7 @@ namespace TUW_System
         }
         private void bbiAC_DraftTT_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            LoadfrmAC_DraftTT();
         }
 
         #endregion
