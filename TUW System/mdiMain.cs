@@ -806,6 +806,27 @@ namespace TUW_System
             frm45.WindowState = FormWindowState.Maximized;
             frm45.Show();
         }
+        private void LoadfrmAC_Draft()
+        { 
+        
+        }
+        private void LoadfrmAC_Rate()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_Rate")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_Rate frm47 = new frmAC_Rate();
+            frm47.ConnectionString = Module.DBExim;
+            //frm41.User_Login = User_Login;
+            frm47.MdiParent = this;
+            frm47.WindowState = FormWindowState.Maximized;
+            frm47.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1136,6 +1157,9 @@ namespace TUW_System
                     case "frmAC_DraftTT":
                         ((frmAC_DraftTT)frmActive).SaveData();
                         break;
+                    case "frmAC_Rate":
+                        ((frmAC_Rate)frmActive).SaveData();
+                        break;  
                 }
             }
         }
@@ -1622,6 +1646,7 @@ namespace TUW_System
                     case "frmAC_Descr":
                     case "frmAC_BankContact":
                     case "frmAC_DraftTT":
+                    case "frmAC_Rate":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -2118,6 +2143,14 @@ namespace TUW_System
         {
             LoadfrmAC_DraftTT();
         }
+        private void bbiAC_Draft_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_Draft();
+        }
+        private void bbiAC_Rate_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_Rate();
+        }
 
         #endregion
 
@@ -2157,6 +2190,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 

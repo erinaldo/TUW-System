@@ -62,7 +62,7 @@ namespace TUW_System.AC
             try
             {
                 db.BeginTrans();
-                string strSQL = "select invoice_no from expbillrecord where invoice_no = '" + sleInvoice.Text + "'";
+                string strSQL = "select count(invoice_no) from expbillrecord where invoice_no = '" + sleInvoice.Text + "'";
                 if (db.ExecuteFirstValue(strSQL) == "0")
                 {
                     strSQL = "insert into expbillrecord (invoice_no,inv_date,dept_id,lc_no,cr,custname,amt,curtype,tran_by,exinv_no,inv_desc" +

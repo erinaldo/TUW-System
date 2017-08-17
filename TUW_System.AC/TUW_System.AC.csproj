@@ -71,6 +71,12 @@
     <Compile Include="frmAC_Descr.Designer.cs">
       <DependentUpon>frmAC_Descr.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAC_Draft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_Draft.Designer.cs">
+      <DependentUpon>frmAC_Draft.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_DraftTT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     </Compile>
     <Compile Include="frmAC_LoadDomestic.Designer.cs">
       <DependentUpon>frmAC_LoadDomestic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAC_Rate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_Rate.Designer.cs">
+      <DependentUpon>frmAC_Rate.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -105,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_LoadDomestic.resx">
       <DependentUpon>frmAC_LoadDomestic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_Rate.resx">
+      <DependentUpon>frmAC_Rate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Resource1.resx">
