@@ -16,7 +16,7 @@ namespace TUW_System.AC
     public partial class frmAC_DraftTT : DevExpress.XtraEditors.XtraForm
     {
         cDatabase db;
-        CultureInfo cl=new CultureInfo("en-US");
+        CultureInfo clinfo=new CultureInfo("en-US");
         DateTimeFormatInfo dtfinfo;
 
         private string _connectionString;
@@ -207,7 +207,7 @@ namespace TUW_System.AC
         private void frmAC_DraftTT_Load(object sender, EventArgs e)
         {
             db = new cDatabase(_connectionString);
-            dtfinfo=cl.DateTimeFormat;
+            dtfinfo=clinfo.DateTimeFormat;
             sleInvoice.Properties.DataSource = GetInvoices();
             sleInvoice.Properties.DisplayMember = "invoice_no";
             sleInvoice.Properties.ValueMember = "invoice_no";

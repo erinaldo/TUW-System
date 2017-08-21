@@ -844,6 +844,23 @@ namespace TUW_System
             frm48.WindowState = FormWindowState.Maximized;
             frm48.Show();
         }
+        private void LoadfrmAC_UpdateData()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_UpdateData")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_UpdateData frm49 = new frmAC_UpdateData();
+            frm49.ConnectionString = Module.DBExim;
+            frm49.StatusBarEvent +=new frmAC_UpdateData.StatusBarHandler(UpdateStatusBar);
+            frm49.MdiParent = this;
+            frm49.WindowState = FormWindowState.Maximized;
+            frm49.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1180,6 +1197,9 @@ namespace TUW_System
                     case "frmAC_BankRate":
                         ((frmAC_BankRate)frmActive).SaveData();
                         break;
+                    case "frmAC_UpdateData":
+                        ((frmAC_UpdateData)frmActive).SaveData();
+                        break;
                 }
             }
         }
@@ -1354,6 +1374,9 @@ namespace TUW_System
                         break;
                     case "frmYS_CheckCarton":
                         ((frmYS_CheckCarton)frmActive).DisplayData();
+                        break;
+                    case "frmAC_UpdateData":
+                        ((frmAC_UpdateData)frmActive).DisplayData();
                         break;
                 }
             }
@@ -1668,6 +1691,7 @@ namespace TUW_System
                     case "frmAC_DraftTT":
                     case "frmAC_Rate":
                     case "frmAC_BankRate":
+                    case "frmAC_UpdateData":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -1780,7 +1804,7 @@ namespace TUW_System
                     case "frmYS_MoneyRate":
                     case "frmYS_Report":
                     case "frmYS_CheckCarton":
-                    
+                    case "frmAC_UpdateData":
                         bbiRefresh.Enabled = true;
                         break;
                     default:
@@ -2176,6 +2200,10 @@ namespace TUW_System
         {
             LoadfrmAC_BankRate();
         }
+        private void bbiAC_UpdateData_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_UpdateData();
+        }
 
         #endregion
 
@@ -2215,6 +2243,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 
