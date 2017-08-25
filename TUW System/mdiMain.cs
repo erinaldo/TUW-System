@@ -861,6 +861,23 @@ namespace TUW_System
             frm49.WindowState = FormWindowState.Maximized;
             frm49.Show();
         }
+        private void LoadfrmAC_AccSales()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_AccSales")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_AccSales frm50 = new frmAC_AccSales();
+            frm50.ConnectionString = Module.DBExim;
+            frm50.StatusBarEvent += new frmAC_AccSales.StatusBarHandler(UpdateStatusBar);
+            frm50.MdiParent = this;
+            frm50.WindowState = FormWindowState.Maximized;
+            frm50.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1378,6 +1395,9 @@ namespace TUW_System
                     case "frmAC_UpdateData":
                         ((frmAC_UpdateData)frmActive).DisplayData();
                         break;
+                    case "frmAC_AccSales":
+                        ((frmAC_AccSales)frmActive).DisplayData();
+                        break;
                 }
             }
 
@@ -1529,6 +1549,9 @@ namespace TUW_System
                     case "frmYS_ReceiveForm":
                         ((frmYS_ReceiveForm)frmActive).PrintPreview();
                         break;
+                    case "frmAC_AccSales":
+                        ((frmAC_AccSales)frmActive).PrintPreview();
+                        break;
                 }
             }
         }
@@ -1595,6 +1618,9 @@ namespace TUW_System
                         break;
                     case "frmYS_ReceiveForm":
                         ((frmYS_ReceiveForm)frmActive).Print();
+                        break;
+                    case "frmAC_AccSales":
+                        ((frmAC_AccSales)frmActive).Print();
                         break;
                 }
             }
@@ -1805,6 +1831,7 @@ namespace TUW_System
                     case "frmYS_Report":
                     case "frmYS_CheckCarton":
                     case "frmAC_UpdateData":
+                    case "frmAC_AccSales":
                         bbiRefresh.Enabled = true;
                         break;
                     default:
@@ -1859,6 +1886,7 @@ namespace TUW_System
                     case "frmYS_CheckCarton":
                     case "frmYS_Receive":
                     case "frmYS_ReceiveForm":
+                    case "frmAC_AccSales":
                     
                         var isPrint=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanPrint).First();
                         bbiPrintPreview.Enabled = (isPrint) ? true : false;
@@ -1903,6 +1931,7 @@ namespace TUW_System
                     case "frmYS_Receive":
                     case "frmYS_BarcodeText":
                     case "frmYS_ReceiveForm":
+                    case "frmAC_AccSales":
                     
                         var isPrint=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanPrint).First();
                         bbiPrint.Enabled = (isPrint) ? true : false;
@@ -2204,6 +2233,10 @@ namespace TUW_System
         {
             LoadfrmAC_UpdateData();
         }
+        private void bbiAC_AccSales_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_AccSales();
+        }
 
         #endregion
 
@@ -2243,6 +2276,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 

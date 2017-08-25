@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAC_AccSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_AccSales.Designer.cs">
+      <DependentUpon>frmAC_AccSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_BankContact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAC_AccSales.resx">
+      <DependentUpon>frmAC_AccSales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAC_BankContact.resx">
       <DependentUpon>frmAC_BankContact.cs</DependentUpon>
     </EmbeddedResource>

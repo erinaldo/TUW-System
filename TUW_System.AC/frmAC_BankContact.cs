@@ -146,10 +146,10 @@ namespace TUW_System.AC
             gridView1.Columns["inv_grp"].Caption = "Invoice Group";
             gridView1.Columns["amt"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["amt"].DisplayFormat.FormatString = "n2";
-            gridView1.Columns["invoice_no"].SummaryItem.SetSummary(DevExpress.Data.SummaryItemType.Custom, "Amount");
             gridView1.Columns["amt"].SummaryItem.SetSummary(DevExpress.Data.SummaryItemType.Sum, "{0:#,0.00}");
             gridView1.Columns["inv_grp"].SummaryItem.SetSummary(DevExpress.Data.SummaryItemType.Custom, strCurrency);
 
+            gridView1.OptionsView.ShowFooter = true;
             gridView1.OptionsView.EnableAppearanceEvenRow = true;
             gridView1.OptionsView.EnableAppearanceOddRow = true;
             gridView1.OptionsView.ColumnAutoWidth = false;

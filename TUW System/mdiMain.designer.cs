@@ -154,6 +154,7 @@
             this.bbiAC_Draft = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAC_Rate = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAC_BankRate = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_UpdateData = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSkin = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
@@ -259,7 +260,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem();
-            this.bbiAC_UpdateData = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_AccSales = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -423,9 +424,10 @@
             this.bbiAC_Draft,
             this.bbiAC_Rate,
             this.bbiAC_BankRate,
-            this.bbiAC_UpdateData});
+            this.bbiAC_UpdateData,
+            this.bbiAC_AccSales});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 166;
+            this.barManager1.MaxItemId = 167;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -1061,7 +1063,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Draft),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Rate),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_BankRate),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_UpdateData)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_UpdateData),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_AccSales)});
             this.barSubItem11.Name = "barSubItem11";
             // 
             // bbiAC_LoadDomestic
@@ -1111,6 +1114,14 @@
             this.bbiAC_BankRate.Name = "bbiAC_BankRate";
             this.bbiAC_BankRate.Tag = "frmAC_BankRate";
             this.bbiAC_BankRate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_BankRate_ItemClick);
+            // 
+            // bbiAC_UpdateData
+            // 
+            this.bbiAC_UpdateData.Caption = "Update Export Sales";
+            this.bbiAC_UpdateData.Id = 165;
+            this.bbiAC_UpdateData.Name = "bbiAC_UpdateData";
+            this.bbiAC_UpdateData.Tag = "frmAC_UpdateData";
+            this.bbiAC_UpdateData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_UpdateData_ItemClick);
             // 
             // barSubItem10
             // 
@@ -2069,13 +2080,13 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
             // 
-            // bbiAC_UpdateData
+            // bbiAC_AccSales
             // 
-            this.bbiAC_UpdateData.Caption = "Update Export Sales";
-            this.bbiAC_UpdateData.Id = 165;
-            this.bbiAC_UpdateData.Name = "bbiAC_UpdateData";
-            this.bbiAC_UpdateData.Tag = "frmAC_UpdateData";
-            this.bbiAC_UpdateData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_UpdateData_ItemClick);
+            this.bbiAC_AccSales.Caption = "Account Sales";
+            this.bbiAC_AccSales.Id = 166;
+            this.bbiAC_AccSales.Name = "bbiAC_AccSales";
+            this.bbiAC_AccSales.Tag = "frmAC_AccSales";
+            this.bbiAC_AccSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_AccSales_ItemClick);
             // 
             // mdiMain
             // 
@@ -2288,5 +2299,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiAC_Rate;
         private DevExpress.XtraBars.BarButtonItem bbiAC_BankRate;
         private DevExpress.XtraBars.BarButtonItem bbiAC_UpdateData;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_AccSales;
     }
 }
