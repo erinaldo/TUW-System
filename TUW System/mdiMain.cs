@@ -878,6 +878,39 @@ namespace TUW_System
             frm50.WindowState = FormWindowState.Maximized;
             frm50.Show();
         }
+        private void LoadfrmAC_ShowDebtor()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_ShowDebtor")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_ShowDebtor frm51 = new frmAC_ShowDebtor();
+            frm51.ConnectionString = Module.DBExim;
+            frm51.StatusBarEvent += new frmAC_ShowDebtor.StatusBarHandler(UpdateStatusBar);
+            frm51.MdiParent = this;
+            frm51.WindowState = FormWindowState.Maximized;
+            frm51.Show();
+        }
+        private void LoadfrmAC_Domestic()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_Domestic")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_Domestic frm52 = new frmAC_Domestic();
+            frm52.ConnectionString = Module.DBExim;
+            frm52.MdiParent = this;
+            frm52.WindowState = FormWindowState.Maximized;
+            frm52.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1098,6 +1131,9 @@ namespace TUW_System
                     case "frmAC_BankContact":
                         ((frmAC_BankContact)frmActive).NewData();
                         break;
+                    case "frmAC_Domestic":
+                        ((frmAC_Domestic)frmActive).NewData();
+                        break;
                 }
             }
         }
@@ -1216,6 +1252,9 @@ namespace TUW_System
                         break;
                     case "frmAC_UpdateData":
                         ((frmAC_UpdateData)frmActive).SaveData();
+                        break;
+                    case "frmAC_Domestic":
+                        ((frmAC_Domestic)frmActive).SaveData();
                         break;
                 }
             }
@@ -1398,6 +1437,9 @@ namespace TUW_System
                     case "frmAC_AccSales":
                         ((frmAC_AccSales)frmActive).DisplayData();
                         break;
+                    case "frmAC_ShowDebtor":
+                        ((frmAC_ShowDebtor)frmActive).DisplayData();
+                        break;
                 }
             }
 
@@ -1552,6 +1594,9 @@ namespace TUW_System
                     case "frmAC_AccSales":
                         ((frmAC_AccSales)frmActive).PrintPreview();
                         break;
+                    case "frmAC_ShowDebtor":
+                        ((frmAC_ShowDebtor)frmActive).PrintPreview();
+                        break;
                 }
             }
         }
@@ -1622,6 +1667,9 @@ namespace TUW_System
                     case "frmAC_AccSales":
                         ((frmAC_AccSales)frmActive).Print();
                         break;
+                    case "frmAC_ShowDebtor":
+                        ((frmAC_ShowDebtor)frmActive).Print();
+                        break;
                 }
             }
         }
@@ -1668,6 +1716,7 @@ namespace TUW_System
                     case "frmYS_Report":
                     case "frmYS_CheckCarton":
                     case "frmAC_BankContact":
+                    case "frmAC_Domestic":
                         bbiNew.Enabled = true;
                         break;
                     default:
@@ -1718,6 +1767,7 @@ namespace TUW_System
                     case "frmAC_Rate":
                     case "frmAC_BankRate":
                     case "frmAC_UpdateData":
+                    case "frmAC_Domestic":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -1832,6 +1882,7 @@ namespace TUW_System
                     case "frmYS_CheckCarton":
                     case "frmAC_UpdateData":
                     case "frmAC_AccSales":
+                    case "frmAC_ShowDebtor":
                         bbiRefresh.Enabled = true;
                         break;
                     default:
@@ -1887,6 +1938,7 @@ namespace TUW_System
                     case "frmYS_Receive":
                     case "frmYS_ReceiveForm":
                     case "frmAC_AccSales":
+                    case "frmAC_ShowDebtor":
                     
                         var isPrint=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanPrint).First();
                         bbiPrintPreview.Enabled = (isPrint) ? true : false;
@@ -1932,6 +1984,7 @@ namespace TUW_System
                     case "frmYS_BarcodeText":
                     case "frmYS_ReceiveForm":
                     case "frmAC_AccSales":
+                    case "frmAC_ShowDebtor":
                     
                         var isPrint=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanPrint).First();
                         bbiPrint.Enabled = (isPrint) ? true : false;
@@ -2237,6 +2290,14 @@ namespace TUW_System
         {
             LoadfrmAC_AccSales();
         }
+        private void bbiAC_ShowDebtor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_ShowDebtor();
+        }
+        private void bbiAC_Domestic_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_Domestic();
+        }
 
         #endregion
 
@@ -2276,6 +2337,10 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
+
+
 
         
 

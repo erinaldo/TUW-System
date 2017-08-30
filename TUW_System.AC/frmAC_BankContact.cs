@@ -113,7 +113,7 @@ namespace TUW_System.AC
             string strCurrency = "";
             foreach (DataRow dr in dt.Rows)
             {
-                dtpDate.EditValue = dr["neg_date"];
+                dtpDate.EditValue =(dr["neg_date"]==System.DBNull.Value)?(DateTime?)null:(DateTime)dr["neg_date"];
                 strInvoiceGroup =  dr["inv_grp"]!=System.DBNull.Value?dr["inv_grp"].ToString():"";
                 strCurrency = dr["curtype"].ToString();
                 //            Set Rs = Dbs.Execute(SqlStr)

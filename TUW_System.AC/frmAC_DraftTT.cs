@@ -68,10 +68,7 @@ namespace TUW_System.AC
                     strSQL = "insert into expbillrecord (invoice_no,inv_date,dept_id,lc_no,cr,custname,amt,curtype,tran_by,exinv_no,inv_desc" +
                         ",ctn,qty,exp_no,exp_date,debno,bl_date,nodebtor) " +
                         " values ('" + sleInvoice.Text + "'";
-                    if (dtpDate.EditValue == null)
-                        strSQL += ",null";
-                    else
-                        strSQL += ",'" + ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
+                    strSQL+=(dtpDate.EditValue == null)?",null":",'" + ((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
                     strSQL+=",'" + cboDepartment.Text + "'" +
                         ",'" + txtLC.Text + "'" +
                         ",'" + cboCredit.Text + "'" +
@@ -85,25 +82,16 @@ namespace TUW_System.AC
                     strSQL += ",";
                     strSQL += (txtQty.Text.Length > 0) ? txtQty.Text : "0";
                     strSQL += ",'" + txtExport.Text + "'";
-                    if (dtpExport.EditValue == null)
-                        strSQL += ",null";
-                    else
-                        strSQL += ",'" + ((DateTime)dtpExport.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
+                    strSQL+=(dtpExport.EditValue == null)?",null":",'" + ((DateTime)dtpExport.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
                     strSQL += ",'" + txtDebit.Text + "'";
-                    if (dtpBL.EditValue == null)
-                        strSQL += ",null";
-                    else
-                        strSQL+=",'" + ((DateTime)dtpBL.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
+                    strSQL+=(dtpBL.EditValue == null)?",null":",'" + ((DateTime)dtpBL.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
                     strSQL+= (checkEdit1.Checked) ? ",1" : ",0";
                     db.Execute(strSQL);
                 }
                 else
                 { 
                     strSQL="update expbillrecord set ";
-                    if (dtpDate.EditValue == null)
-                        strSQL += "inv_date =null";
-                    else
-                        strSQL+="inv_date = '"+((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd",dtfinfo)+ "'";
+                    strSQL+=(dtpDate.EditValue == null)?"inv_date =null":"inv_date = '"+((DateTime)dtpDate.EditValue).ToString("yyyy-MM-dd",dtfinfo)+ "'";
                     strSQL+= ",dept_id = '" + cboDepartment.Text + "'";
                     strSQL+=",lc_no = '"+txtLC.Text+"'";
                     strSQL+=",cr = '"+cboCredit.Text+"'";
@@ -116,15 +104,9 @@ namespace TUW_System.AC
                     strSQL+=(txtTotal.Text.Length>0)?",ctn ="+txtTotal.Text:",ctn =0";
                     strSQL+=(txtQty.Text.Length>0)?",qty = "+txtQty.Text:",qty =0";
                     strSQL += ",exp_no = '" + txtExport.Text + "'";
-                    if (dtpExport.EditValue == null)
-                        strSQL += ",exp_date =null";
-                    else
-                        strSQL+=",exp_date = '"+((DateTime)dtpExport.EditValue).ToString("yyyy-MM-dd",dtfinfo)+"'";
+                    strSQL+=(dtpExport.EditValue == null)?",exp_date =null":",exp_date = '"+((DateTime)dtpExport.EditValue).ToString("yyyy-MM-dd",dtfinfo)+"'";
                     strSQL += ",debno = '" + txtDebit.Text + "'";
-                    if (dtpBL.EditValue == null)
-                        strSQL += ",bl_date = null";
-                    else
-                        strSQL += ",bl_date = '" + ((DateTime)dtpBL.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
+                    strSQL+=(dtpBL.EditValue == null)?",bl_date = null":",bl_date = '" + ((DateTime)dtpBL.EditValue).ToString("yyyy-MM-dd", dtfinfo) + "'";
                     strSQL += (checkEdit1.Checked) ? ",nodebtor=1" : ",nodebtor=0";
                     strSQL += " where invoice_no = '" + sleInvoice.Text + "'";
                     db.Execute(strSQL);
@@ -180,7 +162,7 @@ namespace TUW_System.AC
             DataTable dt=db.GetDataTable(strSQL);
             foreach(DataRow dr in dt.Rows)
             {
-                dtpDate.EditValue=dr["inv_date"];
+                dtpDate.EditValue=(dr["inv_date"]==System.DBNull.Value)?(DateTime?)null:(DateTime)dr["inv_date"];
                 cboDepartment.Text= dr["dept_id"]==System.DBNull.Value?"":dr["dept_id"].ToString();
                 txtLC.Text=dr["lc_no"]==System.DBNull.Value?"":dr["lc_no"].ToString();
                 cboCredit.Text=dr["cr"]==System.DBNull.Value?"":dr["cr"].ToString();
@@ -197,11 +179,10 @@ namespace TUW_System.AC
                 txtTotal.Text=dr["ctn"]==System.DBNull.Value?"":dr["ctn"].ToString();
                 txtQty.Text=dr["qty"]==System.DBNull.Value?"":dr["qty"].ToString();
                 txtExport.Text=dr["exp_no"]==System.DBNull.Value?"":dr["exp_no"].ToString();
-                dtpExport.EditValue=dr["exp_date"];
+                dtpExport.EditValue = (dr["exp_date"] == System.DBNull.Value) ? (DateTime?)null : (DateTime)dr["exp_date"];
                 txtDebit.Text=dr["DebNo"]==System.DBNull.Value?"":dr["DebNo"].ToString();
-                dtpBL.EditValue=dr["bl_date"];
+                dtpBL.EditValue = (dr["bl_date"] == System.DBNull.Value) ? (DateTime?)null : (DateTime)dr["bl_date"];
             }
-
         }
 
         private void frmAC_DraftTT_Load(object sender, EventArgs e)

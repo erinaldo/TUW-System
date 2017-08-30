@@ -155,6 +155,7 @@
             this.bbiAC_Rate = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAC_BankRate = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAC_UpdateData = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_AccSales = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSkin = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
@@ -260,7 +261,9 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem();
-            this.bbiAC_AccSales = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_ShowDebtor = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem12 = new DevExpress.XtraBars.BarSubItem();
+            this.bbiAC_Domestic = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -425,9 +428,12 @@
             this.bbiAC_Rate,
             this.bbiAC_BankRate,
             this.bbiAC_UpdateData,
-            this.bbiAC_AccSales});
+            this.bbiAC_AccSales,
+            this.bbiAC_ShowDebtor,
+            this.barSubItem12,
+            this.bbiAC_Domestic});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 167;
+            this.barManager1.MaxItemId = 170;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -1024,7 +1030,8 @@
             this.barSubItem9.Id = 155;
             this.barSubItem9.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem11)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem11),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem12)});
             this.barSubItem9.Name = "barSubItem9";
             // 
             // barSubItem8
@@ -1064,7 +1071,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Rate),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_BankRate),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_UpdateData),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_AccSales)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_AccSales),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_ShowDebtor)});
             this.barSubItem11.Name = "barSubItem11";
             // 
             // bbiAC_LoadDomestic
@@ -1122,6 +1130,14 @@
             this.bbiAC_UpdateData.Name = "bbiAC_UpdateData";
             this.bbiAC_UpdateData.Tag = "frmAC_UpdateData";
             this.bbiAC_UpdateData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_UpdateData_ItemClick);
+            // 
+            // bbiAC_AccSales
+            // 
+            this.bbiAC_AccSales.Caption = "Account Sales";
+            this.bbiAC_AccSales.Id = 166;
+            this.bbiAC_AccSales.Name = "bbiAC_AccSales";
+            this.bbiAC_AccSales.Tag = "frmAC_AccSales";
+            this.bbiAC_AccSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_AccSales_ItemClick);
             // 
             // barSubItem10
             // 
@@ -2080,13 +2096,29 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
             // 
-            // bbiAC_AccSales
+            // bbiAC_ShowDebtor
             // 
-            this.bbiAC_AccSales.Caption = "Account Sales";
-            this.bbiAC_AccSales.Id = 166;
-            this.bbiAC_AccSales.Name = "bbiAC_AccSales";
-            this.bbiAC_AccSales.Tag = "frmAC_AccSales";
-            this.bbiAC_AccSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_AccSales_ItemClick);
+            this.bbiAC_ShowDebtor.Caption = "Show Balance by Customer";
+            this.bbiAC_ShowDebtor.Id = 167;
+            this.bbiAC_ShowDebtor.Name = "bbiAC_ShowDebtor";
+            this.bbiAC_ShowDebtor.Tag = "frmAC_ShowDebtor";
+            this.bbiAC_ShowDebtor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_ShowDebtor_ItemClick);
+            // 
+            // barSubItem12
+            // 
+            this.barSubItem12.Caption = "Domestic";
+            this.barSubItem12.Id = 168;
+            this.barSubItem12.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Domestic)});
+            this.barSubItem12.Name = "barSubItem12";
+            // 
+            // bbiAC_Domestic
+            // 
+            this.bbiAC_Domestic.Caption = "Insert Domestic";
+            this.bbiAC_Domestic.Id = 169;
+            this.bbiAC_Domestic.Name = "bbiAC_Domestic";
+            this.bbiAC_Domestic.Tag = "frmAC_Domestic";
+            this.bbiAC_Domestic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_Domestic_ItemClick);
             // 
             // mdiMain
             // 
@@ -2300,5 +2332,8 @@
         private DevExpress.XtraBars.BarButtonItem bbiAC_BankRate;
         private DevExpress.XtraBars.BarButtonItem bbiAC_UpdateData;
         private DevExpress.XtraBars.BarButtonItem bbiAC_AccSales;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_ShowDebtor;
+        private DevExpress.XtraBars.BarSubItem barSubItem12;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_Domestic;
     }
 }

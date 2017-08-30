@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report.Account {
+namespace TUW_System.Report.AC {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace TUW_System.Report.Account {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.Account.AccountSales2.rpt";
+                return "TUW_System.Report.AC.AccountSales2.rpt";
             }
             set {
                 // Do nothing

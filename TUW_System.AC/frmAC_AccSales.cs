@@ -53,7 +53,7 @@ namespace TUW_System.AC
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                cCrystalReport crp=new cCrystalReport(Application.StartupPath+"\\Report\\Account\\accountsales2.rpt");
+                cCrystalReport crp=new cCrystalReport(Application.StartupPath+"\\Report\\AC\\accountsales2.rpt");
                 if (!crp.SetPrinter()) return;
                 crp.ReportTitle = "accountsales2.rpt";
                 crp.SetParameter("@scope", "'AS OF "+ cboMonth.Text.ToUpper()+ " "+ cboYear.Text + "'");
@@ -73,7 +73,7 @@ namespace TUW_System.AC
         }
         public void Print()
         {
-            cCrystalReport crp = new cCrystalReport(Application.StartupPath + "\\Report\\Account\\accountsales2.rpt");
+            cCrystalReport crp = new cCrystalReport(Application.StartupPath + "\\Report\\AC\\accountsales2.rpt");
             if (!crp.SetPrinter()) return;
             crp.ReportTitle = "accountsales2.rpt";
             crp.SetParameter("@scope", "'AS OF " + cboMonth.Text.ToUpper() + " " + cboYear.Text + "'");

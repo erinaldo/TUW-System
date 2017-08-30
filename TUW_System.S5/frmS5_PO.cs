@@ -205,7 +205,8 @@ namespace TUW_System.S5
                 if (db.ExecuteFirstValue(strSQL) != "0")
                 {
                     strSQL = "UPDATE PO_RECEIVE SET ";
-                    strSQL += "MONEYRATE=" + moneyRate;
+                    strSQL += "CURRENCYUNIT='" + lueCurrency.EditValue.ToString() + "'";
+                    strSQL += ",MONEYRATE=" + moneyRate;
                     strSQL += ",INPUTDATE='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", dtfinfo) + "'";
                     strSQL += ",INPUTUSER='" + User_Login.UserName + "'";
                     strSQL += " WHERE PONO='" + strPO + "'";

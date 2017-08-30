@@ -83,6 +83,12 @@
     <Compile Include="frmAC_Descr.Designer.cs">
       <DependentUpon>frmAC_Descr.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAC_Domestic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_Domestic.Designer.cs">
+      <DependentUpon>frmAC_Domestic.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_Draft.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     </Compile>
     <Compile Include="frmAC_Rate.Designer.cs">
       <DependentUpon>frmAC_Rate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAC_ShowDebtor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_ShowDebtor.Designer.cs">
+      <DependentUpon>frmAC_ShowDebtor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAC_UpdateData.cs">
       <SubType>Form</SubType>
@@ -136,6 +148,9 @@
     <EmbeddedResource Include="frmAC_Descr.resx">
       <DependentUpon>frmAC_Descr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_Domestic.resx">
+      <DependentUpon>frmAC_Domestic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAC_DraftTT.resx">
       <DependentUpon>frmAC_DraftTT.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_Rate.resx">
       <DependentUpon>frmAC_Rate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_ShowDebtor.resx">
+      <DependentUpon>frmAC_ShowDebtor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_UpdateData.resx">
       <DependentUpon>frmAC_UpdateData.cs</DependentUpon>
