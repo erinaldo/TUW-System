@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report {
+namespace TUW_System.Report.YS {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace TUW_System.Report {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.YS_Report.rpt";
+                return "TUW_System.Report.YS.YS_Report.rpt";
             }
             set {
                 // Do nothing

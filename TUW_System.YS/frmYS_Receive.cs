@@ -300,7 +300,7 @@ namespace TUW_System.YS
         }
         public void PrintPreview()
         {
-            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\ReceiveNote-Parfun.rpt");
+            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_ReceiveNote.rpt");   //ReceiveNote-Parfun.rpt");
             if (crpReceive.SetPrinter(printCopy) == false) { return; }
             crpReceive.ReportTitle = sleRecNo.Text;
             for (int i = 1; i <= crpReceive.ReportCopy; i++)
@@ -313,7 +313,7 @@ namespace TUW_System.YS
         }
         public void Print()
         {
-            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5_ReceiveNote.rpt");
+            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_ReceiveNote.rpt");
             if (crpReceive.SetPrinter(printCopy) == false) { return; }
             crpReceive.ReportTitle = sleRecNo.Text;
             for (int i = 1; i <= crpReceive.ReportCopy; i++)

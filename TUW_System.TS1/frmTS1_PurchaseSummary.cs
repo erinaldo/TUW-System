@@ -263,7 +263,7 @@ namespace TUW_System.TS1
         }
         private void PrintReport(bool toPrinter)
         {
-            ctr = new cCrystalReport(Application.StartupPath + "\\Report\\SUMMARY REPORT.rpt");
+            ctr = new cCrystalReport(Application.StartupPath + "\\Report\\TS1\\SUMMARY REPORT.rpt");
             if (toPrinter)
             {
                 if (!ctr.SetPrinter()){return;}

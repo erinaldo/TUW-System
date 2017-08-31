@@ -119,7 +119,7 @@ namespace TUW_System.S4
         private void PrintOrPreview(bool toPrinter)
         {
 
-            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\ReceiveNote-Parfun.rpt");
+            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S4\ReceiveNote-Parfun.rpt");
             if (crpReceive.SetPrinter(Convert.ToInt16(speCopy.Value)) == false) { return; }
             crpReceive.ReportTitle = "Receive Note";//sleRecNo.Text;
 

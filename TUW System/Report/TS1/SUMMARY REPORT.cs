@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report {
+namespace TUW_System.Report.TS1 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace TUW_System.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class PURCHASE_ORDER_N : ReportClass {
+    public class SUMMARY_REPORT : ReportClass {
         
-        public PURCHASE_ORDER_N() {
+        public SUMMARY_REPORT() {
         }
         
         public override string ResourceName {
             get {
-                return "PURCHASE ORDER_N.rpt";
+                return "SUMMARY REPORT.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.PURCHASE ORDER_N.rpt";
+                return "TUW_System.Report.TS1.SUMMARY REPORT.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section6 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -106,41 +106,17 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
                 return this.ReportDefinition.Sections[7];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section6 {
-            get {
-                return this.ReportDefinition.Sections[8];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_PAGE {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_REPRINT {
-            get {
-                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPURCHASE_ORDER_N : Component, ICachedReport {
+    public class CachedSUMMARY_REPORT : Component, ICachedReport {
         
-        public CachedPURCHASE_ORDER_N() {
+        public CachedSUMMARY_REPORT() {
         }
         
         [Browsable(false)]
@@ -177,7 +153,7 @@ namespace TUW_System.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            PURCHASE_ORDER_N rpt = new PURCHASE_ORDER_N();
+            SUMMARY_REPORT rpt = new SUMMARY_REPORT();
             rpt.Site = this.Site;
             return rpt;
         }

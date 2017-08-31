@@ -119,7 +119,7 @@ namespace TUW_System.S3
         private void PrintOrPreview(bool toPrinter)
         {
 
-            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\ReceiveNote-Riki.rpt");
+            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S3\ReceiveNote-Riki.rpt");
             if (crpReceive.SetPrinter(Convert.ToInt16(speCopy.Value)) == false) { return; }
             crpReceive.ReportTitle = "Receive Note";//sleRecNo.Text;
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report {
+namespace TUW_System.Report.TS1 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace TUW_System.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class SEWING_ORDER : ReportClass {
+    public class PACKING_ORDER : ReportClass {
         
-        public SEWING_ORDER() {
+        public PACKING_ORDER() {
         }
         
         public override string ResourceName {
             get {
-                return "SEWING_ORDER.rpt";
+                return "PACKING_ORDER.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.SEWING_ORDER.rpt";
+                return "TUW_System.Report.TS1.PACKING_ORDER.rpt";
             }
             set {
                 // Do nothing
@@ -122,9 +122,9 @@ namespace TUW_System.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedSEWING_ORDER : Component, ICachedReport {
+    public class CachedPACKING_ORDER : Component, ICachedReport {
         
-        public CachedSEWING_ORDER() {
+        public CachedPACKING_ORDER() {
         }
         
         [Browsable(false)]
@@ -161,7 +161,7 @@ namespace TUW_System.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            SEWING_ORDER rpt = new SEWING_ORDER();
+            PACKING_ORDER rpt = new PACKING_ORDER();
             rpt.Site = this.Site;
             return rpt;
         }

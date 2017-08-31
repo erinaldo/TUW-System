@@ -346,7 +346,7 @@ namespace TUW_System.TS1
             try
             {
                 db.BeginTrans();
-                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\TS1_ReceiveNote.rpt");
+                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\TS1\TS1_ReceiveNote.rpt");
                 if (crpPO.SetPrinter(4))
                 {
                     string strSQL = "UPDATE RHReceive SET FlgPrn='Y' WHERE RecNo='" + sleReceive.EditValue.ToString() + "'";
@@ -384,7 +384,7 @@ namespace TUW_System.TS1
             try
             {
                 db.BeginTrans();
-                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\TS1_ReceiveNote.rpt");
+                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\TS1\TS1_ReceiveNote.rpt");
                 if (crpPO.SetPrinter(4))
                 {
                     string strSQL = "UPDATE RHReceive SET FlgPrn='Y' WHERE RecNo='" + sleReceive.EditValue.ToString() + "'";

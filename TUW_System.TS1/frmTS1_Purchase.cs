@@ -223,7 +223,7 @@ namespace TUW_System.TS1
                 switch (xtraTabControl1.SelectedTabPageIndex)
                 {
                     case 0:
-                        cCrystalReport ctr = new cCrystalReport(Application.StartupPath + "\\Report\\PURCHASE ORDER_N.rpt");
+                        cCrystalReport ctr = new cCrystalReport(Application.StartupPath + "\\Report\\TS1\\PURCHASE ORDER_N.rpt");
                         SaveXSLIPUpdFlgPrint(cboPO.EditValue.ToString());
                         int intCopy;
                         if (optClassification.SelectedIndex == (int)enumOptClassification.FABRIC_OUTSIDE)
@@ -275,7 +275,7 @@ namespace TUW_System.TS1
                 switch (xtraTabControl1.SelectedTabPageIndex)
                 {
                     case 0:
-                        cCrystalReport ctr = new cCrystalReport(Application.StartupPath + "\\Report\\PURCHASE ORDER_N.rpt");
+                        cCrystalReport ctr = new cCrystalReport(Application.StartupPath + "\\Report\\TS1\\PURCHASE ORDER_N.rpt");
                         if (!ctr.SetPrinter())
                         {
                             this.Cursor = Cursors.Default;

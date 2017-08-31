@@ -43,7 +43,7 @@ namespace TUW_System.S5
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5_ReceiveNoteByDate.rpt");
+                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_ReceiveNoteByDate.rpt");
                 if (crpPO.SetPrinter() == false) { return; }
                 string strReceiveDate = ((DateTime)dtpReceive.EditValue).ToString("dd/MM/yyyy", dtfinfo);
                 for (int i = 1; i <= crpPO.ReportCopy; i++)
@@ -77,7 +77,7 @@ namespace TUW_System.S5
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5_ReceiveNoteByDate.rpt");
+                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_ReceiveNoteByDate.rpt");
                 if (crpPO.SetPrinter() == false) { return; }
                 string strReceiveDate = ((DateTime)dtpReceive.EditValue).ToString("dd/MM/yyyy", dtfinfo);
                 for (int i = 1; i <= crpPO.ReportCopy; i++)

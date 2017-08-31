@@ -271,7 +271,7 @@ namespace TUW_System.S5
         }
         public void PrintPreview()
         {
-            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5_ReceiveNote.rpt");
+            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_ReceiveNote.rpt");
             if (crpReceive.SetPrinter() == false) { return; }
             crpReceive.ReportTitle = sleReceiveNo.EditValue.ToString();
             for (int i = 1; i <= crpReceive.ReportCopy; i++)
@@ -292,7 +292,7 @@ namespace TUW_System.S5
         }
         public void Print()
         {
-            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5_ReceiveNote.rpt");
+            cCrystalReport crpReceive = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_ReceiveNote.rpt");
             Int16 intTemp = 1;
             try
             {

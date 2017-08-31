@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report {
+namespace TUW_System.Report.TS1 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace TUW_System.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CUTTING_ORDER : ReportClass {
+    public class ACCTransferOrd_SEW : ReportClass {
         
-        public CUTTING_ORDER() {
+        public ACCTransferOrd_SEW() {
         }
         
         public override string ResourceName {
             get {
-                return "CUTTING_ORDER.rpt";
+                return "ACCTransferOrd_SEW.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.CUTTING_ORDER.rpt";
+                return "TUW_System.Report.TS1.ACCTransferOrd_SEW.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section PageHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[5];
             }
@@ -98,7 +98,7 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[6];
             }
@@ -106,17 +106,9 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[7];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
-                return this.ReportDefinition.Sections[8];
+                return this.ReportDefinition.Sections[7];
             }
         }
         
@@ -130,9 +122,9 @@ namespace TUW_System.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCUTTING_ORDER : Component, ICachedReport {
+    public class CachedACCTransferOrd_SEW : Component, ICachedReport {
         
-        public CachedCUTTING_ORDER() {
+        public CachedACCTransferOrd_SEW() {
         }
         
         [Browsable(false)]
@@ -169,7 +161,7 @@ namespace TUW_System.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CUTTING_ORDER rpt = new CUTTING_ORDER();
+            ACCTransferOrd_SEW rpt = new ACCTransferOrd_SEW();
             rpt.Site = this.Site;
             return rpt;
         }

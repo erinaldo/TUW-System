@@ -97,7 +97,7 @@ namespace TUW_System.S4
 
         private void PrintOrder(bool toPrinter)
         {
-            cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\XDENP-Parfun.rpt");
+            cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S4\XDENP-Parfun.rpt");
             if (crpPO.SetPrinter(Convert.ToInt16(speCopy.Value)) == false) { return; }
             crpPO.ReportTitle = "Purchase Order";
 
@@ -153,7 +153,7 @@ namespace TUW_System.S4
         }
         private void PrintOrderBalance(bool toPrinter)
         {
-            cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\XSLIP-Parfun.rpt");
+            cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S4\XSLIP-Parfun.rpt");
             if (crpPO.SetPrinter(Convert.ToInt16(speCopy.Value)) == false) { return; }
             crpPO.ReportTitle = "Purchase Order";
 

@@ -524,7 +524,7 @@ namespace TUW_System.ProductionOrder
                 Thread currentThread = System.Threading.Thread.CurrentThread;
                 currentThread.CurrentCulture = clinfo;
                 Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\Blank Form_New Format.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\P\\Blank Form_New Format.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 Microsoft.Office.Interop.Excel._Worksheet xlSheet = (Microsoft.Office.Interop.Excel._Worksheet)xlApp.ActiveSheet;
                 Microsoft.Office.Interop.Excel.Shape xlShape;
                 int excelCurrentRow = 7;

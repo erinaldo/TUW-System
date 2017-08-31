@@ -342,6 +342,13 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{F72A4F03-260A-4926-AF44-D62D4E4BDCC2}</td><td>REPORT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{4BFA9FD2-0D70-46B3-813E-FE5B60415763}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{4FC8985F-D8E7-492D-A47B-186500B13CC7}</td><td>AC</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{E0226D20-D1A0-419D-8AFD-C0C4DC422F8E}</td><td>P</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{1F8E2576-55C6-4046-AA13-91130B486848}</td><td>S3</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{938AC64B-5F69-47EC-9FC0-A00C1FD3064D}</td><td>S4</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{A348E1C4-0957-4C25-ACFB-1BCC75B30197}</td><td>S5</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td>{DFDD6033-5F04-4229-B2FD-0B3B3B76FE73}</td><td>TS1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT8</td><td>{8BD66E04-F706-4970-9A56-8AD8D6CBAA43}</td><td>YS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>TUW_System.Primary_output</td><td>{3D7C97A6-A5D9-4426-898D-BA1C585DA331}</td><td>INSTALLDIR</td><td>2</td><td/><td>tuw_system.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>TUW_System.Primary_output1</td><td>{3D07DAB3-8DE3-460E-8CE3-B314A8003C29}</td><td>INSTALLDIR</td><td>2</td><td/><td>tuw_system.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
@@ -1052,11 +1059,25 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AC</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT7</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT8</td></row>
 		<row><td>INSTALLDIR</td><td>TUW_System.Primary_output</td></row>
 		<row><td>INSTALLDIR</td><td>TUW_System.Primary_output1</td></row>
+		<row><td>P</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>REPORT</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>S3</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>S4</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>S5</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>TS1</td><td>ISX_DEFAULTCOMPONENT7</td></row>
+		<row><td>YS</td><td>ISX_DEFAULTCOMPONENT8</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1135,6 +1156,7 @@
 		<col def="S255">ISDescription</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S255">ISFolderName</col>
+		<row><td>AC</td><td>REPORT</td><td>AC</td><td/><td>0</td><td/></row>
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
@@ -1157,6 +1179,7 @@
 		<row><td>MY_PRODUCT_NAME1</td><td>TUW</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
+		<row><td>P</td><td>REPORT</td><td>P</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
@@ -1165,6 +1188,9 @@
 		<row><td>ProgramMenuFolder</td><td>TARGETDIR</td><td>.:Programs</td><td/><td>3</td><td/></row>
 		<row><td>REPORT</td><td>INSTALLDIR</td><td>Report</td><td/><td>0</td><td/></row>
 		<row><td>RecentFolder</td><td>TARGETDIR</td><td>.:Recent</td><td/><td>0</td><td/></row>
+		<row><td>S3</td><td>REPORT</td><td>S3</td><td/><td>0</td><td/></row>
+		<row><td>S4</td><td>REPORT</td><td>S4</td><td/><td>0</td><td/></row>
+		<row><td>S5</td><td>REPORT</td><td>S5</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
 		<row><td>StartMenuFolder</td><td>TARGETDIR</td><td>.:STARTM~1|Start Menu</td><td/><td>3</td><td/></row>
 		<row><td>StartupFolder</td><td>TARGETDIR</td><td>.:StartUp</td><td/><td>3</td><td/></row>
@@ -1172,6 +1198,7 @@
 		<row><td>System64Folder</td><td>TARGETDIR</td><td>.:System64</td><td/><td>0</td><td/></row>
 		<row><td>SystemFolder</td><td>TARGETDIR</td><td>.:System32</td><td/><td>0</td><td/></row>
 		<row><td>TARGETDIR</td><td/><td>SourceDir</td><td/><td>0</td><td/></row>
+		<row><td>TS1</td><td>REPORT</td><td>TS1</td><td/><td>0</td><td/></row>
 		<row><td>TUW</td><td>ProgramFilesFolder</td><td>TUW</td><td/><td>0</td><td/></row>
 		<row><td>TUW_SYSTEM</td><td>TUW</td><td>TUWSYS~1|TUW System</td><td/><td>0</td><td/></row>
 		<row><td>TempFolder</td><td>TARGETDIR</td><td>.:Temp</td><td/><td>0</td><td/></row>
@@ -1179,6 +1206,7 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
+		<row><td>YS</td><td>REPORT</td><td>YS</td><td/><td>0</td><td/></row>
 		<row><td>tuwsys_1_tuw_system</td><td>tuwtex_1._lt_t.u.w._textile_co._ltd.</td><td>TUWSYS~1|TUW System</td><td/><td>1</td><td/></row>
 		<row><td>tuwtex_1._lt_t.u.w._textile_co._ltd.</td><td>ProgramMenuFolder</td><td>TUWTEX~1._LT|T.U.W. textile Co.,Ltd.</td><td/><td>1</td><td/></row>
 	</table>
@@ -1874,6 +1902,13 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT7</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT8</td></row>
 		<row><td>AlwaysInstall</td><td>TUW_System.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>TUW_System.Primary_output1</td></row>
 	</table>
@@ -1890,44 +1925,33 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>acctransferord_pack.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>ACCTRA~1.RPT|ACCTransferOrd_PACK.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\ACCTransferOrd_PACK.rpt</td><td>1</td><td/></row>
-		<row><td>acctransferord_sew.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>ACCTRA~1.RPT|ACCTransferOrd_SEW.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\ACCTransferOrd_SEW.rpt</td><td>1</td><td/></row>
-		<row><td>actual_report.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>ACTUAL~1.XLT|Actual Report.XLT</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Actual Report.XLT</td><td>1</td><td/></row>
-		<row><td>blank_form_new_format.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>BLANKF~1.XLT|Blank Form_New Format.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Blank Form_New Format.xlt</td><td>1</td><td/></row>
-		<row><td>copy_of_s5_receivenote.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>COPYOF~1.RPT|Copy of S5_ReceiveNote.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Copy of S5_ReceiveNote.rpt</td><td>1</td><td/></row>
-		<row><td>cutting_order.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>CUTTIN~1.RPT|CUTTING_ORDER.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\CUTTING_ORDER.rpt</td><td>1</td><td/></row>
-		<row><td>dyedailysheet.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>DYEDAI~1.XLT|DyeDailySheet.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\DyeDailySheet.xlt</td><td>1</td><td/></row>
-		<row><td>dyeing_monthly_report.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>DYEING~1.XLT|Dyeing_monthly_report.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Dyeing_monthly_report.xlt</td><td>1</td><td/></row>
-		<row><td>fg_c_a_holding.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>FG_C&amp;A~1.XLT|FG_C&amp;A_HOLDING.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\FG_C&amp;A_HOLDING.xlt</td><td>1</td><td/></row>
-		<row><td>inventory.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>INVENT~1.XLT|Inventory.XLT</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Inventory.XLT</td><td>1</td><td/></row>
-		<row><td>loss_time.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>LOSS_T~1.XLT|LOSS_TIME.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\LOSS_TIME.xlt</td><td>1</td><td/></row>
-		<row><td>order_balance_v2.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>ORDERB~1.XLT|Order balance V2.XLT</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Order balance V2.XLT</td><td>1</td><td/></row>
-		<row><td>packing_order.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>PACKIN~1.RPT|PACKING_ORDER.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\PACKING_ORDER.rpt</td><td>1</td><td/></row>
-		<row><td>plan_dyeing.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>PLAN-D~1.XLT|PLAN-DYEING.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\PLAN-DYEING.xlt</td><td>1</td><td/></row>
-		<row><td>production_schedule.xlt</td><td>ISX_DEFAULTCOMPONENT</td><td>PRODUC~1.XLT|Production Schedule.XLT</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\Production Schedule.XLT</td><td>1</td><td/></row>
-		<row><td>purchase_order_n.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>PURCHA~1.RPT|PURCHASE ORDER_N.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\PURCHASE ORDER_N.rpt</td><td>1</td><td/></row>
-		<row><td>receivenote_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>RECEIV~1.RPT|ReceiveNote-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\ReceiveNote-Parfun.rpt</td><td>1</td><td/></row>
-		<row><td>receivenote_riki.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>RECEIV~1.RPT|ReceiveNote-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\ReceiveNote-Riki.rpt</td><td>1</td><td/></row>
-		<row><td>receivenote_sewing.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>RECEIV~1.RPT|ReceiveNote-Sewing.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\ReceiveNote-Sewing.rpt</td><td>1</td><td/></row>
-		<row><td>s5_po.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>S5_PO.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5_PO.rpt</td><td>1</td><td/></row>
-		<row><td>s5_po_bak.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>S5_PO_~1.RPT|S5_PO_bak.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5_PO_bak.rpt</td><td>1</td><td/></row>
-		<row><td>s5_receivenote.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>S5_REC~1.RPT|S5_ReceiveNote.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5_ReceiveNote.rpt</td><td>1</td><td/></row>
-		<row><td>s5_receivenotebydate.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>S5_REC~1.RPT|S5_ReceiveNoteByDate.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5_ReceiveNoteByDate.rpt</td><td>1</td><td/></row>
-		<row><td>sewing_order.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>SEWING~1.RPT|SEWING_ORDER.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\SEWING_ORDER.rpt</td><td>1</td><td/></row>
-		<row><td>summary_report.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>SUMMAR~1.RPT|SUMMARY REPORT.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\SUMMARY REPORT.rpt</td><td>1</td><td/></row>
-		<row><td>ts1_customerbyseiban.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>TS1_CU~1.RPT|TS1_CustomerBySeiban.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1_CustomerBySeiban.rpt</td><td>1</td><td/></row>
-		<row><td>ts1_receivenote.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>TS1_RE~1.RPT|TS1_ReceiveNote.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1_ReceiveNote.rpt</td><td>1</td><td/></row>
-		<row><td>ts5_receivenote1.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>TS5_RE~1.RPT|TS5_ReceiveNote1.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS5_ReceiveNote1.rpt</td><td>1</td><td/></row>
+		<row><td>accountsales2.rpt</td><td>ISX_DEFAULTCOMPONENT2</td><td>ACCOUN~2.RPT|AccountSales2.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\AC\AccountSales2.rpt</td><td>1</td><td/></row>
+		<row><td>acctransferord_pack.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>ACCTRA~1.RPT|ACCTransferOrd_PACK.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\ACCTransferOrd_PACK.rpt</td><td>1</td><td/></row>
+		<row><td>acctransferord_sew.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>ACCTRA~1.RPT|ACCTransferOrd_SEW.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\ACCTransferOrd_SEW.rpt</td><td>1</td><td/></row>
+		<row><td>blank_form_new_format.xlt</td><td>ISX_DEFAULTCOMPONENT3</td><td>BLANKF~1.XLT|Blank Form_New Format.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\P\Blank Form_New Format.xlt</td><td>1</td><td/></row>
+		<row><td>cutting_order.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>CUTTIN~1.RPT|CUTTING_ORDER.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\CUTTING_ORDER.rpt</td><td>1</td><td/></row>
+		<row><td>dyedailysheet.xlt</td><td>ISX_DEFAULTCOMPONENT6</td><td>DYEDAI~1.XLT|DyeDailySheet.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5\DyeDailySheet.xlt</td><td>1</td><td/></row>
+		<row><td>dyeing_monthly_report.xlt</td><td>ISX_DEFAULTCOMPONENT6</td><td>DYEING~1.XLT|Dyeing_monthly_report.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5\Dyeing_monthly_report.xlt</td><td>1</td><td/></row>
+		<row><td>fg_c_a_holding.xlt</td><td>ISX_DEFAULTCOMPONENT7</td><td>FG_C&amp;A~1.XLT|FG_C&amp;A_HOLDING.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\FG_C&amp;A_HOLDING.xlt</td><td>1</td><td/></row>
+		<row><td>loss_time.xlt</td><td>ISX_DEFAULTCOMPONENT6</td><td>LOSS_T~1.XLT|LOSS_TIME.xlt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5\LOSS_TIME.xlt</td><td>1</td><td/></row>
+		<row><td>packing_order.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>PACKIN~1.RPT|PACKING_ORDER.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\PACKING_ORDER.rpt</td><td>1</td><td/></row>
+		<row><td>purchase_order_n.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>PURCHA~1.RPT|PURCHASE ORDER_N.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\PURCHASE ORDER_N.rpt</td><td>1</td><td/></row>
+		<row><td>receivenote_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT5</td><td>RECEIV~1.RPT|ReceiveNote-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S4\ReceiveNote-Parfun.rpt</td><td>1</td><td/></row>
+		<row><td>receivenote_riki.rpt</td><td>ISX_DEFAULTCOMPONENT4</td><td>RECEIV~1.RPT|ReceiveNote-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S3\ReceiveNote-Riki.rpt</td><td>1</td><td/></row>
+		<row><td>s5_po.rpt</td><td>ISX_DEFAULTCOMPONENT6</td><td>S5_PO.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5\S5_PO.rpt</td><td>1</td><td/></row>
+		<row><td>s5_receivenote.rpt</td><td>ISX_DEFAULTCOMPONENT6</td><td>S5_REC~1.RPT|S5_ReceiveNote.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5\S5_ReceiveNote.rpt</td><td>1</td><td/></row>
+		<row><td>s5_receivenotebydate.rpt</td><td>ISX_DEFAULTCOMPONENT6</td><td>S5_REC~1.RPT|S5_ReceiveNoteByDate.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S5\S5_ReceiveNoteByDate.rpt</td><td>1</td><td/></row>
+		<row><td>sewing_order.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>SEWING~1.RPT|SEWING_ORDER.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\SEWING_ORDER.rpt</td><td>1</td><td/></row>
+		<row><td>summary_report.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>SUMMAR~1.RPT|SUMMARY REPORT.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\SUMMARY REPORT.rpt</td><td>1</td><td/></row>
+		<row><td>ts1_receivenote.rpt</td><td>ISX_DEFAULTCOMPONENT7</td><td>TS1_RE~4.RPT|TS1_ReceiveNote.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\TS1\TS1_ReceiveNote.rpt</td><td>1</td><td/></row>
 		<row><td>tuw_system.primary_output</td><td>TUW_System.Primary_output1</td><td>TUW System.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;TUW System&gt;|Built</td><td>3</td><td/></row>
-		<row><td>xdenp_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XDENP-~1.RPT|XDENP-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XDENP-Parfun.rpt</td><td>1</td><td/></row>
-		<row><td>xdenp_riki.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XDENP-~1.RPT|XDENP-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XDENP-Riki.rpt</td><td>1</td><td/></row>
-		<row><td>xdenp_sewing.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XDENP-~1.RPT|XDENP-Sewing.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XDENP-Sewing.rpt</td><td>1</td><td/></row>
-		<row><td>xslip_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XSEDF7~1.RPT|XSLIP-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XSLIP-Parfun.rpt</td><td>1</td><td/></row>
-		<row><td>xslip_riki.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XS4E61~1.RPT|XSLIP-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XSLIP-Riki.rpt</td><td>1</td><td/></row>
-		<row><td>xslip_sewing.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>XSB9B9~1.RPT|XSLIP-Sewing.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\XSLIP-Sewing.rpt</td><td>1</td><td/></row>
-		<row><td>ys_checkcarton.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>YS_CHE~1.RPT|YS_CheckCarton.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\YS_CheckCarton.rpt</td><td>1</td><td/></row>
-		<row><td>ys_issue.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>YS_Issue.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\YS_Issue.rpt</td><td>1</td><td/></row>
-		<row><td>ys_report.rpt</td><td>ISX_DEFAULTCOMPONENT</td><td>YS_REP~1.RPT|YS_Report.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\YS_Report.rpt</td><td>1</td><td/></row>
+		<row><td>xdenp_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT5</td><td>XDENP-~1.RPT|XDENP-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S4\XDENP-Parfun.rpt</td><td>1</td><td/></row>
+		<row><td>xdenp_riki.rpt</td><td>ISX_DEFAULTCOMPONENT4</td><td>XDENP-~1.RPT|XDENP-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S3\XDENP-Riki.rpt</td><td>1</td><td/></row>
+		<row><td>xslip_parfun.rpt</td><td>ISX_DEFAULTCOMPONENT5</td><td>XSLIP-~1.RPT|XSLIP-Parfun.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S4\XSLIP-Parfun.rpt</td><td>1</td><td/></row>
+		<row><td>xslip_riki.rpt</td><td>ISX_DEFAULTCOMPONENT4</td><td>XSLIP-~1.RPT|XSLIP-Riki.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\S3\XSLIP-Riki.rpt</td><td>1</td><td/></row>
+		<row><td>ys_checkcarton.rpt</td><td>ISX_DEFAULTCOMPONENT8</td><td>YS_CHE~1.RPT|YS_CheckCarton.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\YS\YS_CheckCarton.rpt</td><td>1</td><td/></row>
+		<row><td>ys_issue.rpt</td><td>ISX_DEFAULTCOMPONENT8</td><td>YS_Issue.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\YS\YS_Issue.rpt</td><td>1</td><td/></row>
+		<row><td>ys_report.rpt</td><td>ISX_DEFAULTCOMPONENT8</td><td>YS_REP~1.RPT|YS_Report.rpt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\c#.net\TUW System\TUW System\Report\YS\YS_Report.rpt</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2071,6 +2095,13 @@
 		<col def="S0">Miscellaneous</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_C97588A9_ECAE_4663_8E9F_A485662881F0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_4D2D797B_1D45_4C9C_837E_5F223D5006F9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_421AE462_9F75_4955_BA6E_9A83A0C31F0F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_593128D3_6AA6_454D_A0F9_0548C0493DCD_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_A84E119A_4EFF_4B94_B660_93F444F2FA1C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_A3695D38_CD25_481D_B707_0204646034AA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_4BCDDF0E_4CF1_4923_89DB_914AFE5AA5F3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td/><td/><td>_AD6A732B_C336_4936_B721_686F64166A8E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT8</td><td/><td/><td>_C87C1BC5_1671_4769_95DE_BC941FF8E128_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>TUW_System.Primary_output</td><td/><td/><td>_4E04FB61_9F04_4CAE_8AC9_233159DF1F5C_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>TUW_System.Primary_output1</td><td/><td/><td>_8E0E9F50_9897_49DB_A9F9_DD53AB77E62C_FILTER</td><td/><td/><td/><td/></row>
 	</table>
@@ -3765,7 +3796,7 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-433824375</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.T.U.W.textileCo.,Ltd..com</td><td>0</td><td/><td>740623784</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.tuw.co.th</td><td>0</td><td/><td>-64655222</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>T.U.W. textile Co.,Ltd.</td><td>0</td><td/><td>740623784</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>TUW System</td><td>0</td><td/><td>-433832183</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>TUWSYS~1|TUW System</td><td>0</td><td/><td>413478763</td></row>

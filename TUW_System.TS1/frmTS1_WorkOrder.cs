@@ -134,23 +134,23 @@ namespace TUW_System.TS1
                     switch (GridView.GetRowCellDisplayText(i, "WORK_CENTER").Substring(0, 4))
                     {
                         case "CUT-":
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\CUTTING_ORDER.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\CUTTING_ORDER.RPT";
                             ctr.PrintReport(fmlText, true,"sa","");
                             SaveData(GridView.GetRowCellDisplayText(i, "ORDER"));
                             break;
                         case "SEW-":
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\SEWING_ORDER.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\SEWING_ORDER.RPT";
                             ctr.PrintReport(fmlText, true,"sa","");
                             //ctr.ClearParameters();
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\ACCTransferOrd_SEW.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\ACCTransferOrd_SEW.RPT";
                             ctr.PrintReport(fmlText, true,"sa","");
                             SaveData(GridView.GetRowCellDisplayText(i, "ORDER"));
                             break;
                         case "PACK":
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\PACKING_ORDER.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\PACKING_ORDER.RPT";
                             ctr.PrintReport(fmlText, true,"sa","");
                             //ctr.ClearParameters();
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\ACCTransferOrd_PACK.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\ACCTransferOrd_PACK.RPT";
                             ctr.PrintReport(fmlText, true,"sa","");
                             SaveData(GridView.GetRowCellDisplayText(i, "ORDER"));
                             break;
@@ -194,21 +194,21 @@ namespace TUW_System.TS1
                     switch (GridView.GetRowCellDisplayText(i, "WORK_CENTER").Substring(0, 4))
                     {
                         case "CUT-":
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\CUTTING_ORDER.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\CUTTING_ORDER.RPT";
                             ctr.PrintReport(fmlText, false,"sa","");
                             break;
                         case "SEW-":
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\SEWING_ORDER.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\SEWING_ORDER.RPT";
                             ctr.PrintReport(fmlText, false,"sa","");
                             //ctr.ClearParameters();
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\ACCTransferOrd_SEW.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\ACCTransferOrd_SEW.RPT";
                             ctr.PrintReport(fmlText, false,"sa","");
                             break;
                         case "PACK":
-                            ctr.ReportFileName = Application.StartupPath + "\\Report\\PACKING_ORDER.RPT";
+                            ctr.ReportFileName = Application.StartupPath + "\\Report\\TS1\\PACKING_ORDER.RPT";
                             ctr.PrintReport(fmlText, false,"sa","");
                             //ctr.ClearParameters();
-                            ctr.ReportFileName = (string)(Application.StartupPath + "\\Report\\ACCTransferOrd_PACK.RPT");
+                            ctr.ReportFileName = (string)(Application.StartupPath + "\\Report\\TS1\\ACCTransferOrd_PACK.RPT");
                             ctr.PrintReport(fmlText, false,"sa","");
                             break;
                     }

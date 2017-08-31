@@ -92,7 +92,7 @@ namespace TUW_System.YS
         }
         public void PrintPreview()
         {
-            cCrystalReport crpCheckCarton = new cCrystalReport(Application.StartupPath + @"\Report\YS_CheckCarton.rpt");
+            cCrystalReport crpCheckCarton = new cCrystalReport(Application.StartupPath + @"\Report\YS\YS_CheckCarton.rpt");
             if (crpCheckCarton.SetPrinter(1) == false) { return; }
             crpCheckCarton.ReportTitle = sleCode.Text;
             for (int i = 1; i <= crpCheckCarton.ReportCopy; i++)
@@ -106,7 +106,7 @@ namespace TUW_System.YS
         }
         public void Print()
         {
-            cCrystalReport crpCheckCarton = new cCrystalReport(Application.StartupPath + @"\Report\YS_CheckCarton.rpt");
+            cCrystalReport crpCheckCarton = new cCrystalReport(Application.StartupPath + @"\Report\YS\YS_CheckCarton.rpt");
             if (crpCheckCarton.SetPrinter(1) == false) { return; }
             crpCheckCarton.ReportTitle = sleCode.Text;
             for (int i = 1; i <= crpCheckCarton.ReportCopy; i++)

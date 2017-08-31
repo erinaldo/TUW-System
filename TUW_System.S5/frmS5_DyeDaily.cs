@@ -442,7 +442,7 @@ namespace TUW_System.S5
             Thread currentThread = System.Threading.Thread.CurrentThread;
             currentThread.CurrentCulture = clinfo;
             Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\Dyeing_monthly_report.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\S5\\Dyeing_monthly_report.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Microsoft.Office.Interop.Excel._Worksheet xlSheet = (_Worksheet)xlApp.ActiveSheet;
             int excelFirstDataRow = 5;
             int excelCurrentRow = excelFirstDataRow;
@@ -530,7 +530,7 @@ namespace TUW_System.S5
             currentThread.CurrentCulture = clinfo;
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             //Microsoft.Office.Interop.Excel._Workbook xlBook = excel.Workbooks.Add(XlSheetType.xlWorksheet);
-            Microsoft.Office.Interop.Excel._Workbook xlBook = excel.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\DyeDailySheet.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            Microsoft.Office.Interop.Excel._Workbook xlBook = excel.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\S5\\DyeDailySheet.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Microsoft.Office.Interop.Excel._Worksheet xlSheet = (_Worksheet)excel.ActiveSheet;
             int excelCurrentRow = 6;
 
@@ -604,7 +604,7 @@ namespace TUW_System.S5
             Thread currentThread = System.Threading.Thread.CurrentThread;
             currentThread.CurrentCulture = clinfo;
             Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\LOSS_TIME.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\S5\\LOSS_TIME.xlt", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Microsoft.Office.Interop.Excel._Worksheet xlSheet = (_Worksheet)xlApp.ActiveSheet;
             int excelFirstDataRow = 6;
             int excelCurrentRow = excelFirstDataRow;

@@ -147,7 +147,7 @@ namespace TUW_System.YS
         {
             try
             {
-                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS_Issue.rpt");
+                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS\YS_Issue.rpt");
                 if (crpIssue.SetPrinter() == false) return;
                 crpIssue.ReportTitle = sleIssNo.Text;
                 for (int i = 1; i <= crpIssue.ReportCopy; i++)
@@ -166,7 +166,7 @@ namespace TUW_System.YS
         {
             try
             {
-                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS_Issue.rpt");
+                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS\YS_Issue.rpt");
                 if (crpIssue.SetPrinter() == false) return;
                 crpIssue.ReportTitle = sleIssNo.Text;
                 for (int i = 1; i <= crpIssue.ReportCopy; i++)

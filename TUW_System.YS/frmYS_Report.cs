@@ -95,7 +95,7 @@ namespace TUW_System.YS
         {
             try
             {
-                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS_Report.rpt");
+                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS\YS_Report.rpt");
                 if (crpIssue.SetPrinter() == false) return;
                 if (statusType == "In All")
                     crpIssue.ReportTitle = "ใบสรุปการรับเส้นด้ายประจำวัน";
@@ -124,7 +124,7 @@ namespace TUW_System.YS
         {
             try
             {
-                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS_Report.rpt");
+                cCrystalReport crpIssue = new cCrystalReport(Application.StartupPath + @"\Report\YS\YS_Report.rpt");
                 if (crpIssue.SetPrinter() == false) return;
                 if (statusType == "In All")
                     crpIssue.ReportTitle = "ใบสรุปการรับเส้นด้ายประจำวัน";

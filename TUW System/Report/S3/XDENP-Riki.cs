@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report {
+namespace TUW_System.Report.S3 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace TUW_System.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class XSLIP_Riki : ReportClass {
+    public class XDENP_Riki : ReportClass {
         
-        public XSLIP_Riki() {
+        public XDENP_Riki() {
         }
         
         public override string ResourceName {
             get {
-                return "XSLIP-Riki.rpt";
+                return "XDENP-Riki.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.XSLIP-Riki.rpt";
+                return "TUW_System.Report.S3.XDENP-Riki.rpt";
             }
             set {
                 // Do nothing
@@ -114,9 +114,9 @@ namespace TUW_System.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedXSLIP_Riki : Component, ICachedReport {
+    public class CachedXDENP_Riki : Component, ICachedReport {
         
-        public CachedXSLIP_Riki() {
+        public CachedXDENP_Riki() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace TUW_System.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            XSLIP_Riki rpt = new XSLIP_Riki();
+            XDENP_Riki rpt = new XDENP_Riki();
             rpt.Site = this.Site;
             return rpt;
         }

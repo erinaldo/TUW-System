@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TUW_System.Report {
+namespace TUW_System.Report.TS1 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace TUW_System.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class XDENP_Riki : ReportClass {
+    public class TS1_ReceiveNote : ReportClass {
         
-        public XDENP_Riki() {
+        public TS1_ReceiveNote() {
         }
         
         public override string ResourceName {
             get {
-                return "XDENP-Riki.rpt";
+                return "TS1_ReceiveNote.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.XDENP-Riki.rpt";
+                return "TUW_System.Report.TS1.TS1_ReceiveNote.rpt";
             }
             set {
                 // Do nothing
@@ -82,7 +82,7 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section13 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section6 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -106,6 +106,22 @@ namespace TUW_System.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section7 {
+            get {
+                return this.ReportDefinition.Sections[7];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section8 {
+            get {
+                return this.ReportDefinition.Sections[8];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.Shared.IParameterField Parameter_Copy {
             get {
                 return this.DataDefinition.ParameterFields[0];
@@ -114,9 +130,9 @@ namespace TUW_System.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedXDENP_Riki : Component, ICachedReport {
+    public class CachedTS1_ReceiveNote : Component, ICachedReport {
         
-        public CachedXDENP_Riki() {
+        public CachedTS1_ReceiveNote() {
         }
         
         [Browsable(false)]
@@ -153,7 +169,7 @@ namespace TUW_System.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            XDENP_Riki rpt = new XDENP_Riki();
+            TS1_ReceiveNote rpt = new TS1_ReceiveNote();
             rpt.Site = this.Site;
             return rpt;
         }

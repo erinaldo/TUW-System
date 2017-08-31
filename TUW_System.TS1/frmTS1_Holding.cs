@@ -453,7 +453,7 @@ namespace TUW_System.TS1
             if (cboProcess.Text == "FG")
             {
                 Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\FG_C&A_HOLDING.xlt");
+                Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\TS1\\FG_C&A_HOLDING.xlt");
                 Microsoft.Office.Interop.Excel.Sheets xlSheets = xlBook.Worksheets;
                 Microsoft.Office.Interop.Excel._Worksheet xlSheet = (_Worksheet)xlSheets.get_Item(1);
                 //xlApp.Visible = true;
@@ -504,7 +504,7 @@ namespace TUW_System.TS1
             else
             {
                 Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\FG_C&A_HOLDING.xlt");
+                Microsoft.Office.Interop.Excel._Workbook xlBook = xlApp.Workbooks.Open(System.Windows.Forms.Application.StartupPath + "\\Report\\TS1\\FG_C&A_HOLDING.xlt");
                 Microsoft.Office.Interop.Excel.Sheets xlSheets = xlBook.Worksheets;
                 Microsoft.Office.Interop.Excel._Worksheet xlSheet = (_Worksheet)xlSheets.get_Item(2);
                 int currentRow = 9;

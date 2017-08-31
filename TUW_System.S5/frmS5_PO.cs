@@ -335,7 +335,7 @@ namespace TUW_System.S5
         {
             try
             {
-                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5_PO.rpt");
+                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_PO.rpt");
                 if (crpPO.SetPrinter() == false) { return; }
                 crpPO.ReportTitle = slePONo.EditValue.ToString();
                 for (int i = 1; i <= crpPO.ReportCopy; i++)
@@ -363,7 +363,7 @@ namespace TUW_System.S5
         {
             try
             {
-                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5_PO.rpt");
+                cCrystalReport crpPO = new cCrystalReport(Application.StartupPath + @"\Report\S5\S5_PO.rpt");
                 int intTemp = 0;
                 string strInput = "1";
                 try
