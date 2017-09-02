@@ -911,6 +911,23 @@ namespace TUW_System
             frm52.WindowState = FormWindowState.Maximized;
             frm52.Show();
         }
+        private void LoadfrmAC_DomesticList()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_DomesticList")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_DomesticList frm53 = new frmAC_DomesticList();
+            frm53.ConnectionString = Module.DBExim;
+            frm53.StatusBarEvent += new frmAC_DomesticList.StatusBarHandler(UpdateStatusBar);
+            frm53.MdiParent = this;
+            frm53.WindowState = FormWindowState.Maximized;
+            frm53.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1256,6 +1273,9 @@ namespace TUW_System
                     case "frmAC_Domestic":
                         ((frmAC_Domestic)frmActive).SaveData();
                         break;
+                    case "frmAC_DomesticList":
+                        ((frmAC_DomesticList)frmActive).SaveData();
+                        break;
                 }
             }
         }
@@ -1439,6 +1459,9 @@ namespace TUW_System
                         break;
                     case "frmAC_ShowDebtor":
                         ((frmAC_ShowDebtor)frmActive).DisplayData();
+                        break;
+                    case "frmAC_DomesticList":
+                        ((frmAC_DomesticList)frmActive).DisplayData();
                         break;
                 }
             }
@@ -1768,6 +1791,7 @@ namespace TUW_System
                     case "frmAC_BankRate":
                     case "frmAC_UpdateData":
                     case "frmAC_Domestic":
+                    case "frmAC_DomesticList":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -1883,6 +1907,7 @@ namespace TUW_System
                     case "frmAC_UpdateData":
                     case "frmAC_AccSales":
                     case "frmAC_ShowDebtor":
+                    case "frmAC_DomesticList":
                         bbiRefresh.Enabled = true;
                         break;
                     default:
@@ -2298,6 +2323,10 @@ namespace TUW_System
         {
             LoadfrmAC_Domestic();
         }
+        private void bbiAC_DomesticList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_DomesticList();
+        }
 
         #endregion
 
@@ -2337,6 +2366,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 

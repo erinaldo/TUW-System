@@ -119,11 +119,11 @@ namespace TUW_System.AC
                     strSQL+=",N'"+sleDescription.Text+"',N'"+txtCustomer.Text+"','"+cboPayment.Text+"'";
                     strSQL+=(txtCredit.Text.Length==0)?",0":","+txtCredit.Text;
                     strSQL+=",'"+cboDepartment.Text+"','"+txtId.Text+"'";
-                    strSQL+=(txtQty.Text.Length==0)?",0":","+txtQty.Text+"'";
+                    strSQL+=(txtQty.Text.Length==0)?",0":","+txtQty.Text;
                     strSQL+=",'"+cboUnit.Text+"'";
-                    strSQL+=(txtAmount.Text.Length==0)?",0":","+txtAmount.Text+"'";
-                    strSQL+=(txtVat.Text.Length==0)?",0":","+txtVat.Text+"'";
-                    strSQL+=(txtSales.Text.Length==0)?",0":","+txtSales.Text+"'";
+                    strSQL+=(txtAmount.Text.Length==0)?",0":","+txtAmount.Text;
+                    strSQL+=(txtVat.Text.Length==0)?",0":","+txtVat.Text;
+                    strSQL+=(txtSales.Text.Length==0)?",0":","+txtSales.Text;
                     strSQL+=(dtpBillDate.EditValue==null)?",null":",'"+((DateTime)dtpBillDate.EditValue).ToString("yyyy-MM-dd",dtfinfo)+"'";
                     strSQL+=(chkCancel.Checked)?",1":",0";
                     strSQL+=(chkDebtor.Checked)?",1":",0";
