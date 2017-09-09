@@ -43,6 +43,7 @@ namespace TUW_System.AC
             try
             {
                 db.BeginTrans();
+                gridView1.CloseEditor();
                 gridView1.UpdateCurrentRow();
                 string strSQL;
                 for (int i = 0; i < gridView1.DataRowCount; i++)
@@ -100,7 +101,6 @@ namespace TUW_System.AC
                 " where datepart(mm,inv_date) = '"+ strMonth+"'"+
                 " and datepart(yyyy,inv_date) = '"+strYear+"' order by invoice_no";
             DataTable dt = db.GetDataTable(strSQL);
-            gridControl1.DataSource = dt;
             dt.BeginInit();
             DataColumn dc = new DataColumn();
             dc.DataType = typeof(System.Boolean);
@@ -108,6 +108,7 @@ namespace TUW_System.AC
             dc.DefaultValue = false;
             dt.Columns.Add(dc);
             dt.EndInit();
+            gridControl1.DataSource = dt;
             gridView1.PopulateColumns();
             gridView1.Columns["invoice_no"].Caption = "Invoice No.";
             gridView1.Columns["inv_desc"].Caption = "Description";

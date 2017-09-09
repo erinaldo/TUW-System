@@ -243,6 +243,7 @@ namespace TUW_System.AC
         }
         private void GridToData()
         {
+            gridView1.CloseEditor();
             gridView1.UpdateCurrentRow();
             string strSQL = "delete from domesticinvdept where invoiceno = '"+sleInvoice.Text+"'";
             db.Execute(strSQL);

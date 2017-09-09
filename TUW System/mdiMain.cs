@@ -928,6 +928,23 @@ namespace TUW_System
             frm53.WindowState = FormWindowState.Maximized;
             frm53.Show();
         }
+        private void LoadfrmAC_ColDomestic()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_ColDomestic")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_ColDomestic frm54 = new frmAC_ColDomestic();
+            frm54.ConnectionString = Module.DBExim;
+            frm54.StatusBarEvent += new frmAC_ColDomestic.StatusBarHandler(UpdateStatusBar);
+            frm54.MdiParent = this;
+            frm54.WindowState = FormWindowState.Maximized;
+            frm54.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1275,6 +1292,9 @@ namespace TUW_System
                         break;
                     case "frmAC_DomesticList":
                         ((frmAC_DomesticList)frmActive).SaveData();
+                        break;
+                    case "frmAC_ColDomestic":
+                        ((frmAC_ColDomestic)frmActive).SaveData();
                         break;
                 }
             }
@@ -1792,6 +1812,7 @@ namespace TUW_System
                     case "frmAC_UpdateData":
                     case "frmAC_Domestic":
                     case "frmAC_DomesticList":
+                    case "frmAC_ColDomestic":
                         var isSave=(from p in User_Login.Forms where p.FormName==frmActive.Name select p.CanSave).First();
                         bbiSave.Enabled = (isSave) ? true : false;
                         //foreach (DataRow dr in _dtLogin.Rows)
@@ -2327,6 +2348,10 @@ namespace TUW_System
         {
             LoadfrmAC_DomesticList();
         }
+        private void bbiAC_ColDomestic_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_ColDomestic();
+        }
 
         #endregion
 
@@ -2366,6 +2391,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 

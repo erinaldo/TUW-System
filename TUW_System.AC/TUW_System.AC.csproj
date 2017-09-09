@@ -71,6 +71,12 @@
     <Compile Include="frmAC_BankRate.Designer.cs">
       <DependentUpon>frmAC_BankRate.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAC_ColDomestic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_ColDomestic.Designer.cs">
+      <DependentUpon>frmAC_ColDomestic.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_Cust.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_BankRate.resx">
       <DependentUpon>frmAC_BankRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_ColDomestic.resx">
+      <DependentUpon>frmAC_ColDomestic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_Cust.resx">
       <DependentUpon>frmAC_Cust.cs</DependentUpon>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace TUW_System.AC
         public event StatusBarHandler StatusBarEvent;
         
         cDatabase db;
-        DataTable dtCustomers;
+        CultureInfo clinfo=new CultureInfo("en-US");
+        DateTimeFormatInfo dtfinfo;
         RepositoryItemSearchLookUpEdit rpCustomers;
 
         private string _connectionString;
@@ -40,65 +42,79 @@ namespace TUW_System.AC
         }
         public void SaveData()
         {
-            //Private Sub CmdSave_Click()
-            //Dim i As Integer
-            //Dim j As Integer
-            //Dim zQty As Double
-            //Dim zAmt As Double
-            //Dim zVat As Double
-            //Dim zAmount As Double
+            this.Cursor = Cursors.WaitCursor;
+            db.ConnectionOpen();
+            try
+            {
+                db.BeginTrans();
+                gridView1.CloseEditor();
+                gridView1.UpdateCurrentRow();
+                string strSQL;
+                for (int i = 0; i < gridView1.DataRowCount; i++)
+                {
+                    if (((bool)gridView1.GetRowCellValue(i, "EDIT")) == false) continue;
+                    strSQL = "update domesticinvmain set ";
+                    if(gridView1.GetRowCellValue(i,"invoicedate")==System.DBNull.Value)
+                        strSQL+="invoicedate=null";
+                    else
+                        strSQL+="invoicedate ='"+((DateTime)gridView1.GetRowCellValue(i,"invoicedate")).ToString("yyyy-MM-dd",dtfinfo)+"'";
+                    strSQL+=",descr = N'"+gridView1.GetRowCellValue(i,"descr")+"'";
+                    strSQL+=",cust_no = '"+gridView1.GetRowCellValue(i,"cust_no")+"'";
+                    strSQL+=",payment = '"+gridView1.GetRowCellValue(i,"payment")+"'";
+                    strSQL+= ",credit = '" + gridView1.GetRowCellValue(i, "credit") + "'";
+                    strSQL+=",section = '"+gridView1.GetRowCellValue(i,"section")+"'";
+                    strSQL+=",idno = '"+gridView1.GetRowCellValue(i,"idno")+"'";
+                    strSQL += ",unit = N'" + gridView1.GetRowCellValue(i, "unit") + "'";
+                    strSQL += " where invoiceno = '" + gridView1.GetRowCellValue(i, "invoiceno") + "'";
+                    db.Execute(strSQL);
+                    strSQL = "delete from domesticinvdept where invoiceno='" + gridView1.GetRowCellValue(i, "invoiceno") + "'";
+                    db.Execute(strSQL);
+                    decimal qty,amt,vat,amount;
+                    switch (gridView1.GetRowCellValue(i, "section").ToString().ToUpper())
+                    { 
+                        case "NC-F"://Inter Sales 80% ,Direct Sales 20%
+                            qty=Convert.ToDecimal(gridView1.GetRowCellValue(i,"qty"))*0.8m;
+                            amt = Convert.ToDecimal(gridView1.GetRowCellValue(i, "amt")) * 0.8m;
+                            vat = Convert.ToDecimal(gridView1.GetRowCellValue(i, "vat")) * 0.8m;
+                            amount = Convert.ToDecimal(gridView1.GetRowCellValue(i, "amount")) * 0.8m;
+                            strSQL = "insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values" +
+                                "('" + gridView1.GetRowCellValue(i, "invoiceno") + "',1,'Inter Sales'," + qty + "," + amt + "," + vat + "," + amount + ")";
+                            db.Execute(strSQL);
+                            qty=Convert.ToDecimal(gridView1.GetRowCellValue(i,"qty"))*0.2m;
+                            amt = Convert.ToDecimal(gridView1.GetRowCellValue(i, "amt")) * 0.2m;
+                            vat = Convert.ToDecimal(gridView1.GetRowCellValue(i, "vat")) * 0.2m;
+                            amount = Convert.ToDecimal(gridView1.GetRowCellValue(i, "amount")) * 0.2m;
+                            strSQL = "insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values" +
+                                "('" + gridView1.GetRowCellValue(i, "invoiceno") + "',2,'Direct Sales'," + qty + "," + amt + "," + vat + "," + amount + ")";
+                            db.Execute(strSQL);
+                            break;
+                        case "PARFUN,RIKI":
+                        case "SP-F": //Riki 50%, Parfun 50%
+                            qty =Convert.ToDecimal(gridView1.GetRowCellValue(i,"qty"))/2m;
+                            amt=Convert.ToDecimal(gridView1.GetRowCellValue(i,"amt"))/2m;
+                            vat=Convert.ToDecimal(gridView1.GetRowCellValue(i,"vat"))/2m;
+                            amount=Convert.ToDecimal(gridView1.GetRowCellValue(i,"amount"))/2m;
+                            strSQL="insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values"+
+                                "('"+gridView1.GetRowCellValue(i,"invoiceno")+"',1,'Riki',"+qty+","+amt+","+vat+","+amount+")";
+                            db.Execute(strSQL);
+                            strSQL="insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values"+
+                                "('"+gridView1.GetRowCellValue(i,"invoiceno")+"',2,'Parfun',"+qty+","+amt+","+vat+","+amount+")";
+                            db.Execute(strSQL);
+                            break;
+                    }
 
-            //    Me.MousePointer = 11
-            //    OpenDatabaseSys
-            //    For i = 1 To FGrid.Rows - 1
-
-            //        SqlStr = "update domesticinvmain set invoicedate = '" & Format(FGrid.TextMatrix(i, 1), "mm/dd/yyyy") & "'" & _
-            //        ",descr = N'" & FGrid.TextMatrix(i, 3) & "',cust_no = '" & FGrid.TextMatrix(i, 4) & "',payment = '" & FGrid.TextMatrix(i, 6) & "'" & _
-            //        ",credit = '" & ChkNumeric(FGrid.TextMatrix(i, 7)) & "'" & _
-            //        ",section = '" & FGrid.TextMatrix(i, 8) & "',idno = '" & FGrid.TextMatrix(i, 9) & "',unit = N'" & FGrid.TextMatrix(i, 10) & "'" & _
-            //        " where invoiceno = '" & FGrid.TextMatrix(i, 0) & "'"
-            //        Dbs.Execute SqlStr
-            //       SqlStr = "delete from domesticinvdept where invoiceno = '" & FGrid.TextMatrix(i, 0) & "'"
-            //        Dbs.Execute SqlStr
-            //        zQty = 0
-            //        zAmt = 0
-            //        zVat = 0
-            //        zAmount = 0
-
-            //        Select Case UCase(Trim(FGrid.TextMatrix(i, 8)))
-            //            Case "NC-F" 'Inter Sales 80% ,Direct Sales 20%
-            //                zQty = ChkNumeric(FGrid.TextMatrix(i, 9)) * 80 / 100
-            //                zAmt = ChkNumeric(FGrid.TextMatrix(i, 11)) * 80 / 100
-            //                zVat = ChkNumeric(FGrid.TextMatrix(i, 12)) * 80 / 100
-            //                zAmount = ChkNumeric(FGrid.TextMatrix(i, 13)) * 80 / 100
-            //                SqlStr = "insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values" & _
-            //                "('" & FGrid.TextMatrix(i, 0) & "',1,'Inter Sales'," & zQty & "," & zAmt & "," & zVat & "," & zAmount & ")"
-            //                Dbs.Execute SqlStr
-            //                zQty = ChkNumeric(FGrid.TextMatrix(i, 9)) - zQty
-            //                zAmt = ChkNumeric(FGrid.TextMatrix(i, 11)) - zAmt
-            //                zVat = ChkNumeric(FGrid.TextMatrix(i, 12)) - zVat
-            //                zAmount = ChkNumeric(FGrid.TextMatrix(i, 13)) - zAmount
-            //                SqlStr = "insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values" & _
-            //                "('" & FGrid.TextMatrix(i, 0) & "',2,'Direct Sales'," & zQty & "," & zAmt & "," & zVat & "," & zAmount & ")"
-            //                Dbs.Execute SqlStr
-
-            //            Case "PARFUN,RIKI", "SP-F" 'Riki 50%, Parfun 50%
-            //                zQty = ChkNumeric(FGrid.TextMatrix(i, 9)) / 2
-            //                zAmt = ChkNumeric(FGrid.TextMatrix(i, 11)) / 2
-            //                zVat = ChkNumeric(FGrid.TextMatrix(i, 12)) / 2
-            //                zAmount = ChkNumeric(FGrid.TextMatrix(i, 13)) / 2
-            //                SqlStr = "insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values" & _
-            //                "('" & FGrid.TextMatrix(i, 0) & "',1,'Riki'," & zQty & "," & zAmt & "," & zVat & "," & zAmount & ")"
-            //                Dbs.Execute SqlStr
-            //                SqlStr = "insert into domesticinvdept (invoiceno,seq,section,qty,amt,vat,amount) values" & _
-            //                "('" & FGrid.TextMatrix(i, 0) & "',2,'Parfun'," & zQty & "," & zAmt & "," & zVat & "," & zAmount & ")"
-            //                Dbs.Execute SqlStr
-            //        End Select
-            //    Next i
-            //    CloseDB
-            //    Me.MousePointer = 0
-            //    MsgBox "Save Data Complete!"
-            //End Sub
+                    //MessageBox.Show(strSQL);
+                }
+                db.CommitTrans();
+                MessageBox.Show("Save complete.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                db.RollbackTrans();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            db.ConnectionClose();
+            this.Cursor = Cursors.Default;
         }
         public void DisplayData()
         {
@@ -114,25 +130,33 @@ namespace TUW_System.AC
 
         private RepositoryItemSearchLookUpEdit GetCustomers()
         {
-            string strSQL = "select distinct cust_no,custnamee from domesticinvmain inner join customeracc on domesticinvmain.cust_no = customeracc.cust_no order by custnamee";
+            //string strSQL = "select distinct cust_no,custnamee from domesticinvmain inner join customeracc on domesticinvmain.cust_no = customeracc.cust_no order by custnamee";
+            string strSQL = "select cust_no,custnamee from customeracc";
             DataTable dt = db.GetDataTable(strSQL);
             RepositoryItemSearchLookUpEdit rp = new RepositoryItemSearchLookUpEdit();
             rp.DataSource = dt;
             rp.PopulateViewColumns();
             rp.DisplayMember = "custnamee";
-            rp.ValueMember = "custnamee";
+            rp.ValueMember = "cust_no";
             rp.PopupSizeable = true;
             return rp;
 
         }
         private void GetInvoiceDetail(string strMonth,string strYear)
         {
-            string strSQL = "select a.invoiceno,a.invoicedate,a.idno,a.descr,a.cust_no,b.custnamee" +
+            string strSQL = "select a.invoiceno,a.invoicedate,a.idno,a.descr,a.cust_no,a.cust_no as custnamee" +
                 ",a.payment,a.credit,a.section,a.qty,a.unit,a.amt,a.vat,a.amount " +
-                "from domesticinvmain a inner join customeracc b on a.cust_no = b.cust_no " +
+                "from domesticinvmain a " +
                 "where datepart(mm,a.invoicedate) = '" + strMonth + "' " +
                 "and datepart(yyyy,invoicedate) = '" + strYear + "' order by a.invoiceno";
             DataTable dt = db.GetDataTable(strSQL);
+            dt.BeginInit();
+            DataColumn dc = new DataColumn();
+            dc.DataType = typeof(System.Boolean); 
+            dc.ColumnName = "EDIT";
+            dc.DefaultValue = false;
+            dt.Columns.Add(dc);
+            dt.EndInit();
             gridControl1.DataSource = dt;
             gridView1.PopulateColumns();
             gridView1.Columns["invoiceno"].Caption = "Invoice No.";
@@ -150,7 +174,7 @@ namespace TUW_System.AC
             gridView1.Columns["vat"].Caption = "Vat";
             gridView1.Columns["amount"].Caption = "Sales";
 
-
+            gridView1.Columns["EDIT"].Visible = false;
 
             gridView1.Columns["qty"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["qty"].DisplayFormat.FormatString = "n1";
@@ -178,6 +202,7 @@ namespace TUW_System.AC
         private void frmAC_DomesticList_Load(object sender, EventArgs e)
         {
             db = new cDatabase(_connectionString);
+            dtfinfo = clinfo.DateTimeFormat;
             for (int i = 0; i < 10; i++)
             {
                 cboYear.Properties.Items.Add(DateTime.Today.AddYears(-i).Year);
@@ -207,6 +232,18 @@ namespace TUW_System.AC
             {
                 e.RepositoryItem = rpCustomers;
             }
+        }
+        private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            if (gridView1.FocusedColumn.FieldName == "custnamee")
+            {
+                gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "cust_no",e.Value);
+            }
+        }
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            string[] field = new string[] { "invoicedate", "descr", "cust_no", "payment", "credit", "section", "idno", "unit" };
+            if (field.Contains(e.Column.FieldName)) gridView1.SetRowCellValue(e.RowHandle, "EDIT", true);
         }
     }
 }
@@ -267,14 +304,4 @@ namespace TUW_System.AC
 //    End Select
 //End Sub
 
-//Private Sub FGrid_KeyDownEdit(ByVal Row As Long, ByVal Col As Long, KeyCode As Integer, ByVal Shift As Integer)
-//    If KeyCode = 13 Then
-//        If FGrid.Col <> FGrid.Cols - 1 Then
-//            FGrid.Col = FGrid.Col + 1
-//        Else
-//            FGrid.Row = FGrid.Row + 1
-//            FGrid.Col = 0
-//        End If
-//    End If
-//End Sub
 
