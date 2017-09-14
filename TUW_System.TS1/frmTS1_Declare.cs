@@ -48,9 +48,12 @@ namespace TUW_System.TS1
         }
         public void NewData()
         {
+            sleModel.EditValue = null;
             txtModel.Text = "";
-            cboModel.Text = "";
             txtName.Text = "";
+            txtStyle.Text = "";
+            cboDivision.SelectedIndex = 0;
+            optProcess.EditValue = "2";
             memRemark.Text = "";
             ClearGrid(fgSize);
             ClearGrid(fgColor);
@@ -65,14 +68,14 @@ namespace TUW_System.TS1
 
             try
             {
-                strSQL = "SELECT Model,Name,Division,Style,Remark FROM TpicsModel WHERE Model = \'" + cboModel.Text + "\'";
-                strSQL = strSQL + ";" + "SELECT Name FROM TPicsSize WHERE Model = \'" + cboModel.Text + "\' ORDER BY ID";
-                strSQL = strSQL + ";" + "SELECT Name,FullName FROM TPicsColor WHERE Model = \'" + cboModel.Text + "\' ORDER BY ID";
-                strSQL = strSQL + ";" + "SELECT Name,Code,WC,ColorID FROM TPicsFabric WHERE Model = \'" + cboModel.Text + "\' ORDER BY ID";
-                strSQL = strSQL + ";" + "SELECT Code,ColorID,Size,Qty FROM TpicsFabricDetail WHERE Model = \'" + cboModel.Text + "\' ORDER BY ID";
-                strSQL = strSQL + ";" + " SELECT TpicsAccessory.AccCode,AccName,AccOf,AccType,Remark1,Remark2,Qty,QtyDiv,Unit,TPicsSupplier.Code , " + " Name FROM TpicsAccessory INNER JOIN TpicsAccessoryDetail ON TpicsAccessory.AccCode = TpicsAccessoryDetail.AccCode " + " Inner Join TPicsSupplier ON TpicsAccessoryDetail.SupCode = TPicsSupplier.Code" + " WHERE (Model = N\'" + cboModel.Text + "\')";
-                strSQL = strSQL + ";" + "SELECT ITEMCODE,NAME,WCCODE,WCNAME,SUPCODE,SUPNAME,STRGCODE,STRGNAME,UNIT,SEWORPACK,DEPENDENT,RELEASE" + ",FIX,MFG,DELIVERY,DISPATCHCLASS,ROUNDUP,DECIMALPOINT,CLASSIFICATION,STYLE,SIZE,COLOR FROM TpicsMaster " + "WHERE Model = \'" + cboModel.Text + "\' ORDER BY ID";
-                strSQL = strSQL + ";" + "SELECT CODE AS PARENT,KCODE AS CHILD,SIYOU AS QTY,SIYOUW AS QTYDIV FROM TPICSBOM WHERE MODEL = \'" + cboModel.Text + "\'";
+                strSQL = "SELECT Model,Name,Division,Style,Remark,Process FROM TpicsModel WHERE Model = '" + sleModel.Text+ "'";
+                strSQL = strSQL + ";" + "SELECT Name FROM TPicsSize WHERE Model ='" + sleModel.Text + "' ORDER BY ID";
+                strSQL = strSQL + ";" + "SELECT Name,FullName FROM TPicsColor WHERE Model = '" + sleModel.Text + "' ORDER BY ID";
+                strSQL = strSQL + ";" + "SELECT Name,Code,WC,ColorID FROM TPicsFabric WHERE Model = '" + sleModel.Text + "' ORDER BY ID";
+                strSQL = strSQL + ";" + "SELECT Code,ColorID,Size,Qty FROM TpicsFabricDetail WHERE Model = '" + sleModel.Text + "' ORDER BY ID";
+                strSQL = strSQL + ";" + " SELECT TpicsAccessory.AccCode,AccName,AccOf,AccType,Remark1,Remark2,Qty,QtyDiv,Unit,TPicsSupplier.Code , " + " Name FROM TpicsAccessory INNER JOIN TpicsAccessoryDetail ON TpicsAccessory.AccCode = TpicsAccessoryDetail.AccCode " + " Inner Join TPicsSupplier ON TpicsAccessoryDetail.SupCode = TPicsSupplier.Code" + " WHERE (Model = N'" + sleModel.Text + "')";
+                strSQL = strSQL + ";" + "SELECT ITEMCODE,NAME,WCCODE,WCNAME,SUPCODE,SUPNAME,STRGCODE,STRGNAME,UNIT,SEWORPACK,DEPENDENT,RELEASE" + ",FIX,MFG,DELIVERY,DISPATCHCLASS,ROUNDUP,DECIMALPOINT,CLASSIFICATION,STYLE,SIZE,COLOR FROM TpicsMaster " + "WHERE Model = '" + sleModel.Text + "' ORDER BY ID";
+                strSQL = strSQL + ";" + "SELECT CODE AS PARENT,KCODE AS CHILD,SIYOU AS QTY,SIYOUW AS QTYDIV FROM TPICSBOM WHERE MODEL = '" + sleModel.Text+ "'";
                 DS = db.GetDataSet(strSQL);
                 DS.Tables[0].TableName = "TPICSMODEL";
                 DS.Tables[1].TableName = "TPICSSIZE";
@@ -105,13 +108,18 @@ namespace TUW_System.TS1
                     }
                     txtStyle.Text = dr["Style"].ToString();
                     memRemark.Text = dr["Remark"].ToString();
+                    optProcess.EditValue = dr["Process"];
                 }
                 //size---------------------------------------------------------------------------------
                 GridSize.DataSource = DS.Tables["TPICSSIZE"];
+                fgSize.OptionsView.EnableAppearanceEvenRow = true;
+                fgSize.OptionsView.EnableAppearanceOddRow = true;
                 //GridSize.RepositoryItems.Add(rpSize)
                 //fgSize.Columns("Name").ColumnEdit = rpSize
                 //color-------------------------------------------------------------------------------
                 GridColor.DataSource = DS.Tables["TPICSCOLOR"];
+                fgColor.OptionsView.EnableAppearanceEvenRow = true;
+                fgColor.OptionsView.EnableAppearanceOddRow = true;
                 //GridColor.RepositoryItems.Add(rpColor)
                 //fgColor.Columns("Name").ColumnEdit = rpColor
                 //fabric------------------------------------------------------------------------------
@@ -133,16 +141,24 @@ namespace TUW_System.TS1
                 GridFabric.MainView.PopulateColumns();
                 GridFabric.RepositoryItems.Add(rpFabric);
                 fgFabric.Columns["Name"].ColumnEdit = rpFabric;
+                fgFabric.OptionsView.EnableAppearanceEvenRow = true;
+                fgFabric.OptionsView.EnableAppearanceOddRow = true;
                 fgFabric.OptionsView.ColumnAutoWidth = false;
                 fgFabric.BestFitColumns();
                 //master---------------------------------------------------------------------------
                 DS.Tables["TPICSMASTER"].Columns.Add("STATUS", typeof(bool));
                 Gridfg.DataSource = DS.Tables["TPICSMASTER"];
+                fg.OptionsView.EnableAppearanceEvenRow = true;
+                fg.OptionsView.EnableAppearanceOddRow = true;
                 fg.OptionsView.ColumnAutoWidth = false;
                 fg.BestFitColumns();
                 //bom------------------------------------------------------------------------------
                 DS.Tables["TPICSBOM"].Columns.Add("STATUS", typeof(bool));
                 Gridtb.DataSource = DS.Tables["TPICSBOM"];
+                tb.OptionsView.EnableAppearanceEvenRow = true;
+                tb.OptionsView.EnableAppearanceOddRow = true;
+                tb.OptionsView.ColumnAutoWidth = false;
+                tb.BestFitColumns();
             }
             catch (Exception ex)
             {
@@ -152,7 +168,7 @@ namespace TUW_System.TS1
         public void ExportExcel()
         {
             DevExpress.XtraGrid.Views.Grid.GridView gv;
-            if (XtraTabControl1.SelectedTabPageIndex == 0)
+            if (XtraTabControl2.SelectedTabPageIndex == 3)
             {
                 gv = fg;
             }
@@ -275,13 +291,16 @@ namespace TUW_System.TS1
 			string strSQL;
 			DataSet DS;
 			
-			strSQL = "SELECT DISTINCT Model FROM TpicsModel ORDER BY Model" + ";" + "SELECT DISTINCT Name FROM TpicsSize ORDER BY Name" + ";" + "SELECT DISTINCT Name FROM TpicsColor ORDER BY Name" + ";" + "SELECT DISTINCT Name FROM TpicsFabric Order by Name";
+			strSQL = "SELECT DISTINCT Model,Name FROM TpicsModel ORDER BY Model" + ";" + "SELECT DISTINCT Name FROM TpicsSize ORDER BY Name" + ";" + "SELECT DISTINCT Name FROM TpicsColor ORDER BY Name" + ";" + "SELECT DISTINCT Name FROM TpicsFabric Order by Name";
 			DS = db.GetDataSet(strSQL);
+            sleModel.Properties.DataSource = DS.Tables[0];
+            sleModel.Properties.DisplayMember = "Model";
+            sleModel.Properties.ValueMember = "Model";
 			//Model
-			foreach (DataRow dr in DS.Tables[0].Rows)
-			{
-				cboModel.Properties.Items.Add(dr["Model"].ToString());
-			}
+            //foreach (DataRow dr in DS.Tables[0].Rows)
+            //{
+            //    cboModel.Properties.Items.Add(dr["Model"].ToString());
+            //}
 			//Size
 			rpSize = new RepositoryItemComboBox();
 			foreach (DataRow dr in DS.Tables[1].Rows)
@@ -533,15 +552,15 @@ namespace TUW_System.TS1
 			int intResult =  int.Parse(db.ExecuteFirstValue(cmdSql));
 			if (intResult > 0)
 			{
-				cmdSql = "UPDATE TPicsModel SET Name = \'" + txtName.Text + "\'" + ",Division=\'" + cboDivision.Text + "\'" + 
-                    ",Style=\'" + txtStyle.Text + "\'" +",Remark=N'"+memRemark.Text+"'"+ 
-                    " WHERE Model = \'" + txtModel.Text + "\'";
+				cmdSql = "UPDATE TPicsModel SET Name = '" + txtName.Text + "'" + ",Division='" + cboDivision.Text + "'" + 
+                    ",Style='" + txtStyle.Text + "'" +",Remark=N'"+memRemark.Text+"',Process='"+optProcess.EditValue+"'"+ 
+                    " WHERE Model = '" + txtModel.Text + "'";
 				db.Execute(cmdSql);
 			}
 			else
 			{
-				cmdSql = "INSERT INTO TPicsModel (Model,Name,Division,Style,Remark) " + 
-                    " VALUES ('" + txtModel.Text + "','" + txtName.Text + "','" + cboDivision.Text + "','" + txtStyle.Text +"',N'"+memRemark.Text+"')";
+				cmdSql = "INSERT INTO TPicsModel (Model,Name,Division,Style,Remark,Process) " + 
+                    " VALUES ('" + txtModel.Text + "','" + txtName.Text + "','" + cboDivision.Text + "','" + txtStyle.Text +"',N'"+memRemark.Text+"','"+optProcess.EditValue+"')";
 				db.Execute(cmdSql);
 			}
 		}
@@ -731,8 +750,7 @@ namespace TUW_System.TS1
 			
 			try
 			{
-				
-				
+
 				if (txtModel.Text == "")
 				{
 					MessageBox.Show("คุณยังไม่ใส่รหัส model ?");
@@ -814,60 +832,6 @@ namespace TUW_System.TS1
 								fg.SetRowCellValue(CurrentRow, "STYLE", txtStyle.Text);
 								fg.SetRowCellValue(CurrentRow, "SIZE", strSize);
 								fg.SetRowCellValue(CurrentRow, "COLOR", strColorFullName);
-								//'===========================================Sew Process=====================================================
-								fg.AddNewRow();
-								CurrentRow = fg.FocusedRowHandle;
-								fg.SetRowCellValue(CurrentRow, "ITEMCODE", strModel + "-" + strSize + "-" + strColor + "-S");
-								fg.SetRowCellValue(CurrentRow, "NAME", txtName.Text + "Size : " + strSize + " " + strColor + "-SEW");
-								switch (cboDivision.Text)
-								{
-									case "Sales1":
-										fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW-S1");
-										fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING SALE 1");
-										fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW-S1");
-										fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING SALE 1");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S1");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 1");
-										break;
-									case "Sales2":
-										fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW-S2");
-										fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING SALE 2");
-										fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW-S2");
-										fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING SALE 2");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S2");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 2");
-										break;
-									case "Sales3":
-										fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW-S3");
-										fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING SALE 3");
-										fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW-S3");
-										fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING SALE 3");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S3");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 3");
-										break;
-									default:
-										fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW");
-										fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING");
-										fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW");
-										fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING");
-										break;
-								}
-								fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
-								fg.SetRowCellValue(CurrentRow, "SEWORPACK", "");
-								fg.SetRowCellValue(CurrentRow, "DEPENDENT", "0"); //Dependent Level
-								fg.SetRowCellValue(CurrentRow, "RELEASE", "31"); //Release Period
-								fg.SetRowCellValue(CurrentRow, "FIX", "31"); //Fix Period
-								fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs
-								fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
-								fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
-								fg.SetRowCellValue(CurrentRow, "ROUNDUP", "0");
-								fg.SetRowCellValue(CurrentRow, "DECIMALPOINT", "0");
-								fg.SetRowCellValue(CurrentRow, "CLASSIFICATION", "C");
-								fg.SetRowCellValue(CurrentRow, "STYLE", txtStyle.Text);
-								fg.SetRowCellValue(CurrentRow, "SIZE", strSize);
-								fg.SetRowCellValue(CurrentRow, "COLOR", strColorFullName);
 								//===========================================Cut Process=====================================================
 								fg.AddNewRow();
 								CurrentRow = fg.FocusedRowHandle;
@@ -880,32 +844,32 @@ namespace TUW_System.TS1
 										fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING SALE 1");
 										fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT-S1");
 										fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING SALE 1");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW-S1");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING SALE 1");
+										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S1");
+										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 1");
 										break;
 									case "Sales2":
 										fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT-S2");
 										fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING SALE 2");
 										fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT-S2");
 										fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING SALE 2");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW-S2");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING SALE 2");
+										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S2");
+										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 2");
 										break;
 									case "Sales3":
 										fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT-S3");
 										fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING SALE 3");
 										fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT-S3");
 										fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING SALE 3");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW-S3");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING SALE 3");
+										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S3");
+										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 3");
 										break;
 									default:
 										fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT");
 										fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING");
 										fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT");
 										fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING");
-										fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW");
-										fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING");
+										fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK");
+										fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING");
 										break;
 								}
 								fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
@@ -1037,17 +1001,17 @@ namespace TUW_System.TS1
 							if (fgColor.GetRowCellDisplayText(rColor, "Name").Trim().Length > 0)
 							{
 								strColor = fgColor.GetRowCellDisplayText(rColor, "Name");
-								//=============================================Sew==========================================================
-								tb.AddNewRow();
-								CurrentRow = tb.FocusedRowHandle;
-								tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + strSize + "-" + strColor);
-								tb.SetRowCellValue(CurrentRow, "CHILD", strModel + "-" + strSize + "-" + strColor + "-S");
-								tb.SetRowCellValue(CurrentRow, "QTY", "1");
-								tb.SetRowCellValue(CurrentRow, "QTYDIV", "1");
+                                ////=============================================Sew==========================================================
+                                //tb.AddNewRow();
+                                //CurrentRow = tb.FocusedRowHandle;
+                                //tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + strSize + "-" + strColor);
+                                //tb.SetRowCellValue(CurrentRow, "CHILD", strModel + "-" + strSize + "-" + strColor + "-S");
+                                //tb.SetRowCellValue(CurrentRow, "QTY", "1");
+                                //tb.SetRowCellValue(CurrentRow, "QTYDIV", "1");
 								//=============================================Cut==========================================================
 								tb.AddNewRow();
 								CurrentRow = tb.FocusedRowHandle;
-								tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + strSize + "-" + strColor + "-S");
+                                tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + strSize + "-" + strColor);
 								tb.SetRowCellValue(CurrentRow, "CHILD", strModel + "-" + strSize + "-" + strColor + "-C");
 								tb.SetRowCellValue(CurrentRow, "QTY", "1");
 								tb.SetRowCellValue(CurrentRow, "QTYDIV", "1");
@@ -1207,10 +1171,504 @@ namespace TUW_System.TS1
                 MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 		}
-		
+
+        private void GenCode3()
+        {
+            string strModel;
+            string strSize;
+            string strColor;
+            string strColorFullName;
+            string strFb;
+            int rSize;
+            int rColor;
+            int rFb;
+            int CurrentRow;
+
+            try
+            {
+
+
+                if (txtModel.Text == "")
+                {
+                    MessageBox.Show("คุณยังไม่ใส่รหัส model ?");
+                    return;
+                }
+                if (txtStyle.Text == "")
+                {
+                    MessageBox.Show("คุณยังไม่ได้ใส่ style");
+                    return;
+                }
+                ClearGrid(fg);
+                strModel = txtModel.Text;
+                //-----------------------------------------------------------------------------Generate Item Master------------------------------------------------------------------------------------------------------
+                for (rSize = 0; rSize <= fgSize.DataRowCount - 1; rSize++)
+                {
+                    if (fgSize.GetRowCellDisplayText(rSize, "Name").Trim().Length > 0)
+                    {
+                        strSize = "";
+                        strSize = fgSize.GetRowCellDisplayText(rSize, "Name");
+                        for (rColor = 0; rColor <= fgColor.DataRowCount - 1; rColor++)
+                        {
+                            if (fgColor.GetRowCellDisplayText(rColor, "Name").Trim().Length > 0)
+                            {
+                                strColor = "";
+                                strColor = fgColor.GetRowCellDisplayText(rColor, "Name");
+                                strColorFullName = "";
+                                strColorFullName = fgColor.GetRowCellDisplayText(rColor, "FullName");
+                                //===================================Pack Process=============================================================
+                                fg.AddNewRow();
+                                CurrentRow = fg.FocusedRowHandle;
+                                fg.SetRowCellValue(CurrentRow, "ITEMCODE", strModel + "-" + strSize + "-" + strColor);
+                                fg.SetRowCellValue(CurrentRow, "NAME", txtName.Text + " Size : " + strSize + " Color : " + strColor);
+                                switch (cboDivision.Text)
+                                {
+                                    case "Sales1":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "PACK-S1");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "PACKING SALE 1");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "PACK-S1");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "PACKING SALE 1");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST08-S1");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER WAREHOUSE  SALE 1");
+                                        break;
+                                    case "Sales2":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "PACK-S2");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "PACKING SALE 2");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "PACK-S2");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "PACKING SALE 2");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST08-S2");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER WAREHOUSE  SALE 2");
+                                        break;
+                                    case "Sales3":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "PACK-S3");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "PACKING SALE 3");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "PACK-S3");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "PACKING SALE 3");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST08-S3");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER WAREHOUSE  SALE 3");
+                                        break;
+                                    default:
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "PACK");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "PACKING");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "PACK");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "PACKING");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST08");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER WAREHOUSE");
+                                        break;
+                                }
+                                fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
+                                fg.SetRowCellValue(CurrentRow, "SEWORPACK", "F/G");
+                                fg.SetRowCellValue(CurrentRow, "DEPENDENT", "2"); //Dependent Level
+                                fg.SetRowCellValue(CurrentRow, "RELEASE", "32"); //Release Period
+                                fg.SetRowCellValue(CurrentRow, "FIX", "32"); //Fix Period
+                                fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs)
+                                fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
+                                fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
+                                fg.SetRowCellValue(CurrentRow, "ROUNDUP", "0");
+                                fg.SetRowCellValue(CurrentRow, "DECIMALPOINT", "0");
+                                fg.SetRowCellValue(CurrentRow, "CLASSIFICATION", "C");
+                                fg.SetRowCellValue(CurrentRow, "STYLE", txtStyle.Text);
+                                fg.SetRowCellValue(CurrentRow, "SIZE", strSize);
+                                fg.SetRowCellValue(CurrentRow, "COLOR", strColorFullName);
+                                //'===========================================Sew Process=====================================================
+                                fg.AddNewRow();
+                                CurrentRow = fg.FocusedRowHandle;
+                                fg.SetRowCellValue(CurrentRow, "ITEMCODE", strModel + "-" + strSize + "-" + strColor + "-S");
+                                fg.SetRowCellValue(CurrentRow, "NAME", txtName.Text + "Size : " + strSize + " " + strColor + "-SEW");
+                                switch (cboDivision.Text)
+                                {
+                                    case "Sales1":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW-S1");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING SALE 1");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW-S1");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING SALE 1");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S1");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 1");
+                                        break;
+                                    case "Sales2":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW-S2");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING SALE 2");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW-S2");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING SALE 2");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S2");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 2");
+                                        break;
+                                    case "Sales3":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW-S3");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING SALE 3");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW-S3");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING SALE 3");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK-S3");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING SALE 3");
+                                        break;
+                                    default:
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "SEW");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "SEWING");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "SEW");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "SEWING");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "PACK");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "PACKING");
+                                        break;
+                                }
+                                fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
+                                fg.SetRowCellValue(CurrentRow, "SEWORPACK", "");
+                                fg.SetRowCellValue(CurrentRow, "DEPENDENT", "0"); //Dependent Level
+                                fg.SetRowCellValue(CurrentRow, "RELEASE", "31"); //Release Period
+                                fg.SetRowCellValue(CurrentRow, "FIX", "31"); //Fix Period
+                                fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs
+                                fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
+                                fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
+                                fg.SetRowCellValue(CurrentRow, "ROUNDUP", "0");
+                                fg.SetRowCellValue(CurrentRow, "DECIMALPOINT", "0");
+                                fg.SetRowCellValue(CurrentRow, "CLASSIFICATION", "C");
+                                fg.SetRowCellValue(CurrentRow, "STYLE", txtStyle.Text);
+                                fg.SetRowCellValue(CurrentRow, "SIZE", strSize);
+                                fg.SetRowCellValue(CurrentRow, "COLOR", strColorFullName);
+                                //===========================================Cut Process=====================================================
+                                fg.AddNewRow();
+                                CurrentRow = fg.FocusedRowHandle;
+                                fg.SetRowCellValue(CurrentRow, "ITEMCODE", strModel + "-" + strSize + "-" + strColor + "-C");
+                                fg.SetRowCellValue(CurrentRow, "NAME", txtName.Text + "Size : " + strSize + " " + strColor + "-CUT");
+                                switch (cboDivision.Text)
+                                {
+                                    case "Sales1":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT-S1");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING SALE 1");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT-S1");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING SALE 1");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW-S1");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING SALE 1");
+                                        break;
+                                    case "Sales2":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT-S2");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING SALE 2");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT-S2");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING SALE 2");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW-S2");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING SALE 2");
+                                        break;
+                                    case "Sales3":
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT-S3");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING SALE 3");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT-S3");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING SALE 3");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW-S3");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING SALE 3");
+                                        break;
+                                    default:
+                                        fg.SetRowCellValue(CurrentRow, "WCCODE", "CUT");
+                                        fg.SetRowCellValue(CurrentRow, "WCNAME", "CUTTING");
+                                        fg.SetRowCellValue(CurrentRow, "SUPCODE", "CUT");
+                                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "CUTTING");
+                                        fg.SetRowCellValue(CurrentRow, "STRGCODE", "SEW");
+                                        fg.SetRowCellValue(CurrentRow, "STRGNAME", "SEWING");
+                                        break;
+                                }
+                                fg.SetRowCellValue(CurrentRow, "UNIT", "PCS");
+                                fg.SetRowCellValue(CurrentRow, "SEWORPACK", "");
+                                //Debug.Print(fg.GetRowCellDisplayText(CurrentRow, "SEWORPACK"))
+                                fg.SetRowCellValue(CurrentRow, "DEPENDENT", "0"); //Dependent Level
+                                fg.SetRowCellValue(CurrentRow, "RELEASE", "30"); //Release Period
+                                fg.SetRowCellValue(CurrentRow, "FIX", "30"); //Fix Period
+                                fg.SetRowCellValue(CurrentRow, "MFG", "1"); //Mfg. LDs
+                                fg.SetRowCellValue(CurrentRow, "DELIVERY", "0"); //Delivery LDs
+                                fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "1");
+                                fg.SetRowCellValue(CurrentRow, "ROUNDUP", "0");
+                                fg.SetRowCellValue(CurrentRow, "DECIMALPOINT", "0");
+                                fg.SetRowCellValue(CurrentRow, "CLASSIFICATION", "C");
+                                fg.SetRowCellValue(CurrentRow, "STYLE", txtStyle.Text);
+                                fg.SetRowCellValue(CurrentRow, "SIZE", strSize);
+                                fg.SetRowCellValue(CurrentRow, "COLOR", strColorFullName);
+                                //==================================================fabric==========================================================
+                            }
+                        }
+                    }
+                }
+
+                for (rFb = 0; rFb <= fgFabric.DataRowCount - 1; rFb++)
+                {
+                    if (fgFabric.GetRowCellDisplayText(rFb, "Code").Trim().Length > 0)
+                    {
+                        strFb = "";
+                        strFb = fgFabric.GetRowCellDisplayText(rFb, "Code");
+                        fg.AddNewRow();
+                        CurrentRow = fg.FocusedRowHandle;
+                        fg.SetRowCellValue(CurrentRow, "ITEMCODE", strFb);
+                        fg.SetRowCellValue(CurrentRow, "NAME", fgFabric.GetRowCellDisplayText(rFb, "Name"));
+                        fg.SetRowCellValue(CurrentRow, "WCCODE", fgFabric.GetRowCellDisplayText(rFb, "WC"));
+                        fg.SetRowCellValue(CurrentRow, "WCNAME", "FABRIC DELIVERY");
+                        fg.SetRowCellValue(CurrentRow, "SUPCODE", fgFabric.GetRowCellDisplayText(rFb, "WC"));
+                        fg.SetRowCellValue(CurrentRow, "SUPNAME", "FABRIC DELIVERY");
+                        switch (cboDivision.Text)
+                        {
+                            case "Sales1":
+                                fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST05-S1");
+                                fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER FABRIC STORE  SALE 1");
+                                break;
+                            case "Sales2":
+                                fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST05-S2");
+                                fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER FABRIC STORE  SALE 2");
+                                break;
+                            case "Sales3":
+                                fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST05-S3");
+                                fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER FABRIC STORE  SALE 3");
+                                break;
+                            default:
+                                fg.SetRowCellValue(CurrentRow, "STRGCODE", "ST05");
+                                fg.SetRowCellValue(CurrentRow, "STRGNAME", "INTER FABRIC STORE");
+                                break;
+                        }
+                        fg.SetRowCellValue(CurrentRow, "UNIT", "KGS");
+                        fg.SetRowCellValue(CurrentRow, "SEWORPACK", "");
+                        fg.SetRowCellValue(CurrentRow, "DEPENDENT", "0"); //Dependent Level
+                        fg.SetRowCellValue(CurrentRow, "RELEASE", "75"); //Release Period
+                        fg.SetRowCellValue(CurrentRow, "FIX", "75"); //Fix Period
+                        fg.SetRowCellValue(CurrentRow, "MFG", "0"); //Mfg. LDs
+                        if (fg.GetRowCellDisplayText(CurrentRow, "WCCODE") == "FDEL")
+                        {
+                            fg.SetRowCellValue(CurrentRow, "DELIVERY", "12"); //Delivery LDs ผ้าในจาก 6 เป็น 12
+                        }
+                        else
+                        {
+                            fg.SetRowCellValue(CurrentRow, "DELIVERY", "12"); //Delivery LDs ผ้านอกจาก 4 เป็น 12
+                        }
+                        fg.SetRowCellValue(CurrentRow, "DISPATCHCLASS", "0");
+                        fg.SetRowCellValue(CurrentRow, "ROUNDUP", "0");
+                        fg.SetRowCellValue(CurrentRow, "DECIMALPOINT", "4");
+                        fg.SetRowCellValue(CurrentRow, "CLASSIFICATION", "F");
+                    }
+                }
+                fg.UpdateCurrentRow();
+                //=================================================Accessory========================================================
+                //For rAcc = 1 To fgAcc.Rows - 1
+                //    If Len(Trim(fgAcc.get_TextMatrix(rAcc, 1))) > 0 Then
+                //        fg1.Rows = fg1.Rows + 1
+                //        .SETROWCELLVALUE(CurrentRow, "ITEMCODE", fgAcc.get_TextMatrix(rAcc, 1))   'item code
+                //        .SETROWCELLVALUE(CurrentRow, "NAME", fgAcc.get_TextMatrix(rAcc, 2))   'Name
+                //        .SETROWCELLVALUE(CurrentRow, "WCCODE", fgAcc.get_TextMatrix(rAcc, 9))   'W/C
+                //        .SETROWCELLVALUE(CurrentRow, "WCNAME", fgAcc.get_TextMatrix(rAcc, 10))  'W/C name
+                //        .SETROWCELLVALUE(CurrentRow, "SUPCODE", fgAcc.get_TextMatrix(rAcc, 9))   'Sup
+                //        .SETROWCELLVALUE(CurrentRow, "SUPNAME", fgAcc.get_TextMatrix(rAcc, 10))  'Sup name
+                //        Select Case cboDivision.Text
+                //            Case "Sales1"
+                //                .SETROWCELLVALUE(CurrentRow, "STRGCODE", "ST01-S1")
+                //                .SETROWCELLVALUE(CurrentRow, "STRGNAME", "INTER ACCESSORY STORE SALE 1")
+                //            Case "Sales2"
+                //                .SETROWCELLVALUE(CurrentRow, "STRGCODE", "ST01-S2")
+                //                .SETROWCELLVALUE(CurrentRow, "STRGNAME", "INTER ACCESSORY STORE SALE 2")
+                //            Case "Sales3"
+                //                .SETROWCELLVALUE(CurrentRow, "STRGCODE", "ST01-S3")
+                //                .SETROWCELLVALUE(CurrentRow, "STRGNAME", "INTER ACCESSORY STORE SALE 3")
+                //            Case Else
+                //                .SETROWCELLVALUE(CurrentRow, "STRGCODE", "ST01")
+                //                .SETROWCELLVALUE(CurrentRow, "STRGNAME", "INTER ACCESSORY STORE")
+                //        End Select
+                //        .SETROWCELLVALUE(CurrentRow, "UNIT", fgAcc.get_TextMatrix(rAcc, 8))
+                //        .SETROWCELLVALUE(CurrentRow, "SEWORPACK", "")
+                //        .SETROWCELLVALUE(CurrentRow, "DEPENDENT", "0")     'Dependent Level
+                //        .SETROWCELLVALUE(CurrentRow, "RELEASE", "1")     'Release Period
+                //        .SETROWCELLVALUE(CurrentRow, "FIX", "1")     'Fix Period
+                //        .SETROWCELLVALUE(CurrentRow, "MFG", "0")    'Mfg. LDs
+                //        .SETROWCELLVALUE(CurrentRow, "DELIVERY", "1")    'Delivery LDs
+                //        .SETROWCELLVALUE(CurrentRow, "DISPATCHCLASS", "2")
+                //        .SETROWCELLVALUE(CurrentRow, "ROUNDUP", "1")
+                //        .SETROWCELLVALUE(CurrentRow, "DECIMALPOINT", "4")
+                //        .SETROWCELLVALUE(CurrentRow, "CLASSIFICATION", "")
+                //    End If
+                //Next rAcc
+                //For i = 0 To fg1.Cols - 1
+                //    fg1.AutoSize(i)
+                //Next
+                //-------------------------------------------------------------------------------------------- Generate BOM------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                //tb1.Rows = 1
+                ClearGrid(tb);
+                strModel = txtModel.Text;
+                for (rSize = 0; rSize <= fgSize.DataRowCount - 1; rSize++)
+                {
+                    if (fgSize.GetRowCellDisplayText(rSize, "Name").Trim().Length > 0)
+                    {
+                        strSize = fgSize.GetRowCellDisplayText(rSize, "Name");
+                        for (rColor = 0; rColor <= fgColor.DataRowCount - 1; rColor++)
+                        {
+                            if (fgColor.GetRowCellDisplayText(rColor, "Name").Trim().Length > 0)
+                            {
+                                strColor = fgColor.GetRowCellDisplayText(rColor, "Name");
+                                //=============================================Sew==========================================================
+                                tb.AddNewRow();
+                                CurrentRow = tb.FocusedRowHandle;
+                                tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + strSize + "-" + strColor);
+                                tb.SetRowCellValue(CurrentRow, "CHILD", strModel + "-" + strSize + "-" + strColor + "-S");
+                                tb.SetRowCellValue(CurrentRow, "QTY", "1");
+                                tb.SetRowCellValue(CurrentRow, "QTYDIV", "1");
+                                //=============================================Cut==========================================================
+                                tb.AddNewRow();
+                                CurrentRow = tb.FocusedRowHandle;
+                                tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + strSize + "-" + strColor + "-S");
+                                tb.SetRowCellValue(CurrentRow, "CHILD", strModel + "-" + strSize + "-" + strColor + "-C");
+                                tb.SetRowCellValue(CurrentRow, "QTY", "1");
+                                tb.SetRowCellValue(CurrentRow, "QTYDIV", "1");
+                                //=============================================Accessory=====================================================
+                                //For rAcc = 1 To fgAcc.Rows - 1
+                                //    If Len(Trim(fgAcc.get_TextMatrix(rAcc, 1))) > 0 Then
+                                //        '***********************************************************Accessory Cut********************************************************************
+                                //        If Len(Trim(fgAcc.get_TextMatrix(rAcc, 1))) > 0 And fgAcc.get_TextMatrix(rAcc, 3) = "Cut" Then
+                                //            Select Case fgAcc.get_TextMatrix(rAcc, 4)
+                                //                Case "Common Part"
+                                //                    tb.AddNewRow()
+                                //                    CurrentRow = tb.FocusedRowHandle
+                                //                    tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-C")
+                                //                    tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                    tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                    tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                Case "Fix Size"
+                                //                    If fgAcc.get_TextMatrix(rAcc, 5) = strSize Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-C")
+                                //                        tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+                                //                Case "Fix Color"
+                                //                    If fgAcc.get_TextMatrix(rAcc, 6) = strColor Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-C")
+                                //                        tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+                                //                Case "Specified"
+                                //                    If (fgAcc.get_TextMatrix(rAcc, 5) = strSize) And (fgAcc.get_TextMatrix(rAcc, 6) = strColor) Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-C")
+                                //                        tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+
+                                //            End Select
+                                //            '***********************************************************Accessory Sew********************************************************************
+                                //        ElseIf Len(Trim(fgAcc.get_TextMatrix(rAcc, 1))) > 0 And fgAcc.get_TextMatrix(rAcc, 3) = "Sew" Then
+                                //            Select Case fgAcc.get_TextMatrix(rAcc, 4)
+                                //                Case "Common Part"
+                                //                    tb.AddNewRow()
+                                //                    CurrentRow = tb.FocusedRowHandle
+                                //                    tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-S")
+                                //                    tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                    tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                    tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                Case "Fix Size"
+                                //                    If fgAcc.get_TextMatrix(rAcc, 5) = strSize Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-S")
+                                //                        tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+                                //                Case "Fix Color"
+                                //                    If fgAcc.get_TextMatrix(rAcc, 6) = strColor Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-S")
+                                //                        tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(currentrow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+                                //                Case "Specified"
+                                //                    If (fgAcc.get_TextMatrix(rAcc, 5) = strSize) And (fgAcc.get_TextMatrix(rAcc, 6) = strColor) Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(currentrow, "PARENT", strModel & "-" & strSize & "-" & strColor & "-S")
+                                //                        tb.SetRowCellValue(currentrow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(currentrow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+
+                                //            End Select
+                                //            '***********************************************************Accessory Pack********************************************************************
+                                //        ElseIf Len(Trim(fgAcc.get_TextMatrix(rAcc, 1))) > 0 And fgAcc.get_TextMatrix(rAcc, 3) = "Pack" Then
+                                //            Select Case fgAcc.get_TextMatrix(rAcc, 4)
+                                //                Case "Common Part"
+                                //                    tb.AddNewRow()
+                                //                    CurrentRow = tb.FocusedRowHandle
+                                //                    tb.SetRowCellValue(CurrentRow, "PARENT", strModel & "-" & strSize & "-" & strColor)
+                                //                    tb.SetRowCellValue(CurrentRow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                    tb.SetRowCellValue(CurrentRow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                    tb.SetRowCellValue(CurrentRow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                Case "Fix Size"
+                                //                    If fgAcc.get_TextMatrix(rAcc, 5) = strSize Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(CurrentRow, "PARENT", strModel & "-" & strSize & "-" & strColor)
+                                //                        tb.SetRowCellValue(CurrentRow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+
+                                //                Case "Fix Color"
+                                //                    If fgAcc.get_TextMatrix(rAcc, 6) = strColor Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(CurrentRow, "PARENT", strModel & "-" & strSize & "-" & strColor)
+                                //                        tb.SetRowCellValue(CurrentRow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+                                //                Case "Specified"
+                                //                    If (fgAcc.get_TextMatrix(rAcc, 5) = strSize) And (fgAcc.get_TextMatrix(rAcc, 6) = strColor) Then
+                                //                        tb.AddNewRow()
+                                //                        CurrentRow = tb.FocusedRowHandle
+                                //                        tb.SetRowCellValue(CurrentRow, "PARENT", strModel & "-" & strSize & "-" & strColor)
+                                //                        tb.SetRowCellValue(CurrentRow, "CHILD", fgAcc.get_TextMatrix(rAcc, 1))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTY", fgAcc.get_TextMatrix(rAcc, 7))
+                                //                        tb.SetRowCellValue(CurrentRow, "QTYDIV", fgAcc.get_TextMatrix(rAcc, 8))
+                                //                    End If
+                                //            End Select
+                                //        End If
+
+                                //    End If
+                                //Next rAcc
+                                //================================================Fabric===================================================
+                                for (rFb = 0; rFb <= fgFabric.DataRowCount - 1; rFb++)
+                                {
+                                    for (int c = 4; c <= fgFabric.Columns.Count - 1; c++)
+                                    {
+                                        if (fgFabric.GetRowCellDisplayText(rFb, fgFabric.Columns[c].FieldName).Length == 0)
+                                        {
+                                            continue;
+                                        }
+                                        if (double.Parse(fgFabric.GetRowCellDisplayText(rFb, fgFabric.Columns[c].FieldName)) > 0 && strSize == fgFabric.Columns[c].FieldName && (rColor + 1) == int.Parse(fgFabric.GetRowCellDisplayText(rFb, "ColorID")))
+                                        {
+                                            tb.AddNewRow();
+                                            CurrentRow = tb.FocusedRowHandle;
+                                            tb.SetRowCellValue(CurrentRow, "PARENT", strModel + "-" + fgFabric.Columns[c].FieldName + "-" + strColor + "-C");
+                                            tb.SetRowCellValue(CurrentRow, "CHILD", fgFabric.GetRowCellDisplayText(rFb, "Code"));
+                                            tb.SetRowCellValue(CurrentRow, "QTY", fgFabric.GetRowCellDisplayText(rFb, fgFabric.Columns[c].FieldName));
+                                            tb.SetRowCellValue(CurrentRow, "QTYDIV", "1");
+                                        }
+                                    }
+                                }
+                                //==========================================================================================================
+                            }
+                        }
+                    }
+                }
+                tb.UpdateCurrentRow();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 		public void cmdGenCode_Click(System.Object sender, System.EventArgs e)
 		{
-			GenCode2();
+            if (optProcess.EditValue == "2")
+                GenCode2();
+            else
+                GenCode3();
 			for (int i = 0; i <= fg.DataRowCount - 1; i++) //เช็คความยาว code ในกริด item master
 			{
 				ChkCodeLen(i, true);
@@ -1386,7 +1844,7 @@ namespace TUW_System.TS1
 				this.Cursor = Cursors.WaitCursor;
                 dtfinfo = clinfo.DateTimeFormat;
 				txtModel.Text = "";
-				cboModel.Text = "";
+				sleModel.Text = "";
 				cboDivision.SelectedIndex = 3; //Others
 				txtName.Text = "";
 				LoadRepositoryItem(); //โหลด repository เก็บไว้ในตัวแปร
@@ -1420,7 +1878,7 @@ namespace TUW_System.TS1
 		}
 		private void cmdDisplay_Click(System.Object sender, System.EventArgs e)
 		{
-			if (cboModel.Text.Length > 0){RetriveData();}
+			if (sleModel.Text.Length > 0){RetriveData();}
 		}
 		private void cmdFreeze_Click(System.Object sender, System.EventArgs e)
 		{
@@ -1627,5 +2085,6 @@ namespace TUW_System.TS1
         {
             fgFabric.DeleteRow(fgFabric.FocusedRowHandle);
         }
+
     }
 }
