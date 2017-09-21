@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
@@ -82,7 +83,7 @@
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem49 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             DevExpress.XtraBars.Ribbon.GalleryItem galleryItem50 = new DevExpress.XtraBars.Ribbon.GalleryItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiMain));
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bsiS1 = new DevExpress.XtraBars.BarSubItem();
             this.bsiP_Production = new DevExpress.XtraBars.BarSubItem();
@@ -106,6 +107,8 @@
             this.bbiSummaryPO = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBOMUse = new DevExpress.XtraBars.BarButtonItem();
             this.bbiHolding = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem13 = new DevExpress.XtraBars.BarSubItem();
+            this.bbiDeclareCodeTPiCS40 = new DevExpress.XtraBars.BarButtonItem();
             this.bsiS3 = new DevExpress.XtraBars.BarSubItem();
             this.bbiS3_PO = new DevExpress.XtraBars.BarButtonItem();
             this.bbiS3_Receive = new DevExpress.XtraBars.BarButtonItem();
@@ -160,9 +163,11 @@
             this.barSubItem12 = new DevExpress.XtraBars.BarSubItem();
             this.bbiAC_Domestic = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAC_DomesticList = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_ColDomestic = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAC_DomesticSales = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSkin = new DevExpress.XtraBars.BarButtonItem();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
@@ -174,7 +179,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.bsiSkin = new DevExpress.XtraBars.BarSubItem();
@@ -241,8 +246,8 @@
             this.bbiYS_IssueSubcontractOld = new DevExpress.XtraBars.BarButtonItem();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -264,8 +269,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem();
-            this.bbiAC_ColDomestic = new DevExpress.XtraBars.BarButtonItem();
+            this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -435,9 +439,12 @@
             this.barSubItem12,
             this.bbiAC_Domestic,
             this.bbiAC_DomesticList,
-            this.bbiAC_ColDomestic});
+            this.bbiAC_ColDomestic,
+            this.bbiAC_DomesticSales,
+            this.barSubItem13,
+            this.bbiDeclareCodeTPiCS40});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 172;
+            this.barManager1.MaxItemId = 175;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -473,7 +480,8 @@
             this.bsiS1.ItemAppearance.Normal.Options.UseFont = true;
             this.bsiS1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiP_Production),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiTPiCSSubprogram)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiTPiCSSubprogram),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem13)});
             this.bsiS1.Name = "bsiS1";
             // 
             // bsiP_Production
@@ -679,6 +687,24 @@
             this.bbiHolding.Name = "bbiHolding";
             this.bbiHolding.Tag = "frmTS1_Holding";
             this.bbiHolding.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTS1_Holding_ItemClick);
+            // 
+            // barSubItem13
+            // 
+            this.barSubItem13.Caption = "TPiCS v4.0";
+            this.barSubItem13.Glyph = global::TUW_System.Resource1.Tx40_32512;
+            this.barSubItem13.Id = 173;
+            this.barSubItem13.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDeclareCodeTPiCS40)});
+            this.barSubItem13.Name = "barSubItem13";
+            // 
+            // bbiDeclareCodeTPiCS40
+            // 
+            this.bbiDeclareCodeTPiCS40.Caption = "DeclareCodeTPiCS 4.0";
+            this.bbiDeclareCodeTPiCS40.Glyph = global::TUW_System.Resource1.riderblackrx32;
+            this.bbiDeclareCodeTPiCS40.Id = 174;
+            this.bbiDeclareCodeTPiCS40.Name = "bbiDeclareCodeTPiCS40";
+            this.bbiDeclareCodeTPiCS40.Tag = "frmTS1_Declare40";
+            this.bbiDeclareCodeTPiCS40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDeclareCodeTPiCS40_ItemClick);
             // 
             // bsiS3
             // 
@@ -1158,7 +1184,8 @@
             this.barSubItem12.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_Domestic),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_DomesticList),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_ColDomestic)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_ColDomestic),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAC_DomesticSales)});
             this.barSubItem12.Name = "barSubItem12";
             // 
             // bbiAC_Domestic
@@ -1176,6 +1203,22 @@
             this.bbiAC_DomesticList.Name = "bbiAC_DomesticList";
             this.bbiAC_DomesticList.Tag = "frmAC_DomesticList";
             this.bbiAC_DomesticList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_DomesticList_ItemClick);
+            // 
+            // bbiAC_ColDomestic
+            // 
+            this.bbiAC_ColDomestic.Caption = "Collect";
+            this.bbiAC_ColDomestic.Id = 171;
+            this.bbiAC_ColDomestic.Name = "bbiAC_ColDomestic";
+            this.bbiAC_ColDomestic.Tag = "frmAC_ColDomestic";
+            this.bbiAC_ColDomestic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_ColDomestic_ItemClick);
+            // 
+            // bbiAC_DomesticSales
+            // 
+            this.bbiAC_DomesticSales.Caption = "Domestic Sales";
+            this.bbiAC_DomesticSales.Id = 172;
+            this.bbiAC_DomesticSales.Name = "bbiAC_DomesticSales";
+            this.bbiAC_DomesticSales.Tag = "frmAC_DomesticSales";
+            this.bbiAC_DomesticSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_DomesticSales_ItemClick);
             // 
             // barSubItem10
             // 
@@ -2134,14 +2177,6 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
             // 
-            // bbiAC_ColDomestic
-            // 
-            this.bbiAC_ColDomestic.Caption = "Collect";
-            this.bbiAC_ColDomestic.Id = 171;
-            this.bbiAC_ColDomestic.Name = "bbiAC_ColDomestic";
-            this.bbiAC_ColDomestic.Tag = "frmAC_ColDomestic";
-            this.bbiAC_ColDomestic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAC_ColDomestic_ItemClick);
-            // 
             // mdiMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2359,5 +2394,8 @@
         private DevExpress.XtraBars.BarButtonItem bbiAC_Domestic;
         private DevExpress.XtraBars.BarButtonItem bbiAC_DomesticList;
         private DevExpress.XtraBars.BarButtonItem bbiAC_ColDomestic;
+        private DevExpress.XtraBars.BarButtonItem bbiAC_DomesticSales;
+        private DevExpress.XtraBars.BarSubItem barSubItem13;
+        private DevExpress.XtraBars.BarButtonItem bbiDeclareCodeTPiCS40;
     }
 }

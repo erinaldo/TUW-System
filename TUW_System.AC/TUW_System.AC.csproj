@@ -101,6 +101,12 @@
     <Compile Include="frmAC_DomesticList.Designer.cs">
       <DependentUpon>frmAC_DomesticList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAC_DomesticSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAC_DomesticSales.Designer.cs">
+      <DependentUpon>frmAC_DomesticSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAC_Draft.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_DomesticList.resx">
       <DependentUpon>frmAC_DomesticList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAC_DomesticSales.resx">
+      <DependentUpon>frmAC_DomesticSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAC_DraftTT.resx">
       <DependentUpon>frmAC_DraftTT.cs</DependentUpon>

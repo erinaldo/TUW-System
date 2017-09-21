@@ -945,6 +945,41 @@ namespace TUW_System
             frm54.WindowState = FormWindowState.Maximized;
             frm54.Show();
         }
+        private void LoadfrmAC_DomesticSales()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmAC_DomesticSales")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmAC_DomesticSales frm55 = new frmAC_DomesticSales();
+            frm55.ConnectionString = Module.DBExim;
+            frm55.StatusBarEvent += new frmAC_DomesticSales.StatusBarHandler(UpdateStatusBar);
+            frm55.MdiParent = this;
+            frm55.WindowState = FormWindowState.Maximized;
+            frm55.Show();
+        }
+        private void LoadfrmTS1_Declare40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_Declare40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_Declare40 frm56 = new frmTS1_Declare40();
+            frm56.ConnectionString = Module.ISODocument;
+            frm56.ConnectionString2 = Module.TxDemoData40;
+            frm56.MdiParent = this;
+            frm56.WindowState = FormWindowState.Maximized;
+            frm56.Show();
+        }
+        
 
         private void LoadRegistry()
         {
@@ -2099,7 +2134,30 @@ namespace TUW_System
         }
 
         #region "Sales1"
-        #region "Menu"
+
+        #region "Production Order"
+
+        private void bbiP_Production_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadfrmP_Production();
+        }
+        private void bbiP_Customer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadfrmP_Customer();
+        }
+        private void bbiP_Model_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadfrmP_Model();
+        }
+        private void bbiP_ModelCategory_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadfrmP_ModelCategory();
+        }
+
+        #endregion
+
+        #region "TPiCS Subprogram"
+
         private void bbiTS1_FindFabric_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadfrmTS1_FindFabricCode();
@@ -2152,23 +2210,18 @@ namespace TUW_System
         {
             LoadfrmTS1_Holding();
         }
-        private void bbiP_Production_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LoadfrmP_Production();
-        }
-        private void bbiP_Customer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LoadfrmP_Customer();
-        }
-        private void bbiP_Model_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LoadfrmP_Model();
-        }
-        private void bbiP_ModelCategory_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LoadfrmP_ModelCategory();
-        }
+
         #endregion
+
+        #region "TPiCS 4.0"
+
+        private void bbiDeclareCodeTPiCS40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_Declare40();
+        }
+
+        #endregion
+
         #endregion
 
         #region "Sales3"
@@ -2352,6 +2405,10 @@ namespace TUW_System
         {
             LoadfrmAC_ColDomestic();
         }
+        private void bbiAC_DomesticSales_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmAC_DomesticSales();
+        }
 
         #endregion
 
@@ -2391,6 +2448,10 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
+
+        
 
         
 

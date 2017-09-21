@@ -295,6 +295,7 @@
     <Content Include="Report\S5\LOSS_TIME.xlt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Tx40_32512.png" />
     <None Include="Resources\exporttocsv_32x32.png" />
     <None Include="Resources\exporttocsv_16x16.png" />
     <None Include="Resources\exporttoxlsx_32x32.png" />

@@ -46,6 +46,7 @@ public static class Module
     public static string Attendance = "Server=" + "hrbase" + ";uid=sa;pwd=;database=Attendance";
     public static string tuwCenter = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=tuwCenter";
     public static string SmartAdminMvc = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=SmartAdminMvc";
+    public static string TxDemoData40 = "Server=" + "(local)" + ";uid=sa;pwd=ZAQ113m4tuw;database=TxDemoData40";
 
     public static string strSection;
     public static string strUserName;
