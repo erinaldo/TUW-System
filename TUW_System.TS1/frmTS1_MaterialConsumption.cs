@@ -124,8 +124,41 @@ namespace TUW_System.TS1
                     strSQL1+="Where (XRECE.CONTRACT Like '"+txtContract.Text+"%') ";
                     break;
             }
-            strSQL1+="GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS_2.KCODE,DistinctInventory.CUR_INV "+
-                "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT, XPRTS_2.KCODE";
+            strSQL1 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS_2.KCODE,DistinctInventory.CUR_INV ";
+            strSQL1 += " UNION ";
+            strSQL1 = "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE" +
+                    ", SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE,SUBSTRING(XRECE.PDATE, 1, 8) AS SEW_DATE" +
+                    ",XRECE.CUST,XRECE.CONTRACT, XPRTS_1.KCODE AS MATERIAL" +
+                    ",SUM(XRECE.KVOL * XPRTS_1.SIYOU) AS USED,DistinctInventory.CUR_INV AS INVENTORY" +
+                    ",MAX(XHEAD.NAME) AS MATERIAL_NAME,MAX(XCUST.SECTION) AS DIVISION " +
+                    ",MAX(DistinctInventory.ALREADY_USED) AS ALREADY_USED " +
+                    ",MAX(DistinctInventory.COST_NAME) AS COST_NAME " +
+                    ",MAX(DistinctInventory.PUTAWAY) AS PUTAWAY " +
+                    ",MAX(DistinctInventory.PREV_INV) AS PREV_INV " +
+                    "FROM XCUST RIGHT OUTER JOIN " +
+                    "DistinctInventory RIGHT OUTER JOIN " +
+                    "XPRTS INNER JOIN " +
+                    "XRECE ON XPRTS.CODE = XRECE.CODE INNER JOIN " +
+                    "XPRTS XPRTS_1 ON XPRTS.KCODE = XPRTS_1.CODE LEFT OUTER JOIN " +
+                    "XHEAD ON XPRTS_1.KCODE = XHEAD.CODE ON DistinctInventory.CODE = XPRTS_1.KCODE ON " +
+                    "XCUST.CUST = XRECE.CUST ";
+            switch (optSearch.SelectedIndex)
+            {
+                case 0:
+                    strSQL1 += "WHERE (XRECE.CDATE Between '" + ((DateTime)dtpFrom.EditValue).ToString("yyyyMMdd", dtfinfo) + "1' And '" + ((DateTime)dtpTo.EditValue).ToString("yyyyMMdd", dtfinfo) + "1') ";
+                    break;
+                case 1:
+                    strSQL1 += "WHERE (XRECE.PDATE Between '" + ((DateTime)dtpFrom2.EditValue).ToString("yyyyMMdd", dtfinfo) + "1' And '" + ((DateTime)dtpTo2.EditValue).ToString("yyyyMMdd", dtfinfo) + "1') ";
+                    break;
+                case 2:
+                    strSQL1 += "Where (XRECE.CONTRACT Like '" + txtContract.Text + "%') ";
+                    break;
+            }
+            strSQL1 += " AND DistinctInventory.Storage='ST05-S1' ";
+            strSQL1 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS_1.KCODE,DistinctInventory.CUR_INV ";
+            
+            //strSQL1+="ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT, XPRTS_2.KCODE";
+
             //------------------------------------------------------------Accessory Pack---------------------------------------------------------------------
             strSQL2 = "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE"+
                 ",SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE, SUBSTRING(XRECE.PDATE,1, 8) AS SEW_DATE"+
@@ -153,7 +186,7 @@ namespace TUW_System.TS1
                     strSQL2+="Where (XRECE.CONTRACT Like '" +txtContract.Text+ "%')";
                     break;
             }
-            strSQL2+=" AND (DistinctInventory.COST_NAME NOT LIKE 'SEW%') ";
+            strSQL2 += " AND DistinctInventory.Storage='ST01-S1' ";//" AND (DistinctInventory.COST_NAME NOT LIKE 'SEW%') ";
             strSQL2+="GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS.KCODE,DistinctInventory.CUR_INV"+
                 " ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS.KCODE";
             //------------------------------------------------------------Accessory Sew---------------------------------------------------------------------
@@ -184,7 +217,7 @@ namespace TUW_System.TS1
                     strSQL3+="Where (XRECE.CONTRACT Like '"+txtContract.Text+"%')";
                     break;
             }
-            strSQL3+=" AND (DistinctInventory.COST_NAME NOT LIKE 'CUT%') ";
+            strSQL3 += " AND DistinctInventory.Storage='ST01-S1' ";//" AND (DistinctInventory.COST_NAME NOT LIKE 'CUT%') ";
             strSQL3 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS_1.KCODE,DistinctInventory.CUR_INV" +
                 " ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XPRTS_1.KCODE";
             //---------------------------------------------------------------------------------------------------------------------------------
@@ -260,7 +293,36 @@ namespace TUW_System.TS1
             strSQL1 += " AND (XZAIK.JYOGAI = 0) " +
                 "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE,XRECE.KVOL,XPRTS_3.KCODE,XPRTS_3.SIYOU,XPRTS_3.SIYOUW"+
                 ",XHEAD.MAINBUMO,XSECT.NAME ";
-            strSQL1 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
+            strSQL1 += " UNION ";
+            strSQL1 += "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE,SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE,SUBSTRING(XRECE.PDATE, 1, 8) AS SEW_DATE,XRECE.CUST,XRECE.CONTRACT" +
+                ",XRECE.EDA AS BRANCH,XRECE.CODE AS STYLE ,XRECE.KVOL AS QTY" +
+                ",XPRTS_2.KCODE AS MATERIAL,MAX(XHEAD.NAME) AS MATERIAL_NAME,XPRTS_2.SIYOU AS BOM, XPRTS_2.SIYOUW AS BOM_DIV" +
+                ", SUM(XZAIK.ZAIK) AS INVENTORY,XHEAD.MAINBUMO,XSECT.NAME AS SUPPLIER,0 AS DEFFECT " +
+                "FROM XRECE " +
+                "INNER JOIN XPRTS XPRTS_1 ON XRECE.CODE = XPRTS_1.CODE " +
+                "INNER JOIN XPRTS XPRTS_2 ON XPRTS_1.KCODE = XPRTS_2.CODE " +
+                "INNER JOIN XZAIK ON XPRTS_2.KCODE = XZAIK.CODE " +
+                "INNER JOIN XHEAD ON XPRTS_2.KCODE = XHEAD.CODE " +
+                "INNER JOIN XSECT ON XHEAD.MAINBUMO = XSECT.BUMO ";
+            switch (optSearch.SelectedIndex)
+            {
+                case 0:  //Due date
+                    strSQL1 += "WHERE (XRECE.CDATE Between '" + ((DateTime)dtpFrom.EditValue).ToString("yyyyMMdd", dtfinfo) + "1' And '" + ((DateTime)dtpTo.EditValue).ToString("yyyyMMdd", dtfinfo) + "1')";
+                    break;
+                case 1:  //Sew plan
+                    throw new ApplicationException("");
+                //strSQL = strSQL & "WHERE " &  & ".XRECE.SEWPLAN Between '" & Format(dtpFrom2.EditValue, "yyyyMMdd") & "' And '" & Format(dtpTo2.EditValue, "yyyyMMdd") & "')"""
+                //break;
+                case 2://Contract
+                    strSQL1 += "Where (XRECE.CONTRACT Like '" + txtContract.Text + "%')";
+                    break;
+            }
+            strSQL1 += " AND (XZAIK.JYOGAI = 0) AND (XZAIK.HOKAN='ST05-S1') " +
+                "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE,XRECE.KVOL,XPRTS_2.KCODE,XPRTS_2.SIYOU,XPRTS_2.SIYOUW" +
+                ",XHEAD.MAINBUMO,XSECT.NAME ";
+            
+            //strSQL1 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
+
             //------------------------------------------------------------Accessory Pack----------------------------------------------------------------------------------------------------------------------------------
             strSQL2 = "SELECT SUBSTRING(XRECE.CDATE, 1, 8) AS SHIP_DATE,SUBSTRING(XRECE.NDATE, 1, 8) AS PACK_DATE,SUBSTRING(XRECE.PDATE, 1, 8) AS SEW_DATE,XRECE.CUST,XRECE.CONTRACT" +
                 ",XRECE.EDA AS BRANCH,XRECE.CODE AS STYLE,MAX(XRECE.KVOL) AS QTY" +
@@ -296,7 +358,7 @@ namespace TUW_System.TS1
                     strSQL2 += "Where (XRECE.CONTRACT Like '" + txtContract.Text + "%') ";
                     break;
             }
-            strSQL2 += " AND (XZAIK.JYOGAI = 0) AND (NOT (SUBSTRING(XZAIK.GENKA, 1, 3) = 'SEW')) ";
+            strSQL2 += " AND (XZAIK.JYOGAI = 0) AND (XZAIK.HOKAN='ST01-S1') ";//   (NOT (SUBSTRING(XZAIK.GENKA, 1, 3) = 'SEW')) ";
             strSQL2 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE, XPRTS_1.KCODE,XPRTS_1.EDA,XITEM.FURYOU,XHEAD.MAINBUMO,XSECT.NAME,XRECE.CONT ";
             strSQL2 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
             //------------------------------------------------------------Accessory Sew----------------------------------------------------------------------------------------------------------------------------------
@@ -336,7 +398,7 @@ namespace TUW_System.TS1
                     strSQL3 +=  "Where (XRECE.CONTRACT Like '" + txtContract.Text + "%') ";
                     break;
             }
-            strSQL3 += " AND (XZAIK.JYOGAI = 0) AND (NOT (SUBSTRING(XZAIK.GENKA, 1, 3) = 'CUT')) ";
+            strSQL3 += " AND (XZAIK.JYOGAI = 0) AND (XZAIK.HOKAN='ST01-S1') ";// (NOT (SUBSTRING(XZAIK.GENKA, 1, 3) = 'CUT')) ";
             strSQL3 += "GROUP BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA,XRECE.CODE, XPRTS_2.KCODE,XPRTS_2.EDA,XITEM.FURYOU,XHEAD.MAINBUMO,XSECT.NAME,XRECE.CONT ";
             strSQL3 += "ORDER BY XRECE.CDATE,XRECE.NDATE,XRECE.PDATE,XRECE.CUST,XRECE.CONTRACT,XRECE.EDA";
             //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

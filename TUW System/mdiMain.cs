@@ -979,8 +979,55 @@ namespace TUW_System
             frm56.WindowState = FormWindowState.Maximized;
             frm56.Show();
         }
+        private void LoadfrmTS1_CalSeiban()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_CalSeiban")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_CalSeiban frm57 = new frmTS1_CalSeiban();
+            frm57.ConnectionString = Module.Sewing;
+            frm57.MdiParent = this;
+            frm57.WindowState = FormWindowState.Maximized;
+            frm57.Show();
+        }
+        private void LoadfrmTS1_TPiCSContract40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_TPiCSContract40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_TPiCSContract40 frm58 = new frmTS1_TPiCSContract40();
+            frm58.ConnectionString = Module.TxDemoData40;
+            frm58.MdiParent = this;
+            frm58.WindowState = FormWindowState.Maximized;
+            frm58.Show();
+        }
+        private void LoadfrmTS1_MaterialConsumption40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_MaterialConsumption40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_MaterialConsumption40 frm59 = new frmTS1_MaterialConsumption40();
+            frm59.ConnectionString = Module.TxDemoData40;
+            frm59.MdiParent = this;
+            frm59.WindowState = FormWindowState.Maximized;
+            frm59.Show();
+        }
         
-
         private void LoadRegistry()
         {
             try
@@ -2158,6 +2205,10 @@ namespace TUW_System
 
         #region "TPiCS Subprogram"
 
+        private void bbiCalSeiban_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_CalSeiban();
+        }
         private void bbiTS1_FindFabric_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadfrmTS1_FindFabricCode();
@@ -2219,12 +2270,21 @@ namespace TUW_System
         {
             LoadfrmTS1_Declare40();
         }
+        private void bbiTPiCSContract40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_TPiCSContract40();
+        }
+        private void bbiBOMUse40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_MaterialConsumption40();
+        }
 
         #endregion
 
         #endregion
 
         #region "Sales3"
+
         private void bbiS3_Purchase_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmS3_PO();
@@ -2233,9 +2293,11 @@ namespace TUW_System
         {
             LoadfrmS3_Receive();
         }        
+        
         #endregion
 
         #region "Sales4"
+
         private void bbiS4_Purchase_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmS4_PO();
@@ -2244,9 +2306,11 @@ namespace TUW_System
         {
             LoadfrmS4_Receive();
         }
+        
         #endregion
 
         #region "Sales5"
+
         private void bbiFindFabric5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadfrmTS1_FindFabricCode();
@@ -2295,9 +2359,11 @@ namespace TUW_System
         {
             LoadfrmS5_DyeDaily();
         }
+        
         #endregion
 
         #region "Fabric Stock"
+
         private void bbiFS_InsertComment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadfrmFSIC_InsertComment();
@@ -2306,9 +2372,11 @@ namespace TUW_System
         {
             LoadfrmFS_ChangePrice();
         }
+        
         #endregion
 
         #region "Yarn Stock"
+
         private void bbiYS_CheckStock_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmYS_CheckStock();
@@ -2345,6 +2413,7 @@ namespace TUW_System
         {
             LoadfrmYS_BarcodeText();
         }
+        
         #endregion
 
         #region "Account"
@@ -2413,6 +2482,7 @@ namespace TUW_System
         #endregion
 
         #region "Skin"
+
         private void SetSkinIcons()
         {
             foreach (GalleryItem item in galleryDropDown1.Gallery.Groups[0].Items)
@@ -2432,13 +2502,16 @@ namespace TUW_System
         {
             defaultLookAndFeel1.LookAndFeel.SkinName = e.Item.Value.ToString();
         }
+        
         #endregion
 
         #region "Help"
+
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmSetting();
         }
+        
         #endregion
 
         private void ribbonControl1_MinimizedChanged(object sender, EventArgs e)
@@ -2448,6 +2521,10 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
+
+        
 
         
 

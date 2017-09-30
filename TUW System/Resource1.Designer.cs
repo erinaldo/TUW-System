@@ -513,6 +513,16 @@ namespace TUW_System {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TSIB01_1 {
+            get {
+                object obj = ResourceManager.GetObject("TSIB01_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TSIB04 {
             get {
                 object obj = ResourceManager.GetObject("TSIB04", resourceCulture);
@@ -523,9 +533,9 @@ namespace TUW_System {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tx40_32512 {
+        internal static System.Drawing.Bitmap Tx40_32512_2_ {
             get {
-                object obj = ResourceManager.GetObject("Tx40_32512", resourceCulture);
+                object obj = ResourceManager.GetObject("Tx40_32512_2_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

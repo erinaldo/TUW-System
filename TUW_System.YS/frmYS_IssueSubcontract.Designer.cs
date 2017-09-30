@@ -228,7 +228,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(639, 232);
+            this.gridControl2.Size = new System.Drawing.Size(639, 229);
             this.gridControl2.TabIndex = 18;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -244,7 +244,7 @@
             // cboYear
             // 
             this.cboYear.EditValue = "";
-            this.cboYear.Location = new System.Drawing.Point(876, 33);
+            this.cboYear.Location = new System.Drawing.Point(869, 33);
             this.cboYear.Name = "cboYear";
             this.cboYear.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboYear.Properties.Appearance.Options.UseFont = true;
@@ -253,7 +253,7 @@
             this.cboYear.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboYear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboYear.Size = new System.Drawing.Size(64, 26);
+            this.cboYear.Size = new System.Drawing.Size(71, 26);
             this.cboYear.StyleController = this.layoutControl1;
             this.cboYear.TabIndex = 28;
             this.cboYear.SelectedIndexChanged += new System.EventHandler(this.cboYear_SelectedIndexChanged);
@@ -269,7 +269,7 @@
             this.cboMonth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboMonth.Size = new System.Drawing.Size(136, 26);
+            this.cboMonth.Size = new System.Drawing.Size(129, 26);
             this.cboMonth.StyleController = this.layoutControl1;
             this.cboMonth.TabIndex = 27;
             this.cboMonth.SelectedIndexChanged += new System.EventHandler(this.cboMonth_SelectedIndexChanged);
@@ -779,7 +779,7 @@
             this.layoutControlItem24.CustomizationFormText = "เดือน";
             this.layoutControlItem24.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(224, 30);
+            this.layoutControlItem24.Size = new System.Drawing.Size(217, 30);
             this.layoutControlItem24.Text = "เดือน";
             this.layoutControlItem24.TextSize = new System.Drawing.Size(81, 16);
             // 
@@ -787,9 +787,12 @@
             // 
             this.layoutControlItem25.Control = this.cboYear;
             this.layoutControlItem25.CustomizationFormText = "layoutControlItem25";
-            this.layoutControlItem25.Location = new System.Drawing.Point(224, 0);
+            this.layoutControlItem25.Location = new System.Drawing.Point(217, 0);
+            this.layoutControlItem25.MaxSize = new System.Drawing.Size(75, 30);
+            this.layoutControlItem25.MinSize = new System.Drawing.Size(75, 30);
             this.layoutControlItem25.Name = "layoutControlItem25";
-            this.layoutControlItem25.Size = new System.Drawing.Size(68, 30);
+            this.layoutControlItem25.Size = new System.Drawing.Size(75, 30);
+            this.layoutControlItem25.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem25.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem25.TextVisible = false;
             // 
@@ -807,6 +810,8 @@
             // 
             // layoutControlGroup4
             // 
+            this.layoutControlGroup4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup4.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlGroup4.CaptionImage = global::TUW_System.YS.Properties.Resources.customers2;
             this.layoutControlGroup4.CustomizationFormText = "Supplier";
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {

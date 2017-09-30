@@ -1234,11 +1234,13 @@ namespace TUW_System.YS
                         slePO.Properties.View.OptionsView.ShowAutoFilterRow = true;
                         //slePO.Properties.View.OptionsView.ColumnAutoWidth = true;
                         //slePO.Properties.View.BestFitColumns();
-                        xtraTabControl1.SelectedTabPageIndex = 0;
+                        tabbedControlGroup2.SelectedTabPageIndex=0;
+                        //xtraTabControl1.SelectedTabPageIndex = 0;
                         break;
                     default://Do nothing
                         GetYarn();
-                        xtraTabControl1.SelectedTabPageIndex = 1;
+                        tabbedControlGroup2.SelectedTabPageIndex = 1;
+                        //xtraTabControl1.SelectedTabPageIndex = 1;
                         break;
                 }
             }
@@ -1755,7 +1757,8 @@ namespace TUW_System.YS
                 {
                     if ((bool)gridView3.GetRowCellValue(i, "DEL") == false) continue;
                     serial = gridView3.GetRowCellDisplayText(i, "YARNSERIAL");
-                    strSQL = "Delete From yarngenbarcode Where serial='" + serial + "'";
+                    strSQL = "Update YarnGenBarcode Set sysDelete=1 Where Serial='" + serial + "'"; 
+                    //strSQL = "Delete From yarngenbarcode Where serial='" + serial + "'";
                     db.Execute(strSQL);
                     strSQL = "Delete YarnReceiveDetail Where YarnSerial='" + serial + "' AND RecNo = '" + sleRecNo.Text + "'";
                     db.Execute(strSQL);

@@ -34,7 +34,7 @@ public static class Module
     public static string TUW99 = "Server=" + "tuwncbase" + ";uid=sa;pwd=ZAQ113m4tuw;database=PurchaseOrder";
     //public static string TUW99 = "Server=" + "tuwncbase" + ";uid=sa;pwd=ZAQ113m4tuw;database=xxx";
     public static string Sewing = "Server=" + "tpics_server" + ";uid=sa;pwd=;database=Sewing";
-    //public static string Sewing = "Server=" + "system_02" + ";uid=sa;pwd=ZAQ113m4tuw;database=Sewing";
+    //public static string Sewing = "Server=" + "localhost" + ";uid=sa;pwd=ZAQ113m4tuw;database=Sewing";
     public static string Sewing_Master = "Server=" + "tpics_server" + ";uid=sa;pwd=;database=master";
     public static string Fabric = "Server=" + "tpics_server" + ";uid=sa;pwd=;database=Fabric";
     public static string Parfun = "Server=" + "tpics_server" + ";uid=sa;pwd=;database=Parfun";
@@ -46,7 +46,7 @@ public static class Module
     public static string Attendance = "Server=" + "hrbase" + ";uid=sa;pwd=;database=Attendance";
     public static string tuwCenter = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=tuwCenter";
     public static string SmartAdminMvc = "Server=" + "tuwncbaseii" + ";uid=sa;pwd=ZAQ113m4tuw;database=SmartAdminMvc";
-    public static string TxDemoData40 = "Server=" + "(local)" + ";uid=sa;pwd=ZAQ113m4tuw;database=TxDemoData40";
+    public static string TxDemoData40 = "Server=" + "localhost" + ";uid=sa;pwd=ZAQ113m4tuw;database=TxDemoData40";
 
     public static string strSection;
     public static string strUserName;

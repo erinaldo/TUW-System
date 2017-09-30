@@ -295,6 +295,9 @@
     <Content Include="Report\S5\LOSS_TIME.xlt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\TSIB01_1%281%29.png" />
+    <None Include="Resources\Tx40_32512%282%29.png" />
+    <None Include="Resources\TSIB01_1.png" />
     <None Include="Resources\Tx40_32512.png" />
     <None Include="Resources\exporttocsv_32x32.png" />
     <None Include="Resources\exporttocsv_16x16.png" />
@@ -453,7 +456,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resource11.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
