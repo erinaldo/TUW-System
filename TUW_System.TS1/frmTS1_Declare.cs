@@ -108,7 +108,7 @@ namespace TUW_System.TS1
                     }
                     txtStyle.Text = dr["Style"].ToString();
                     memRemark.Text = dr["Remark"].ToString();
-                    optProcess.EditValue = dr["Process"];
+                    optProcess.SelectedIndex=optProcess.Properties.Items.GetItemIndexByValue(dr["Process"]);
                 }
                 //size---------------------------------------------------------------------------------
                 GridSize.DataSource = DS.Tables["TPICSSIZE"];

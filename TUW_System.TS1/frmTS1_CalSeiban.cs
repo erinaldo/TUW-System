@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 using DevExpress.XtraEditors;
 using myClass;
 
@@ -15,6 +16,8 @@ namespace TUW_System.TS1
     public partial class frmTS1_CalSeiban : DevExpress.XtraEditors.XtraForm
     {
         cDatabase db;
+        CultureInfo clinfo=new CultureInfo("en-US");
+        DateTimeFormatInfo dtfinfo;
 
         private string _connectionString;
         public string ConnectionString
@@ -49,7 +52,7 @@ namespace TUW_System.TS1
                        listBoxControl1.Items.Insert(0,text[1]);
                        listBoxControl1.Update();
                        //progressBarControl2.PerformStep();
-                       
+                       Application.DoEvents();
                        break;
                }
            }
@@ -114,10 +117,12 @@ namespace TUW_System.TS1
         private void frmTS1_CalSeiban_Load(object sender, EventArgs e)
         {
             db = new cDatabase(_connectionString);
+            dtfinfo = clinfo.DateTimeFormat;
         }
         private void btnCalSeiban_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
+            btnCalSeiban.Enabled = false;
+            //this.Cursor = Cursors.WaitCursor;
             listBoxControl1.Items.Clear();
             db.ConnectionOpen();
             db.Connection.InfoMessage += new System.Data.SqlClient.SqlInfoMessageEventHandler(ProgressStatus);
@@ -128,6 +133,7 @@ namespace TUW_System.TS1
             try
             {
                 db.BeginTrans();
+                //--Accessory and Fabric
                 strSQL = "SELECT PORDER, CODE, NDATE FROM XSLIP WHERE ISSUE = 'N' AND PONUM = '' AND PORDER LIKE 'XX%'";
                 DataTable dt = db.GetDataTable(strSQL);
                 progressBarControl2.Properties.Minimum=0;
@@ -146,7 +152,7 @@ namespace TUW_System.TS1
                         StringBuilder strSBNo = new StringBuilder();
                         foreach (DataRow dr2 in dt2.Rows)
                         { 
-                            strSBNo.Append(dr2["SBNO"].ToString()+"="+dr2["USEDQTY"].ToString()+" ; ");
+                            strSBNo.Append(dr2["SBNO"].ToString()+"="+Math.Round(Convert.ToDecimal(dr2["USEDQTY"]),0) +" ; ");
                         }
                         string strSeiban = strSBNo.ToString().Remove(strSBNo.Length - 3, 3);
                         if (strSeiban.Length > 254) strSeiban = strSeiban.Substring(0, 254);
@@ -155,11 +161,54 @@ namespace TUW_System.TS1
                         listBoxControl1.Items.Insert(0, strSQL);
                         listBoxControl1.Update();
                     }
-
                     count += 1;
                     progressBarControl2.EditValue = count;
                     progressBarControl2.Update();
+                    Application.DoEvents();
                 }
+                //--Pack,Sew,Cut
+                strSQL = "SELECT PORDER, CODE, NDATE FROM XSLIP WHERE KVOL > TJITU AND PORDER LIKE 'WW%' AND ISSUE = 'N' AND PONUM = ''";
+                dt = db.GetDataTable(strSQL);
+                progressBarControl2.Properties.Minimum = 0;
+                progressBarControl2.Properties.Maximum = dt.Rows.Count;
+                count = 0;
+                progressBarControl2.EditValue = count;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    strSQL = "SELECT DISTINCT SBNO FROM ZBOM WHERE KCODE = '"+dr["CODE"].ToString()+"' AND ODATE = '"+dr["NDATE"].ToString().Substring(0,8)+"'";
+                    listBoxControl1.Items.Insert(0, strSQL);
+                    listBoxControl1.Update();
+                    DataTable dt2 = db.GetDataTable(strSQL);
+                    if (dt2 != null && dt2.Rows.Count > 0)
+                    {
+                        if(dt2.Rows.Count==1)
+                        {
+                            strSQL="UPDATE XSLIP SET CONTRACT='"+dt2.Rows[0]["SBNO"].ToString()+"' WHERE PORDER='"+dr["PORDER"].ToString()+"'";
+                            db.Execute(strSQL);
+                            listBoxControl1.Items.Insert(0,strSQL);
+                            listBoxControl1.Update();
+                        }
+                        else
+                        {
+                            StringBuilder strSBNo = new StringBuilder();
+                            foreach (DataRow dr2 in dt2.Rows)
+                            { 
+                                strSBNo.Append(dr2["SBNO"].ToString()+",");
+                            }
+                            string strSeiban = strSBNo.ToString().Remove(strSBNo.Length - 1, 1);
+                            if (strSeiban.Length > 254) strSeiban = strSeiban.Substring(0, 254);
+                            strSQL = "UPDATE XSLIP SET CONT='"+strSeiban+"' WHERE PORDER='"+dr["PORDER"].ToString()+"'";
+                            db.Execute(strSQL);
+                            listBoxControl1.Items.Insert(0, strSQL);
+                            listBoxControl1.Update();
+                        }
+                    }
+                    count += 1;
+                    progressBarControl2.EditValue = count;
+                    progressBarControl2.Update();
+                    Application.DoEvents();
+                }
+
                 db.CommitTrans();
                 MessageBox.Show("Cal seiban complete.", "Cal Seiban", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -169,8 +218,8 @@ namespace TUW_System.TS1
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             db.ConnectionClose();
-            this.Cursor = Cursors.Default;
-   
+            //this.Cursor = Cursors.Default;
+            btnCalSeiban.Enabled = false;
         }
         private void btnUpdateCalendar_Click(object sender, EventArgs e)
         {
@@ -190,6 +239,7 @@ namespace TUW_System.TS1
             }
             db.ConnectionClose();
             this.Cursor = Cursors.Default;
+            btnUpdateCalendar.Enabled = false;
         }
     }
 }

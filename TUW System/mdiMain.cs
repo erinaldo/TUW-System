@@ -1023,9 +1023,26 @@ namespace TUW_System
             }
             frmTS1_MaterialConsumption40 frm59 = new frmTS1_MaterialConsumption40();
             frm59.ConnectionString = Module.TxDemoData40;
+            frm59.StatusBarEvent += new frmTS1_MaterialConsumption40.StatusBarHandler(UpdateStatusBar);
             frm59.MdiParent = this;
             frm59.WindowState = FormWindowState.Maximized;
             frm59.Show();
+        }
+        private void LoadfrmTS1_CalSeiban40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_CalSeiban40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_CalSeiban40 frm60 = new frmTS1_CalSeiban40();
+            frm60.ConnectionString = Module.TxDemoData40;
+            frm60.MdiParent = this;
+            frm60.WindowState = FormWindowState.Maximized;
+            frm60.Show();
         }
         
         private void LoadRegistry()
@@ -1171,6 +1188,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_MaterialConsumption":
                         ((frmTS1_MaterialConsumption)frmActive).ClearData();
+                        break;
+                    case "frmTS1_MaterialConsumption40":
+                        ((frmTS1_MaterialConsumption40)frmActive).ClearData();
                         break;
                     case "frmTS1_ImportIF":
                         ((frmTS1_ImportIF)frmActive).ClearData();
@@ -1479,6 +1499,9 @@ namespace TUW_System
                     case "frmTS1_MaterialConsumption":
                         ((frmTS1_MaterialConsumption)frmActive).DisplayData();
                         break;
+                    case "frmTS1_MaterialConsumption40":
+                        ((frmTS1_MaterialConsumption40)frmActive).DisplayData();
+                        break;
                     case "frmTS1_ImportIF":
                         ((frmTS1_ImportIF)frmActive).DisplayData();
                         break;
@@ -1596,6 +1619,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_MaterialConsumption":
                         ((frmTS1_MaterialConsumption)frmActive).ExportExcel();
+                        break;
+                    case "frmTS1_MaterialConsumption40":
+                        ((frmTS1_MaterialConsumption40)frmActive).ExportExcel();
                         break;
                     case "frmTS1_Declare":
                         ((frmTS1_Declare)frmActive).ExportExcel();
@@ -1816,6 +1842,7 @@ namespace TUW_System
                     case "frmTS1_Receive":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_MaterialConsumption":
+                    case "frmTS1_MaterialConsumption40":
                     case "frmTS1_ImportIF":
                     case "frmTS1_Holding":
                     case "frmP_Customer":
@@ -1977,12 +2004,14 @@ namespace TUW_System
                 {
                     case "frmTS1_FindFabricCode":
                     case "frmTS1_Declare":
+                    case "frmTS1_Declare40":
                     case "frmTS1_EditTPiCSCode":
                     case "frmTS1_TPiCSContract":
                     case "frmTS1_WorkOrder":
                     case "frmTS1_Purchase":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_MaterialConsumption":
+                    case "frmTS1_MaterialConsumption40":
                     case "frmTS1_ImportIF":
                     case "frmTS1_Holding":
                     case "frmP_Customer":
@@ -2027,6 +2056,7 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_MaterialConsumption":
+                    case "frmTS1_MaterialConsumption40":
                     case "frmTS1_Declare":
                     case "frmTS1_ImportIF":
                     case "frmTS1_Holding":
@@ -2266,6 +2296,10 @@ namespace TUW_System
 
         #region "TPiCS 4.0"
 
+        private void bbiCalSeiban40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_CalSeiban40();
+        }
         private void bbiDeclareCodeTPiCS40_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmTS1_Declare40();
@@ -2521,6 +2555,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 

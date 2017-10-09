@@ -62,8 +62,14 @@
     <Compile Include="frmTS1_CalSeiban.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTS1_CalSeiban.Designer.cs">
+    <Compile Include="frmTS1_CalSeiban.designer.cs">
       <DependentUpon>frmTS1_CalSeiban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTS1_CalSeiban40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTS1_CalSeiban40.Designer.cs">
+      <DependentUpon>frmTS1_CalSeiban40.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTS1_Declare.cs">
       <SubType>Form</SubType>
@@ -171,6 +177,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmTS1_CalSeiban.resx">
       <DependentUpon>frmTS1_CalSeiban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTS1_CalSeiban40.resx">
+      <DependentUpon>frmTS1_CalSeiban40.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTS1_Declare.resx">
       <DependentUpon>frmTS1_Declare.cs</DependentUpon>

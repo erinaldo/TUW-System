@@ -1764,6 +1764,8 @@ namespace TUW_System.YS
                     db.Execute(strSQL);
                     strSQL = "Delete YarnReturnDetail Where YarnSerial = '" + serial + "' AND RetNo = '" + sleRecNo.Text + "'";
                     db.Execute(strSQL);
+                    strSQL = "Delete YarnIssueDetail Where Serial='" + serial + "'";
+                    db.Execute(strSQL);
                     gridView3.DeleteRow(i);
                 }
                 SumTotal();
