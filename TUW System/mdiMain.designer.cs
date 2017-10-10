@@ -109,6 +109,7 @@
             this.bbiBOMUse = new DevExpress.XtraBars.BarButtonItem();
             this.bbiHolding = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem13 = new DevExpress.XtraBars.BarSubItem();
+            this.bbiCalSeiban40 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDeclareCodeTPiCS40 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTPiCSContract40 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBOMUse40 = new DevExpress.XtraBars.BarButtonItem();
@@ -273,7 +274,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem(this.components);
-            this.bbiCalSeiban40 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiWorkOrder40 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -450,9 +451,10 @@
             this.bbiCalSeiban,
             this.bbiTPiCSContract40,
             this.bbiBOMUse40,
-            this.bbiCalSeiban40});
+            this.bbiCalSeiban40,
+            this.bbiWorkOrder40});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 179;
+            this.barManager1.MaxItemId = 180;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -715,8 +717,18 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiCalSeiban40),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiDeclareCodeTPiCS40),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiTPiCSContract40),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiBOMUse40)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiBOMUse40),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiWorkOrder40)});
             this.barSubItem13.Name = "barSubItem13";
+            // 
+            // bbiCalSeiban40
+            // 
+            this.bbiCalSeiban40.Caption = "Cal Seiban v4.0";
+            this.bbiCalSeiban40.Glyph = global::TUW_System.Resource1.TSIB01_1;
+            this.bbiCalSeiban40.Id = 178;
+            this.bbiCalSeiban40.Name = "bbiCalSeiban40";
+            this.bbiCalSeiban40.Tag = "frmTS1_CalSeiban40";
+            this.bbiCalSeiban40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCalSeiban40_ItemClick);
             // 
             // bbiDeclareCodeTPiCS40
             // 
@@ -2216,14 +2228,14 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
             // 
-            // bbiCalSeiban40
+            // bbiWorkOrder40
             // 
-            this.bbiCalSeiban40.Caption = "Cal Seiban v4.0";
-            this.bbiCalSeiban40.Glyph = global::TUW_System.Resource1.TSIB01_1;
-            this.bbiCalSeiban40.Id = 178;
-            this.bbiCalSeiban40.Name = "bbiCalSeiban40";
-            this.bbiCalSeiban40.Tag = "frmTS1_CalSeiban40";
-            this.bbiCalSeiban40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCalSeiban40_ItemClick);
+            this.bbiWorkOrder40.Caption = "Work Order v.4.0";
+            this.bbiWorkOrder40.Glyph = global::TUW_System.Resource1.order32;
+            this.bbiWorkOrder40.Id = 179;
+            this.bbiWorkOrder40.Name = "bbiWorkOrder40";
+            this.bbiWorkOrder40.Tag = "frmTS1_WorkOrder40";
+            this.bbiWorkOrder40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWorkOrder40_ItemClick);
             // 
             // mdiMain
             // 
@@ -2449,5 +2461,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiTPiCSContract40;
         private DevExpress.XtraBars.BarButtonItem bbiBOMUse40;
         private DevExpress.XtraBars.BarButtonItem bbiCalSeiban40;
+        private DevExpress.XtraBars.BarButtonItem bbiWorkOrder40;
     }
 }

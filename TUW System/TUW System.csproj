@@ -145,28 +145,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ACCTransferOrd_PACK.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Report\TS1\ACCTransferOrd_PACK40.cs">
+      <DependentUpon>ACCTransferOrd_PACK40.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Report\TS1\ACCTransferOrd_SEW.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>ACCTransferOrd_SEW.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\TS1\ACCTransferOrd_SEW40.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ACCTransferOrd_SEW40.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\TS1\CUTTING_ORDER.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>CUTTING_ORDER.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Report\TS1\PACKING_ORDER.cs">
+    <Compile Include="Report\TS1\CUTTING_ORDER40.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PACKING_ORDER.rpt</DependentUpon>
+      <DependentUpon>CUTTING_ORDER40.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Report\S4\ReceiveNote-Parfun.cs">
       <AutoGen>True</AutoGen>
@@ -196,6 +204,18 @@
       <AutoGen>True</AutoGen>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Report\TS1\PACKING_ORDER.cs">
+      <DependentUpon>PACKING_ORDER.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\TS1\PACKING_ORDER40.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PACKING_ORDER40.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\TS1\PURCHASE ORDER_N.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,11 +231,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Report\TS1\SEWING_ORDER.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>SEWING_ORDER.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\TS1\SEWING_ORDER40.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SEWING_ORDER40.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\TS1\SUMMARY REPORT.cs">
       <AutoGen>True</AutoGen>
@@ -349,26 +374,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="Report\TS1\ACCTransferOrd_PACK.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ACCTransferOrd_PACK.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Report\TS1\ACCTransferOrd_SEW.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ACCTransferOrd_SEW.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Report\TS1\CUTTING_ORDER.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CUTTING_ORDER.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Report\TS1\PACKING_ORDER.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PACKING_ORDER.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Report\S5\S5_ReceiveNoteByDate.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>S5_ReceiveNoteByDate.cs</LastGenOutput>
@@ -378,6 +383,22 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>S5_PO.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\TS1\ACCTransferOrd_PACK40.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ACCTransferOrd_PACK40.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\ACCTransferOrd_SEW.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ACCTransferOrd_SEW.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\CUTTING_ORDER.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CUTTING_ORDER.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\PACKING_ORDER.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PACKING_ORDER.cs</LastGenOutput>
     </Content>
     <Content Include="Report\TS1\PURCHASE ORDER_N.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -392,7 +413,6 @@
     <Content Include="Report\TS1\SEWING_ORDER.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SEWING_ORDER.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Report\TS1\SUMMARY REPORT.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -454,6 +474,26 @@
       <LastGenOutput>AccountSales2.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="Report\TS1\CUTTING_ORDER40.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CUTTING_ORDER40.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\SEWING_ORDER40.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SEWING_ORDER40.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\PACKING_ORDER40.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PACKING_ORDER40.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\ACCTransferOrd_SEW40.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ACCTransferOrd_SEW40.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\TS1\ACCTransferOrd_PACK.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ACCTransferOrd_PACK.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource11.Designer.cs</LastGenOutput>
