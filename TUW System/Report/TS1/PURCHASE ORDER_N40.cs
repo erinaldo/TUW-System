@@ -16,14 +16,14 @@ namespace TUW_System.Report.TS1 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class PURCHASE_ORDER_N : ReportClass {
+    public class PURCHASE_ORDER_N40 : ReportClass {
         
-        public PURCHASE_ORDER_N() {
+        public PURCHASE_ORDER_N40() {
         }
         
         public override string ResourceName {
             get {
-                return "PURCHASE ORDER_N.rpt";
+                return "PURCHASE ORDER_N40.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report.TS1 {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.TS1.PURCHASE ORDER_N.rpt";
+                return "TUW_System.Report.TS1.PURCHASE ORDER_N40.rpt";
             }
             set {
                 // Do nothing
@@ -138,9 +138,9 @@ namespace TUW_System.Report.TS1 {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPURCHASE_ORDER_N : Component, ICachedReport {
+    public class CachedPURCHASE_ORDER_N40 : Component, ICachedReport {
         
-        public CachedPURCHASE_ORDER_N() {
+        public CachedPURCHASE_ORDER_N40() {
         }
         
         [Browsable(false)]
@@ -177,7 +177,7 @@ namespace TUW_System.Report.TS1 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            PURCHASE_ORDER_N rpt = new PURCHASE_ORDER_N();
+            PURCHASE_ORDER_N40 rpt = new PURCHASE_ORDER_N40();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -1061,6 +1061,23 @@ namespace TUW_System
             frm61.WindowState = FormWindowState.Maximized;
             frm61.Show();
         }
+        private void LoadfrmTS1_Purchase40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_Purchase40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_Purchase40 frm62 = new frmTS1_Purchase40();
+            frm62.ConnectionString = Module.TxDemoData40;
+            frm62.User_Login = User_Login;
+            frm62.MdiParent = this;
+            frm62.WindowState = FormWindowState.Maximized;
+            frm62.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1082,22 +1099,23 @@ namespace TUW_System
                 MessageBox.Show(ex.Message, "Load registry error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void SaveRegistry()
+        private void SaveRegistry(string key,object value)
         {
             try
             {
-                RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\TUW\\TUW System", true);
+                RegistryKey regKey = Registry.CurrentUser.OpenSubKey(@"Software\TUW\TUW System", true);
                 if (regKey == null)
                 {
-                    regKey = Registry.CurrentUser.CreateSubKey("Software\\TUW\\TUW System");
+                    regKey = Registry.CurrentUser.CreateSubKey(@"Software\TUW\TUW System");
                 }
-                foreach (DevExpress.XtraBars.BarCheckItemLink itemLink in bsiSkin.ItemLinks)
-                {
-                    if (((DevExpress.XtraBars.BarCheckItem)itemLink.Item).Checked == true)
-                    {
-                        regKey.SetValue("Skin", itemLink.Caption);
-                    }
-                }
+                regKey.SetValue(key, value);
+                //foreach (DevExpress.XtraBars.BarCheckItemLink itemLink in bsiSkin.ItemLinks)
+                //{
+                //    if (((DevExpress.XtraBars.BarCheckItem)itemLink.Item).Checked == true)
+                //    {
+                //        regKey.SetValue("Skin", skinName);
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -1196,6 +1214,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_Purchase":
                         ((frmTS1_Purchase)frmActive).NewData(clearHeader: true, clearDetail: true, clearComboboxPO: true);
+                        break;
+                    case "frmTS1_Purchase40":
+                        ((frmTS1_Purchase40)frmActive).NewData(clearHeader: true, clearDetail: true, clearComboboxPO: true);
                         break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).NewData();
@@ -1303,6 +1324,9 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                         ((frmTS1_Purchase)frmActive).EditData();
                         break;
+                    case "frmTS1_Purchase40":
+                        ((frmTS1_Purchase40)frmActive).EditData();
+                        break;
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).EditData();
                         break;
@@ -1330,6 +1354,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_Purchase":
                         ((frmTS1_Purchase)frmActive).SaveData();
+                        break;
+                    case "frmTS1_Purchase40":
+                        ((frmTS1_Purchase40)frmActive).SaveData();
                         break;
                     case "frmTS1_ImportIF":
                         ((frmTS1_ImportIF)frmActive).SaveData();
@@ -1513,6 +1540,9 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                         //((frmTS1_Purchase)frmActive).DisplayData();
                         break;
+                    case "frmTS1_Purchase40":
+                        //((frmTS1_Purchase40)frmActive).DisplayData();
+                        break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).LoadData();
                         break;
@@ -1634,6 +1664,9 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                         ((frmTS1_Purchase)frmActive).ExportExcel();
                         break;
+                    case "frmTS1_Purchase40":
+                        ((frmTS1_Purchase40)frmActive).ExportExcel();
+                        break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).ExportExcel();
                         break;
@@ -1729,6 +1762,9 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                         ((frmTS1_Purchase)frmActive).PrintPreview();
                         break;
+                    case "frmTS1_Purchase40":
+                        ((frmTS1_Purchase40)frmActive).PrintPreview();
+                        break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).PrintPreview();
                         break;
@@ -1801,6 +1837,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_Purchase":
                         ((frmTS1_Purchase)frmActive).Print();
+                        break;
+                    case "frmTS1_Purchase40":
+                        ((frmTS1_Purchase40)frmActive).Print();
                         break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).Print();
@@ -1878,6 +1917,7 @@ namespace TUW_System
                     case "frmTS1_TPiCSContract":
                     case "frmTS1_TPiCSContract40":
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_MaterialConsumption":
@@ -1918,6 +1958,7 @@ namespace TUW_System
                 switch (frmActive.Name)
                 {
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
                     case "frmYS_Code":
                         bbiEdit.Enabled = true;
@@ -1932,6 +1973,7 @@ namespace TUW_System
                     case "frmTS1_Declare":
                     case "frmTS1_EditTPiCSCode":
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
                     case "frmTS1_ImportIF":
                     case "frmP_Customer":
@@ -2050,6 +2092,7 @@ namespace TUW_System
                     case "frmTS1_WorkOrder":
                     case "frmTS1_WorkOrder40":
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_MaterialConsumption":
                     case "frmTS1_MaterialConsumption40":
@@ -2097,6 +2140,7 @@ namespace TUW_System
                     case "frmTS1_WorkOrder":
                     case "frmTS1_WorkOrder40":
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_MaterialConsumption":
                     case "frmTS1_MaterialConsumption40":
@@ -2123,6 +2167,7 @@ namespace TUW_System
                     case "frmTS1_WorkOrder":
                     case "frmTS1_WorkOrder40":
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
                     case "frmTS1_PurchaseSummary":
                     case "frmS3_PO":
@@ -2169,6 +2214,7 @@ namespace TUW_System
                     case "frmTS1_WorkOrder":
                     case "frmTS1_WorkOrder40":
                     case "frmTS1_Purchase":
+                    case "frmTS1_Purchase40":
                     case "frmTS1_PurchaseSummary":
                     case "frmTS1_Receive":
                     case "frmS3_PO":
@@ -2250,7 +2296,6 @@ namespace TUW_System
         }
         private void mdiMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveRegistry();
             this.Dispose();
             Application.Exit();
         }
@@ -2360,6 +2405,10 @@ namespace TUW_System
         private void bbiWorkOrder40_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmTS1_WorkOrder40();
+        }
+        private void bbiTS1_Purchase40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_Purchase40();
         }
 
         #endregion
@@ -2584,6 +2633,7 @@ namespace TUW_System
         private void galleryDropDown1_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
         {
             defaultLookAndFeel1.LookAndFeel.SkinName = e.Item.Value.ToString();
+            SaveRegistry("Skin",e.Item.Value.ToString());
         }
         
         #endregion
@@ -2604,6 +2654,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
 
         
 

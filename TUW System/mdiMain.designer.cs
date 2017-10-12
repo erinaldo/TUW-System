@@ -113,6 +113,8 @@
             this.bbiDeclareCodeTPiCS40 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTPiCSContract40 = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBOMUse40 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiWorkOrder40 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTS1_Purchase40 = new DevExpress.XtraBars.BarButtonItem();
             this.bsiS3 = new DevExpress.XtraBars.BarSubItem();
             this.bbiS3_PO = new DevExpress.XtraBars.BarButtonItem();
             this.bbiS3_Receive = new DevExpress.XtraBars.BarButtonItem();
@@ -274,7 +276,6 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.printingSystem1 = new DevExpress.XtraPrinting.PrintingSystem(this.components);
-            this.bbiWorkOrder40 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -452,9 +453,10 @@
             this.bbiTPiCSContract40,
             this.bbiBOMUse40,
             this.bbiCalSeiban40,
-            this.bbiWorkOrder40});
+            this.bbiWorkOrder40,
+            this.bbiTS1_Purchase40});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 180;
+            this.barManager1.MaxItemId = 181;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRadioGroup1,
             this.repositoryItemProgressBar1});
@@ -718,7 +720,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiDeclareCodeTPiCS40),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiTPiCSContract40),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiBOMUse40),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiWorkOrder40)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiWorkOrder40),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiTS1_Purchase40)});
             this.barSubItem13.Name = "barSubItem13";
             // 
             // bbiCalSeiban40
@@ -756,6 +759,24 @@
             this.bbiBOMUse40.Name = "bbiBOMUse40";
             this.bbiBOMUse40.Tag = "frmTS1_MaterialConsumption40";
             this.bbiBOMUse40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBOMUse40_ItemClick);
+            // 
+            // bbiWorkOrder40
+            // 
+            this.bbiWorkOrder40.Caption = "Work Order v.4.0";
+            this.bbiWorkOrder40.Glyph = global::TUW_System.Resource1.order32;
+            this.bbiWorkOrder40.Id = 179;
+            this.bbiWorkOrder40.Name = "bbiWorkOrder40";
+            this.bbiWorkOrder40.Tag = "frmTS1_WorkOrder40";
+            this.bbiWorkOrder40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWorkOrder40_ItemClick);
+            // 
+            // bbiTS1_Purchase40
+            // 
+            this.bbiTS1_Purchase40.Caption = "Purchase Order";
+            this.bbiTS1_Purchase40.Glyph = global::TUW_System.Resource1.TSIB04;
+            this.bbiTS1_Purchase40.Id = 180;
+            this.bbiTS1_Purchase40.Name = "bbiTS1_Purchase40";
+            this.bbiTS1_Purchase40.Tag = "frmTS1_Purchase40";
+            this.bbiTS1_Purchase40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTS1_Purchase40_ItemClick);
             // 
             // bsiS3
             // 
@@ -2228,15 +2249,6 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Refresh";
             // 
-            // bbiWorkOrder40
-            // 
-            this.bbiWorkOrder40.Caption = "Work Order v.4.0";
-            this.bbiWorkOrder40.Glyph = global::TUW_System.Resource1.order32;
-            this.bbiWorkOrder40.Id = 179;
-            this.bbiWorkOrder40.Name = "bbiWorkOrder40";
-            this.bbiWorkOrder40.Tag = "frmTS1_WorkOrder40";
-            this.bbiWorkOrder40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWorkOrder40_ItemClick);
-            // 
             // mdiMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2462,5 +2474,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiBOMUse40;
         private DevExpress.XtraBars.BarButtonItem bbiCalSeiban40;
         private DevExpress.XtraBars.BarButtonItem bbiWorkOrder40;
+        private DevExpress.XtraBars.BarButtonItem bbiTS1_Purchase40;
     }
 }

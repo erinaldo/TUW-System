@@ -125,6 +125,12 @@
     <Compile Include="frmTS1_Purchase.designer.cs">
       <DependentUpon>frmTS1_Purchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTS1_Purchase40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTS1_Purchase40.designer.cs">
+      <DependentUpon>frmTS1_Purchase40.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTS1_PurchaseClose.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTS1_Purchase.resx">
       <DependentUpon>frmTS1_Purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTS1_Purchase40.resx">
+      <DependentUpon>frmTS1_Purchase40.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTS1_PurchaseClose.resx">
       <DependentUpon>frmTS1_PurchaseClose.cs</DependentUpon>
