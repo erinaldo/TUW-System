@@ -16,14 +16,14 @@ namespace TUW_System.Report.TS1 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class TS1_ReceiveNote : ReportClass {
+    public class SUMMARY_REPORT40 : ReportClass {
         
-        public TS1_ReceiveNote() {
+        public SUMMARY_REPORT40() {
         }
         
         public override string ResourceName {
             get {
-                return "TS1_ReceiveNote.rpt";
+                return "SUMMARY_REPORT40.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TUW_System.Report.TS1 {
         
         public override string FullResourceName {
             get {
-                return "TUW_System.Report.TS1.TS1_ReceiveNote.rpt";
+                return "TUW_System.Report.TS1.SUMMARY_REPORT40.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace TUW_System.Report.TS1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section12 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace TUW_System.Report.TS1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section6 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace TUW_System.Report.TS1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section6 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section7 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,7 +90,7 @@ namespace TUW_System.Report.TS1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section8 {
             get {
                 return this.ReportDefinition.Sections[5];
             }
@@ -98,7 +98,7 @@ namespace TUW_System.Report.TS1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[6];
             }
@@ -106,33 +106,17 @@ namespace TUW_System.Report.TS1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section7 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
                 return this.ReportDefinition.Sections[7];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section8 {
-            get {
-                return this.ReportDefinition.Sections[8];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Copy {
-            get {
-                return this.DataDefinition.ParameterFields[0];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedTS1_ReceiveNote : Component, ICachedReport {
+    public class CachedSUMMARY_REPORT40 : Component, ICachedReport {
         
-        public CachedTS1_ReceiveNote() {
+        public CachedSUMMARY_REPORT40() {
         }
         
         [Browsable(false)]
@@ -169,7 +153,7 @@ namespace TUW_System.Report.TS1 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            TS1_ReceiveNote rpt = new TS1_ReceiveNote();
+            SUMMARY_REPORT40 rpt = new SUMMARY_REPORT40();
             rpt.Site = this.Site;
             return rpt;
         }

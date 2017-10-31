@@ -1078,6 +1078,57 @@ namespace TUW_System
             frm62.WindowState = FormWindowState.Maximized;
             frm62.Show();
         }
+        private void LoadfrmTS1_Receive40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_Receive40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_Receive40 frm63 = new frmTS1_Receive40();
+            frm63.ConnectionString = Module.TxDemoData40;
+            frm63.User_Login = User_Login;
+            frm63.MdiParent = this;
+            frm63.WindowState = FormWindowState.Maximized;
+            frm63.Show();
+        }
+        private void LoadfrmTS1_PurchaseSummary40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_PurchaseSummary40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_PurchaseSummary40 frm64 = new frmTS1_PurchaseSummary40();
+            frm64.ConnectionString = Module.TxDemoData40;
+            frm64.MdiParent = this;
+            frm64.WindowState = FormWindowState.Maximized;
+            frm64.bsiStatusbar = this.bsiStatus;
+            frm64.Show();
+        }
+        private void LoadfrmTS1_ReceiveCSV40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_ReceiveCSV40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_ReceiveCSV40 frm65 = new frmTS1_ReceiveCSV40();
+            frm65.ConnectionString = Module.TxDemoData40;
+            frm65.StatusBarEvent += new frmTS1_ReceiveCSV40.StatusBarHandler(UpdateStatusBar);
+            frm65.MdiParent = this;
+            frm65.WindowState = FormWindowState.Maximized;
+            frm65.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1209,6 +1260,9 @@ namespace TUW_System
                     case "frmTS1_Declare":
                         ((frmTS1_Declare)frmActive).NewData();
                         break;
+                    case "frmTS1_Declare40":
+                        ((frmTS1_Declare40)frmActive).NewData();
+                        break;
                     case "frmTS1_EditTPiCSCode":
                         ((frmTS1_EditTPiCSCode)frmActive).ClearData();
                         break;
@@ -1220,6 +1274,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).NewData();
+                        break;
+                    case "frmTS1_PurchaseSummary40":
+                        ((frmTS1_PurchaseSummary40)frmActive).NewData();
                         break;
                     case "frmTS1_TPiCSContract":
                         ((frmTS1_TPiCSContract)frmActive).NewData();
@@ -1287,6 +1344,9 @@ namespace TUW_System
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).NewData();
                         break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).NewData();
+                        break;
                     case "frmYS_Receive":
                         ((frmYS_Receive)frmActive).NewData();
                         break;
@@ -1330,6 +1390,9 @@ namespace TUW_System
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).EditData();
                         break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).EditData();
+                        break;
                     case "frmTS5_Receive":
                         ((frmS5_Receive)frmActive).EditData();
                         break;
@@ -1348,6 +1411,9 @@ namespace TUW_System
                 {
                     case "frmTS1_Declare":
                         ((frmTS1_Declare)frmActive).SaveData();
+                        break;
+                    case "frmTS1_Declare40":
+                        ((frmTS1_Declare40)frmActive).SaveData();
                         break;
                     case "frmTS1_EditTPiCSCode":
                         ((frmTS1_EditTPiCSCode)frmActive).SaveData();
@@ -1396,6 +1462,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).SaveData();
+                        break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).SaveData();
                         break;
                     case "frmS5_DyeDaily":
                         ((frmS5_DyeDaily)frmActive).SaveData();
@@ -1493,6 +1562,9 @@ namespace TUW_System
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).CancelData();
                         break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).CancelData();
+                        break;
                 }
             }
         }
@@ -1506,8 +1578,14 @@ namespace TUW_System
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).ClearData();
                         break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).ClearData();
+                        break;
                     case "frmTS1_ReceiveCSV":
                         ((frmTS1_ReceiveCSV)frmActive).ClearData();
+                        break;
+                    case "frmTS1_ReceiveCSV40":
+                        ((frmTS1_ReceiveCSV40)frmActive).ClearData();
                         break;
                     case "frmAC_Cust":
                         ((frmAC_Cust)frmActive).ClearData(true);
@@ -1545,6 +1623,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).LoadData();
+                        break;
+                    case "frmTS1_PurchaseSummary40":
+                        ((frmTS1_PurchaseSummary40)frmActive).LoadData();
                         break;
                     case "frmTS1_TPiCSContract":
                         ((frmTS1_TPiCSContract)frmActive).DisplayData();
@@ -1620,6 +1701,9 @@ namespace TUW_System
                     case "frmTS1_ReceiveCSV":
                         ((frmTS1_ReceiveCSV)frmActive).DisplayData();
                         break;
+                    case "frmTS1_ReceiveCSV40":
+                        ((frmTS1_ReceiveCSV40)frmActive).DisplayData();
+                        break;
                     case "frmTS1_PurchaseClose":
                         ((frmTS1_PurchaseClose)frmActive).DisplayData();
                         break;
@@ -1670,6 +1754,9 @@ namespace TUW_System
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).ExportExcel();
                         break;
+                    case "frmTS1_PurchaseSummary40":
+                        ((frmTS1_PurchaseSummary40)frmActive).ExportExcel();
+                        break;
                     case "frmTS1_WorkOrder":
                         ((frmTS1_WorkOrder)frmActive).ExportExcel();
                         break;
@@ -1690,6 +1777,9 @@ namespace TUW_System
                         break;
                     case "frmTS1_Declare":
                         ((frmTS1_Declare)frmActive).ExportExcel();
+                        break;
+                    case "frmTS1_Declare40":
+                        ((frmTS1_Declare40)frmActive).ExportExcel();
                         break;
                     case "frmTS1_ImportIF":
                         ((frmTS1_ImportIF)frmActive).ExportExcel();
@@ -1718,6 +1808,9 @@ namespace TUW_System
                     case "frmTS1_ReceiveCSV":
                         ((frmTS1_ReceiveCSV)frmActive).ExportExcel();
                         break;
+                    case "frmTS1_ReceiveCSV40":
+                        ((frmTS1_ReceiveCSV40)frmActive).ExportExcel();
+                        break;
                     case "frmYS_Cost":
                         ((frmYS_Cost)frmActive).ExportExcel();
                         break;
@@ -1740,8 +1833,14 @@ namespace TUW_System
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).ExportCSV();
                         break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).ExportCSV();
+                        break;
                     case "frmTS1_ReceiveCSV":
                         ((frmTS1_ReceiveCSV)frmActive).ExportCSV();
+                        break;
+                    case "frmTS1_ReceiveCSV40":
+                        ((frmTS1_ReceiveCSV40)frmActive).ExportCSV();
                         break;
                 }
             }
@@ -1768,8 +1867,14 @@ namespace TUW_System
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).PrintPreview();
                         break;
+                    case "frmTS1_PurchaseSummary40":
+                        ((frmTS1_PurchaseSummary40)frmActive).PrintPreview();
+                        break;
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).PrintPreview();
+                        break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).PrintPreview();
                         break;
                     case "frmS3_PO":
                         ((frmS3_PO)frmActive).PrintPreview();
@@ -1844,8 +1949,14 @@ namespace TUW_System
                     case "frmTS1_PurchaseSummary":
                         ((frmTS1_PurchaseSummary)frmActive).Print();
                         break;
+                    case "frmTS1_PurchaseSummary40":
+                        ((frmTS1_PurchaseSummary40)frmActive).Print();
+                        break;
                     case "frmTS1_Receive":
                         ((frmTS1_Receive)frmActive).Print();
+                        break;
+                    case "frmTS1_Receive40":
+                        ((frmTS1_Receive40)frmActive).Print();
                         break;
                     case "frmS3_PO":
                         ((frmS3_PO)frmActive).Print();
@@ -1913,13 +2024,16 @@ namespace TUW_System
                 {
                     case "frmTS1_FindFabricCode":
                     case "frmTS1_Declare":
+                    case "frmTS1_Declare40":
                     case "frmTS1_EditTPiCSCode":
                     case "frmTS1_TPiCSContract":
                     case "frmTS1_TPiCSContract40":
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
+                    case "frmTS1_Receive40":
                     case "frmTS1_PurchaseSummary":
+                    case "frmTS1_PurchaseSummary40":
                     case "frmTS1_MaterialConsumption":
                     case "frmTS1_MaterialConsumption40":
                     case "frmTS1_ImportIF":
@@ -1960,6 +2074,7 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
+                    case "frmTS1_Receive40":
                     case "frmYS_Code":
                         bbiEdit.Enabled = true;
                         break;
@@ -1971,10 +2086,12 @@ namespace TUW_System
                 switch (frmActive.Name)
                 {
                     case "frmTS1_Declare":
+                    case "frmTS1_Declare40":
                     case "frmTS1_EditTPiCSCode":
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
+                    case "frmTS1_Receive40":
                     case "frmTS1_ImportIF":
                     case "frmP_Customer":
                     case "frmP_Model":
@@ -2022,6 +2139,7 @@ namespace TUW_System
                 switch (frmActive.Name)
                 {
                     case "frmTS1_Declare":
+                    case "frmTS1_Declare40":
                     case "frmTS1_EditTPiCSCode":
                     case "frmTS1_Purchase":
                     case "frmTS1_ImportIF":
@@ -2063,6 +2181,9 @@ namespace TUW_System
                     case "frmTS1_Receive":
                         bbiCancel.Enabled = true;
                         break;
+                    case "frmTS1_Receive40":
+                        bbiCancel.Enabled = true;
+                        break;
                     default:
                         bbiCancel.Enabled = false;
                         break;
@@ -2071,7 +2192,9 @@ namespace TUW_System
                 switch (frmActive.Name)
                 { 
                     case "frmTS1_Receive":
+                    case "frmTS1_Receive40":
                     case "frmTS1_ReceiveCSV":
+                    case "frmTS1_ReceiveCSV40":
                     case "frmAC_Cust":
                     case "frmAC_Descr":
                         bbiClear.Enabled = true;
@@ -2094,6 +2217,7 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_PurchaseSummary":
+                    case "frmTS1_PurchaseSummary40":
                     case "frmTS1_MaterialConsumption":
                     case "frmTS1_MaterialConsumption40":
                     case "frmTS1_ImportIF":
@@ -2115,6 +2239,7 @@ namespace TUW_System
                     case "frmS5_DyeingSchedule":
                     case "frmS5_DyeDaily":
                     case "frmTS1_ReceiveCSV":
+                    case "frmTS1_ReceiveCSV40":
                     case "frmTS1_PurchaseClose":
                     case "frmYS_Cost":
                     case "frmYS_MoneyRate":
@@ -2142,9 +2267,11 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_PurchaseSummary":
+                    case "frmTS1_PurchaseSummary40":
                     case "frmTS1_MaterialConsumption":
                     case "frmTS1_MaterialConsumption40":
                     case "frmTS1_Declare":
+                    case "frmTS1_Declare40":
                     case "frmTS1_ImportIF":
                     case "frmTS1_Holding":
                     case "frmP_Production":
@@ -2169,7 +2296,9 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_Receive":
+                    case "frmTS1_Receive40":
                     case "frmTS1_PurchaseSummary":
+                    case "frmTS1_PurchaseSummary40":
                     case "frmS3_PO":
                     case "frmS3_Receive":
                     case "frmS4_PO":
@@ -2216,7 +2345,9 @@ namespace TUW_System
                     case "frmTS1_Purchase":
                     case "frmTS1_Purchase40":
                     case "frmTS1_PurchaseSummary":
+                    case "frmTS1_PurchaseSummary40":
                     case "frmTS1_Receive":
+                    case "frmTS1_Receive40":
                     case "frmS3_PO":
                     case "frmS3_Receive":
                     case "frmS4_PO":
@@ -2261,6 +2392,7 @@ namespace TUW_System
                 {
                     case "frmTS1_ImportIF":
                     case "frmTS1_ReceiveCSV":
+                    case "frmTS1_ReceiveCSV40":
                         bbiCSV.Enabled = true;
                         break;
                     default:
@@ -2409,6 +2541,18 @@ namespace TUW_System
         private void bbiTS1_Purchase40_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadfrmTS1_Purchase40();
+        }
+        private void bbiTS1_Receive40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_Receive40();
+        }
+        private void bbiSummaryPO40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_PurchaseSummary40();
+        }
+        private void bbiTS1_ReceiveCSV40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_ReceiveCSV40();
         }
 
         #endregion
@@ -2654,6 +2798,9 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+        
+
 
         
 
