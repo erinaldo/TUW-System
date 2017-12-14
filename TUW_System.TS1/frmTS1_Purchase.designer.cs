@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTS1_Purchase));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -119,7 +120,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
@@ -230,7 +231,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(232, 283, 250, 373);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(862, 260);
+            this.layoutControl1.Size = new System.Drawing.Size(862, 263);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -239,7 +240,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(7, 7);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(848, 246);
+            this.xtraTabControl1.Size = new System.Drawing.Size(848, 249);
             this.xtraTabControl1.TabIndex = 30;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -256,7 +257,7 @@
             this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.xtraTabPage1.Size = new System.Drawing.Size(840, 217);
+            this.xtraTabPage1.Size = new System.Drawing.Size(842, 221);
             this.xtraTabPage1.Text = "Load From Order Balance List";
             // 
             // btnDelete
@@ -325,7 +326,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 30);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(840, 187);
+            this.gridControl1.Size = new System.Drawing.Size(842, 191);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -343,7 +344,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(840, 217);
+            this.xtraTabPage2.Size = new System.Drawing.Size(842, 221);
             this.xtraTabPage2.Text = "Fabric Order --> Fabric Section";
             // 
             // gridControl2
@@ -352,7 +353,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(840, 217);
+            this.gridControl2.Size = new System.Drawing.Size(842, 221);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -381,7 +382,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(862, 260);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(862, 263);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem27
@@ -390,7 +391,7 @@
             this.layoutControlItem27.CustomizationFormText = "layoutControlItem27";
             this.layoutControlItem27.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem27.Name = "layoutControlItem27";
-            this.layoutControlItem27.Size = new System.Drawing.Size(852, 250);
+            this.layoutControlItem27.Size = new System.Drawing.Size(852, 253);
             this.layoutControlItem27.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem27.TextVisible = false;
             // 
@@ -961,7 +962,7 @@
             // 
             this.cboSection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboSection.EditValue = "";
-            this.cboSection.Location = new System.Drawing.Point(2, 22);
+            this.cboSection.Location = new System.Drawing.Point(2, 20);
             this.cboSection.Name = "cboSection";
             this.cboSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -985,12 +986,12 @@
             // optStatus
             // 
             this.optStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optStatus.Location = new System.Drawing.Point(2, 22);
+            this.optStatus.Location = new System.Drawing.Point(2, 20);
             this.optStatus.Name = "optStatus";
             this.optStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Re-Print"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Revise")});
-            this.optStatus.Size = new System.Drawing.Size(142, 43);
+            this.optStatus.Size = new System.Drawing.Size(142, 45);
             this.optStatus.TabIndex = 0;
             this.optStatus.SelectedIndexChanged += new System.EventHandler(this.optStatus_SelectedIndexChanged);
             // 
@@ -1006,14 +1007,14 @@
             // optClassification
             // 
             this.optClassification.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optClassification.Location = new System.Drawing.Point(2, 22);
+            this.optClassification.Location = new System.Drawing.Point(2, 20);
             this.optClassification.Name = "optClassification";
             this.optClassification.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "none"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Accessory"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Fabric"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Fabric Outside")});
-            this.optClassification.Size = new System.Drawing.Size(195, 43);
+            this.optClassification.Size = new System.Drawing.Size(195, 45);
             this.optClassification.TabIndex = 7;
             this.optClassification.SelectedIndexChanged += new System.EventHandler(this.optClassification_SelectedIndexChanged);
             // 

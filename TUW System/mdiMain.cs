@@ -975,6 +975,7 @@ namespace TUW_System
             frmTS1_Declare40 frm56 = new frmTS1_Declare40();
             frm56.ConnectionString = Module.ISODocument;
             frm56.ConnectionString2 = Module.TxDemoData40;
+            frm56.User_Login = User_Login;
             frm56.MdiParent = this;
             frm56.WindowState = FormWindowState.Maximized;
             frm56.Show();
