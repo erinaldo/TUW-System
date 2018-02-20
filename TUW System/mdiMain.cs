@@ -1130,6 +1130,23 @@ namespace TUW_System
             frm65.WindowState = FormWindowState.Maximized;
             frm65.Show();
         }
+        private void LoadfrmTS1_PurchaseClose40()
+        {
+            foreach (DevExpress.XtraEditors.XtraForm frmActive in this.MdiChildren)
+            {
+                if (frmActive.Name == "frmTS1_PurchaseClose40")
+                {
+                    frmActive.Activate();
+                    return;
+                }
+            }
+            frmTS1_PurchaseClose40 frm66 = new frmTS1_PurchaseClose40();
+            frm66.ConnectionString = Module.TxDemoData40;
+            frm66.StatusBarEvent += new frmTS1_PurchaseClose40.StatusBarHandler(UpdateStatusBar);
+            frm66.MdiParent = this;
+            frm66.WindowState = FormWindowState.Maximized;
+            frm66.Show();
+        }
 
         private void LoadRegistry()
         {
@@ -1708,6 +1725,9 @@ namespace TUW_System
                     case "frmTS1_PurchaseClose":
                         ((frmTS1_PurchaseClose)frmActive).DisplayData();
                         break;
+                    case "frmTS1_PurchaseClose40":
+                        ((frmTS1_PurchaseClose40)frmActive).DisplayData();
+                        break;
                     case "frmYS_Cost":
                         ((frmYS_Cost)frmActive).DisplayData();
                         break;
@@ -2242,6 +2262,7 @@ namespace TUW_System
                     case "frmTS1_ReceiveCSV":
                     case "frmTS1_ReceiveCSV40":
                     case "frmTS1_PurchaseClose":
+                    case "frmTS1_PurchaseClose40":
                     case "frmYS_Cost":
                     case "frmYS_MoneyRate":
                     case "frmYS_Report":
@@ -2555,6 +2576,10 @@ namespace TUW_System
         {
             LoadfrmTS1_ReceiveCSV40();
         }
+        private void bbiTS1_PurchaseClose40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadfrmTS1_PurchaseClose40();
+        }
 
         #endregion
 
@@ -2799,6 +2824,8 @@ namespace TUW_System
             else
                 ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Below;
         }
+
+
 
         
 
